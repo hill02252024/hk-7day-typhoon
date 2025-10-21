@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8">
+  <title>香港7天天氣預報</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; padding: 1em; }
+    table { border-collapse: collapse; width: 100%; }
+    td,th { border:1px solid #ccc; padding: 6px; }
+  </style>
+</head>
+<body>
+<h2>香港天文台 7天預報（共識版）</h2>
+<p>自動從 HKO API 更新，每3小時重新整理</p>
+<table id="tbl">
+  <thead><tr><th>日期</th><th>預報</th><th>最低</th><th>最高</th></tr></thead>
+  <tbody></tbody>
+</table>
+
+<script>
+async function load(){
+  const r = await fetch("../data/processed/normalized.json");
+  const data = await r.json();
+  const tb = document.querySelector("#tbl tbody");
+  tb.innerHTML = data.map(d=>`<tr>
+    <td>${d.date}</td><td>${d.forecast}</td>
+    <td>${d.min_temp}°C</td><td>${d.max_temp}°C</td>
+  </tr>`).join("");
+}
+load();
+</script>
+</body>
+</html>
