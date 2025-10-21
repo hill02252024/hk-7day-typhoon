@@ -1,85 +1,216 @@
-<script>
-  async function fetchJSON(candidates){
-    for (const url of candidates){
-      try{
-        const r = await fetch(url, {cache:"no-store"});
-        if (r.ok) return await r.json();
-      }catch(e){}
+<!doctype html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8">
+  <title>香港 7 天預報（MVP / 共識版預備）</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="自動從政府天氣 API 抓取、於 GitHub Actions 每3小時更新，顯示香港 7 天天氣/颱風風險資訊。">
+  <style>
+    :root {
+      --fg:#111; --muted:#666; --bg:#fff; --line:#e5e7eb; --brand:#0ea5e9;
     }
-    throw new Error("All candidates failed: " + candidates.join(", "));
-  }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"; color:var(--fg); background:var(--bg)}
+    header{padding:16px 20px; border-bottom:1px solid var(--line); background:#fafafa}
+    h1{font-size:20px; margin:0 0 6px 0}
+    .sub{color:var(--muted); font-size:14px}
+    main{padding:16px 20px; max-width:1100px; margin:0 auto}
+    .card{border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:14px}
+    .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .row > *{margin:4px 0}
+    .badge{display:inline-block; padding:4px 8px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:#334155; background:#f8fafc}
+    .select{padding:7px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; font-size:14px}
+    .btn{padding:7px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; cursor:pointer}
+    .btn:hover{background:#f8fafc}
+    table{width:100%; border-collapse:collapse; margin-top:8px; font-size:14px}
+    th, td{border-bottom:1px solid var(--line); padding:10px 8px; text-align:left; vertical-align:top}
+    th{background:#fcfcfc}
+    .muted{color:var(--muted)}
+    .ok{color:#16a34a}
+    .warn{color:#d97706}
+    .err{color:#dc2626}
+    footer{padding:18px 20px; color:var(--muted); font-size:12px; border-top:1px solid var(--line)}
+    @media (max-width:640px){
+      .hide-sm{display:none}
+      th,td{padding:8px 6px}
+    }
+    /* 日期美化 */
+    .date-cell { line-height:1.25; }
+    .date-cell .tag { margin-left:6px; font-size:12px; color:#334155; background:#eef6ff; border:1px solid #dbeafe; padding:2px 6px; border-radius:999px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>香港 7 天預報（MVP）</h1>
+    <div class="sub">資料由 GitHub Actions 自動更新（每 3 小時）。0–5 天顯示確定性預報，6–7 天顯示延伸風險層。</div>
+  </header>
 
-  async function loadAll(){
+  <main>
+    <!-- 狀態列 -->
+    <div class="card">
+      <div class="row">
+        <div>更新時間：<span id="updated" class="badge">讀取中…</span></div>
+        <div>目前最準來源：<span id="best" class="badge">—</span></div>
+        <div class="row">
+          顯示區間：
+          <select id="range" class="select">
+            <option value="0_5">0–5 天</option>
+            <option value="6_7">6–7 天（低信賴）</option>
+            <option value="all">全部 7 天</option>
+          </select>
+          <button id="refresh" class="btn">重新載入</button>
+          <span id="status" class="muted"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 資料表 -->
+    <div class="card">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th style="width:180px">日期</th>
+            <th>預報</th>
+            <th class="hide-sm" style="width:90px">最低</th>
+            <th class="hide-sm" style="width:90px">最高</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 由 JS 動態填入 -->
+        </tbody>
+      </table>
+      <div id="empty" class="muted" style="padding:8px 2px; display:none;">沒有可顯示的資料。</div>
+      <div id="error" class="err" style="padding:8px 2px; display:none;">讀取失敗，請稍後再試或按右上角「重新載入」。</div>
+    </div>
+
+    <!-- 香港影響（示範，用 hk_impact.json） -->
+    <div class="card">
+      <div style="font-weight:600; margin-bottom:6px">香港影響（示範）</div>
+      <div id="impact">讀取中…</div>
+    </div>
+  </main>
+
+  <footer>
+    © hk-7day-typhoon · 靜態網站（GitHub Pages）｜資料僅供參考，以各政府天文台公佈為準。
+  </footer>
+
+  <script>
+    // 讀 JSON（專案相對路徑優先，根路徑備援）
+    async function fetchJSON(candidates){
+      for (const url of candidates){
+        try{
+          const r = await fetch(url, {cache:"no-store"});
+          if (r.ok) return await r.json();
+        }catch(e){}
+      }
+      throw new Error("All candidates failed: " + candidates.join(", "));
+    }
     const paths = (name) => [
       `data/processed/${name}.json`,
       `/hk-7day-typhoon/data/processed/${name}.json`
     ];
-    const [cons, risk, impact, lb] = await Promise.all([
-      fetchJSON(paths("consensus_0_5d")),
-      fetchJSON(paths("risk_6_7d")).catch(()=>({days:[]})),
-      fetchJSON(paths("hk_impact")).catch(()=>null),
-      fetchJSON(paths("leaderboard")).catch(()=>null),
-    ]);
-    return {cons, risk, impact, lb};
-  }
 
-  function renderConsensus(cons, mode){
-    const tb = document.querySelector("#tbl tbody");
-    const days = (cons?.days || []);
-    let show = days;
-    if (mode==="0_5") show = days;
-    if (mode==="6_7") show = []; // 6–7天用 risk 檔顯示
-    if (mode==="all") show = days;
+    // 把 YYYYMMDD / YYYY-MM-DD 轉成「YYYY-MM-DD（週X）」並加今天/明天標籤（香港時區）
+    function fmtDatePretty(dstr){
+      if (!dstr) return "-";
+      let dt;
+      if (/^\d{8}$/.test(dstr)) {
+        const y = +dstr.slice(0,4), m = +dstr.slice(4,6)-1, d = +dstr.slice(6,8);
+        dt = new Date(Date.UTC(y,m,d));
+      } else {
+        dt = new Date(dstr);
+      }
+      const tz = "Asia/Hong_Kong";
+      const datePart = new Intl.DateTimeFormat("zh-HK", {year:"numeric", month:"2-digit", day:"2-digit", timeZone: tz}).format(dt).replace(/\//g,"-");
+      const wk = new Intl.DateTimeFormat("zh-HK", {weekday:"short", timeZone: tz}).format(dt); // 週三/週四…
+      // 今天/明天 標籤
+      const now = new Date();
+      const today = new Date(new Intl.DateTimeFormat("en-CA",{timeZone:tz,dateStyle:"short"}).format(now));
+      const that  = new Date(new Intl.DateTimeFormat("en-CA",{timeZone:tz,dateStyle:"short"}).format(dt));
+      const diffDays = Math.round((that - today)/86400000);
+      let tag = "";
+      if (diffDays === 0) tag = '<span class="tag">今天</span>';
+      else if (diffDays === 1) tag = '<span class="tag">明天</span>';
+      return `<div class="date-cell">${datePart}（${wk}）${tag}</div>`;
+    }
 
-    tb.innerHTML = show.map(d => `
-      <tr>
-        <td>${d.date||"-"}</td>
-        <td>${d.text||"-"}</td>
-        <td class="hide-sm">${(d.tmin??"-")}°C</td>
-        <td class="hide-sm">${(d.tmax??"-")}°C</td>
-      </tr>
-    `).join("");
-    const srcs = cons?.meta?.sources_used || [];
-    document.getElementById("status").textContent =
-      `已載入 ${days.length} 天；共用來源：${srcs.length}（${srcs.join(", ")})`;
-  }
+    function cell(v){ return v==null ? "—" : v; }
 
-  function renderRisk(risk, mode){
-    if (mode!=="6_7") return;
-    const tb = document.querySelector("#tbl tbody");
-    const days = risk?.days || [];
-    tb.innerHTML = days.map(d => `
-      <tr>
-        <td>${d.date||"-"}</td>
-        <td>延伸預報（信賴度：${d.confidence}；來源數：${d.source_count}）</td>
-        <td class="hide-sm">—</td>
-        <td class="hide-sm">—</td>
-      </tr>
-    `).join("");
-  }
+    async function loadAll(){
+      const [cons, risk, impact, lb] = await Promise.all([
+        fetchJSON(paths("consensus_0_5d")),
+        fetchJSON(paths("risk_6_7d")).catch(()=>({days:[]})),
+        fetchJSON(paths("hk_impact")).catch(()=>null),
+        fetchJSON(paths("leaderboard")).catch(()=>null),
+      ]);
+      return {cons, risk, impact, lb};
+    }
 
-  function renderImpact(impact){
-    const el = document.getElementById("impact");
-    if (!impact) { el.textContent = "尚未生成 impact"; return; }
-    document.getElementById("updated").textContent = impact.as_of_utc || impact.as_of || "—";
-    el.innerHTML = `<span class="badge">as of: ${impact.as_of_utc||impact.as_of}</span>
-                    <span class="badge">risk: ${impact.risk||"—"}</span>`;
-  }
+    function renderConsensus(cons, mode){
+      const tb = document.querySelector("#tbl tbody");
+      const days = (cons?.days || []);
+      let show = days;
+      if (mode==="6_7") show = []; // 6–7天用 risk 檔顯示
+      tb.innerHTML = show.map(d => `
+        <tr>
+          <td>${fmtDatePretty(d.date)}</td>
+          <td>${(d.text || "-")}</td>
+          <td class="hide-sm">${cell(d.tmin)}°C</td>
+          <td class="hide-sm">${cell(d.tmax)}°C</td>
+        </tr>
+      `).join("");
+      const srcs = cons?.meta?.sources_used || [];
+      document.getElementById("status").textContent =
+        `已載入 ${days.length} 天；共用來源：${srcs.length}${srcs.length?`（${srcs.join(", ")}）`:""}`;
+      document.getElementById("empty").style.display = show.length ? "none" : "block";
+    }
 
-  function renderLeaderboard(lb){
-    if (!lb) return;
-    document.getElementById("best").textContent = lb.overall_best || "—";
-  }
+    function renderRisk(risk, mode){
+      if (mode!=="6_7") return;
+      const tb = document.querySelector("#tbl tbody");
+      const days = risk?.days || [];
+      tb.innerHTML = days.map(d => `
+        <tr>
+          <td>${fmtDatePretty(d.date)}</td>
+          <td>延伸預報（信賴度：${d.confidence}；來源數：${d.source_count}）</td>
+          <td class="hide-sm">—</td>
+          <td class="hide-sm">—</td>
+        </tr>
+      `).join("");
+      document.getElementById("empty").style.display = days.length ? "none" : "block";
+    }
 
-  async function boot(){
-    const range = document.getElementById("range").value;
-    const {cons, risk, impact, lb} = await loadAll();
-    if (range==="6_7") renderRisk(risk, range); else renderConsensus(cons, range);
-    renderImpact(impact);
-    renderLeaderboard(lb);
-  }
+    function renderImpact(impact){
+      const el = document.getElementById("impact");
+      if (!impact) { el.textContent = "尚未生成 impact"; return; }
+      document.getElementById("updated").textContent = impact.as_of_utc || impact.as_of || "—";
+      el.innerHTML = `<span class="badge">as of: ${impact.as_of_utc||impact.as_of}</span>
+                      <span class="badge">risk: ${impact.risk||"—"}</span>`;
+    }
 
-  document.getElementById("range").addEventListener("change", boot);
-  document.getElementById("refresh").addEventListener("click", boot);
-  boot();
-</script>
+    function renderLeaderboard(lb){
+      if (!lb) return;
+      document.getElementById("best").textContent = lb.overall_best || "—";
+    }
+
+    async function boot(){
+      const range = document.getElementById("range").value;
+      const errorBox = document.getElementById("error");
+      errorBox.style.display = "none";
+      try{
+        const {cons, risk, impact, lb} = await loadAll();
+        if (range==="6_7") renderRisk(risk, range); else renderConsensus(cons, range);
+        renderImpact(impact);
+        renderLeaderboard(lb);
+      }catch(e){
+        console.error(e);
+        errorBox.style.display = "block";
+      }
+    }
+
+    document.getElementById("range").addEventListener("change", boot);
+    document.getElementById("refresh").addEventListener("click", boot);
+    boot();
+  </script>
+</body>
+</html>
