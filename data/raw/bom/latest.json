@@ -1,0 +1,6 @@
+{
+  "fetched_at": 1761040862,
+  "provider": "bom",
+  "ok": false,
+  "error": "Missing URL env for bom"
+}

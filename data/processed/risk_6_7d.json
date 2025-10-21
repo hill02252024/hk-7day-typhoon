@@ -1,1 +1,3 @@
-[{"agency": "HKO", "date": "20251027", "forecast": "Sunny intervals. Dry during the day.", "min_temp": 23, "max_temp": 28}, {"agency": "HKO", "date": "20251028", "forecast": "Mainly cloudy. Dry with sunny intervals during the day.", "min_temp": 23, "max_temp": 28}]
+{
+  "days": []
+}

@@ -1,1 +1,5 @@
-{"as_of": "2025-10-21 09:42 UTC", "risk": "Low", "message": "目前香港天氣穩定，7天內無颱風警報。"}
+{
+  "as_of_utc": "2025-10-21 10:01 UTC",
+  "risk": "Low",
+  "note": "MVP demo: impact metrics will be added when track/intensity ensemble is ready."
+}
