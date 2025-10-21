@@ -1,209 +1,85 @@
-<!doctype html>
-<html lang="zh-HK">
-<head>
-  <meta charset="utf-8">
-  <title>香港 7 天預報（MVP / 共識版預備）</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="自動從政府天氣 API 抓取、於 GitHub Actions 每3小時更新，顯示香港 7 天天氣/颱風風險資訊。">
-  <style>
-    :root {
-      --fg:#111; --muted:#666; --bg:#fff; --line:#e5e7eb; --brand:#0ea5e9;
-    }
-    *{box-sizing:border-box}
-    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"; color:var(--fg); background:var(--bg)}
-    header{padding:16px 20px; border-bottom:1px solid var(--line); background:#fafafa}
-    h1{font-size:20px; margin:0 0 6px 0}
-    .sub{color:var(--muted); font-size:14px}
-    main{padding:16px 20px; max-width:1100px; margin:0 auto}
-    .card{border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:14px}
-    .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-    .row > *{margin:4px 0}
-    .badge{display:inline-block; padding:4px 8px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:#334155; background:#f8fafc}
-    .select{padding:7px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; font-size:14px}
-    .btn{padding:7px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; cursor:pointer}
-    .btn:hover{background:#f8fafc}
-    table{width:100%; border-collapse:collapse; margin-top:8px; font-size:14px}
-    th, td{border-bottom:1px solid var(--line); padding:10px 8px; text-align:left; vertical-align:top}
-    th{background:#fcfcfc}
-    .muted{color:var(--muted)}
-    .ok{color:#16a34a}
-    .warn{color:#d97706}
-    .err{color:#dc2626}
-    footer{padding:18px 20px; color:var(--muted); font-size:12px; border-top:1px solid var(--line)}
-    @media (max-width:640px){
-      .hide-sm{display:none}
-      th,td{padding:8px 6px}
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>香港 7 天預報（MVP）</h1>
-    <div class="sub">資料由 GitHub Actions 自動更新（每 3 小時）。0–5 天顯示確定性預報，6–7 天顯示延伸風險層。</div>
-  </header>
-
-  <main>
-    <!-- 狀態列 -->
-    <div class="card">
-      <div class="row">
-        <div>更新時間：<span id="updated" class="badge">讀取中…</span></div>
-        <div>目前最準來源：<span id="best" class="badge">—</span></div>
-        <div class="row">
-          顯示區間：
-          <select id="range" class="select">
-            <option value="0_5">0–5 天</option>
-            <option value="6_7">6–7 天（低信賴）</option>
-            <option value="all">全部 7 天</option>
-          </select>
-          <button id="refresh" class="btn">重新載入</button>
-          <span id="status" class="muted"></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 資料表 -->
-    <div class="card">
-      <table id="tbl">
-        <thead>
-          <tr>
-            <th style="width:120px">日期</th>
-            <th>預報</th>
-            <th class="hide-sm" style="width:90px">最低</th>
-            <th class="hide-sm" style="width:90px">最高</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- 由 JS 動態填入 -->
-        </tbody>
-      </table>
-      <div id="empty" class="muted" style="padding:8px 2px; display:none;">沒有可顯示的資料。</div>
-      <div id="error" class="err" style="padding:8px 2px; display:none;">讀取失敗，請稍後再試或按右上角「重新載入」。</div>
-    </div>
-
-    <!-- 香港影響（示範，用 hk_impact.json） -->
-    <div class="card">
-      <div style="font-weight:600; margin-bottom:6px">香港影響（示範）</div>
-      <div id="impact">讀取中…</div>
-    </div>
-  </main>
-
-  <footer>
-    © hk-7day-typhoon · 靜態網站（GitHub Pages）｜資料僅供參考，以各政府天文台公佈為準。
-  </footer>
-
-  <script>
-    // 幫手：嘗試多個路徑（專案相對為主，根路徑為備援）
-    async function fetchJSON(candidates){
-      for (const url of candidates){
-        try{
-          const r = await fetch(url, {cache:"no-store"});
-          if (r.ok) return await r.json();
-        }catch(e){}
-      }
-      throw new Error("All candidates failed: " + candidates.join(", "));
-    }
-
-    // 載入所有需要的檔案
-    async function loadAll(){
-      // 主要資料檔案（相對路徑優先）
-      const NORM = ["data/processed/normalized.json", "/hk-7day-typhoon/data/processed/normalized.json"];
-      const IMP  = ["data/processed/hk_impact.json",   "/hk-7day-typhoon/data/processed/hk_impact.json"];
-      const LBD  = ["data/processed/leaderboard.json", "/hk-7day-typhoon/data/processed/leaderboard.json"];
-
-      const [normalized, impact, leaderboard] = await Promise.allSettled([
-        fetchJSON(NORM),
-        fetchJSON(IMP),
-        fetchJSON(LBD)
-      ]);
-
-      return {
-        normalized: normalized.status === "fulfilled" ? normalized.value : [],
-        impact:     impact.status === "fulfilled"     ? impact.value     : null,
-        leaderboard:leaderboard.status === "fulfilled"? leaderboard.value: null
-      };
-    }
-
-    function renderTable(arr, mode){
-      // mode: "0_5" | "6_7" | "all"
-      let data = Array.isArray(arr) ? arr.slice(0,7) : [];
-      if (mode === "0_5") data = data.slice(0,5);
-      if (mode === "6_7") data = data.slice(5,7);
-
-      const tb = document.querySelector("#tbl tbody");
-      const empty = document.getElementById("empty");
-      tb.innerHTML = "";
-      if (!data.length){
-        empty.style.display = "block";
-        return;
-      }
-      empty.style.display = "none";
-      tb.innerHTML = data.map(d => `
-        <tr>
-          <td>${d.date ?? "-"}</td>
-          <td>${(d.forecast ?? "-")
-                 .replace?.(/([.。])\s*/g, "$1 ")
-                 .replace?.(/\s+/g," ")}</td>
-          <td class="hide-sm">${(d.min_temp ?? "-")}°C</td>
-          <td class="hide-sm">${(d.max_temp ?? "-")}°C</td>
-        </tr>
-      `).join("");
-    }
-
-    function renderImpact(info){
-      const el = document.getElementById("impact");
-      if (!info){ el.innerHTML = '<span class="muted">（尚未生成 hk_impact.json）</span>'; return; }
-      const safe = (x)=> x ?? "—";
-      el.innerHTML = `
-        <div class="row">
-          <div class="badge">as of: ${safe(info.as_of || info.as_of_utc)}</div>
-          <div class="badge">risk: ${safe(info.risk || info.level || info.message)}</div>
-        </div>
-      `;
-      document.getElementById("updated").textContent =
-        (info.as_of || info.as_of_utc || "(未知)") + "";
-    }
-
-    function renderLeaderboard(lb){
-      if (!lb){ return; }
-      const best = lb.overall_best || "—";
-      document.getElementById("best").textContent = best;
-    }
-
-    async function boot(){
-      const status = document.getElementById("status");
-      const errorBox = document.getElementById("error");
-      errorBox.style.display = "none";
-      status.textContent = "載入中…";
-
+<script>
+  async function fetchJSON(candidates){
+    for (const url of candidates){
       try{
-        const { normalized, impact, leaderboard } = await loadAll();
-        renderTable(normalized, document.getElementById("range").value);
-        renderImpact(impact);
-        renderLeaderboard(leaderboard);
-        status.textContent = `已載入 ${normalized.length || 0} 天資料`;
-      }catch(err){
-        console.error(err);
-        status.textContent = "";
-        errorBox.style.display = "block";
-      }
+        const r = await fetch(url, {cache:"no-store"});
+        if (r.ok) return await r.json();
+      }catch(e){}
     }
+    throw new Error("All candidates failed: " + candidates.join(", "));
+  }
 
-    document.getElementById("range").addEventListener("change", async (e)=>{
-      try{
-        const norm = await fetch("data/processed/normalized.json", {cache:"no-store"})
-          .then(r => r.ok ? r.json() : []);
-        renderTable(norm, e.target.value);
-      }catch{
-        const norm = await fetch("/hk-7day-typhoon/data/processed/normalized.json", {cache:"no-store"})
-          .then(r => r.ok ? r.json() : []);
-        renderTable(norm, e.target.value);
-      }
-    });
+  async function loadAll(){
+    const paths = (name) => [
+      `data/processed/${name}.json`,
+      `/hk-7day-typhoon/data/processed/${name}.json`
+    ];
+    const [cons, risk, impact, lb] = await Promise.all([
+      fetchJSON(paths("consensus_0_5d")),
+      fetchJSON(paths("risk_6_7d")).catch(()=>({days:[]})),
+      fetchJSON(paths("hk_impact")).catch(()=>null),
+      fetchJSON(paths("leaderboard")).catch(()=>null),
+    ]);
+    return {cons, risk, impact, lb};
+  }
 
-    document.getElementById("refresh").addEventListener("click", boot);
+  function renderConsensus(cons, mode){
+    const tb = document.querySelector("#tbl tbody");
+    const days = (cons?.days || []);
+    let show = days;
+    if (mode==="0_5") show = days;
+    if (mode==="6_7") show = []; // 6–7天用 risk 檔顯示
+    if (mode==="all") show = days;
 
-    // 初始啟動
-    boot();
-  </script>
-</body>
-</html>
+    tb.innerHTML = show.map(d => `
+      <tr>
+        <td>${d.date||"-"}</td>
+        <td>${d.text||"-"}</td>
+        <td class="hide-sm">${(d.tmin??"-")}°C</td>
+        <td class="hide-sm">${(d.tmax??"-")}°C</td>
+      </tr>
+    `).join("");
+    const srcs = cons?.meta?.sources_used || [];
+    document.getElementById("status").textContent =
+      `已載入 ${days.length} 天；共用來源：${srcs.length}（${srcs.join(", ")})`;
+  }
+
+  function renderRisk(risk, mode){
+    if (mode!=="6_7") return;
+    const tb = document.querySelector("#tbl tbody");
+    const days = risk?.days || [];
+    tb.innerHTML = days.map(d => `
+      <tr>
+        <td>${d.date||"-"}</td>
+        <td>延伸預報（信賴度：${d.confidence}；來源數：${d.source_count}）</td>
+        <td class="hide-sm">—</td>
+        <td class="hide-sm">—</td>
+      </tr>
+    `).join("");
+  }
+
+  function renderImpact(impact){
+    const el = document.getElementById("impact");
+    if (!impact) { el.textContent = "尚未生成 impact"; return; }
+    document.getElementById("updated").textContent = impact.as_of_utc || impact.as_of || "—";
+    el.innerHTML = `<span class="badge">as of: ${impact.as_of_utc||impact.as_of}</span>
+                    <span class="badge">risk: ${impact.risk||"—"}</span>`;
+  }
+
+  function renderLeaderboard(lb){
+    if (!lb) return;
+    document.getElementById("best").textContent = lb.overall_best || "—";
+  }
+
+  async function boot(){
+    const range = document.getElementById("range").value;
+    const {cons, risk, impact, lb} = await loadAll();
+    if (range==="6_7") renderRisk(risk, range); else renderConsensus(cons, range);
+    renderImpact(impact);
+    renderLeaderboard(lb);
+  }
+
+  document.getElementById("range").addEventListener("change", boot);
+  document.getElementById("refresh").addEventListener("click", boot);
+  boot();
+</script>
