@@ -2,8 +2,8 @@ name: Fetch & Build 7-Day Typhoon
 
 on:
   schedule:
-    - cron: "0 */3 * * *"   # 每3小時自動運行
-  workflow_dispatch: {}      # 可手動執行
+    - cron: "0 */3 * * *"   # 每3小時
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -20,20 +21,38 @@ jobs:
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install requests pandas numpy shapely pyproj
+          pip install requests pandas numpy python-dateutil
 
-      - name: Run scripts
+      - name: Fetch all providers
+        env:
+          # === 將你的真正端點 & 金鑰放到 repo → Settings → Secrets and variables → Actions ===
+          # HKO（香港天文台 9-day）
+          HKO_URL: ${{ secrets.HKO_URL }}
+          # JMA / JTWC / CWA / KMA / BOM / MSS / TMD / NOAA / BMKG
+          JMA_URL: ${{ secrets.JMA_URL }}
+          JTWC_URL: ${{ secrets.JTWC_URL }}
+          CWA_URL: ${{ secrets.CWA_URL }}
+          KMA_URL: ${{ secrets.KMA_URL }}
+          BOM_URL: ${{ secrets.BOM_URL }}
+          MSS_URL: ${{ secrets.MSS_URL }}
+          TMD_URL: ${{ secrets.TMD_URL }}
+          NOAA_URL: ${{ secrets.NOAA_URL }}
+          BMKG_URL: ${{ secrets.BMKG_URL }}
         run: |
-          python scripts/fetch_hko.py || true
-          python scripts/normalize_all.py || true
-          python scripts/build_ensemble_0_5d.py || true
-          python scripts/build_risk_6_7d.py || true
-          python scripts/build_hk_impact.py || true
+          python scripts/fetch_all.py
+
+      - name: Normalize & build products
+        run: |
+          python scripts/normalize_all.py
+          python scripts/build_ensemble_0_5d.py
+          python scripts/build_risk_6_7d.py
+          python scripts/build_hk_impact.py
+          python scripts/build_leaderboard.py
 
       - name: Commit outputs
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
           git add data site
-          git commit -m "Auto update $(date -u +'%Y-%m-%dT%H:%MZ')" || echo "No changes"
+          git commit -m "auto: update $(date -u +'%Y-%m-%dT%H:%MZ')" || echo "No changes"
           git push
