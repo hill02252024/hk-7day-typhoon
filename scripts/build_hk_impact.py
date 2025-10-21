@@ -1,8 +1,16 @@
+# scripts/build_hk_impact.py
+from __future__ import annotations
 import json, pathlib, time
-out = pathlib.Path("data/processed/hk_impact.json")
-payload = {
-    "as_of": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()),
-    "risk": "Low",
-    "message": "目前香港天氣穩定，7天內無颱風警報。"
-}
-out.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+
+OUT = pathlib.Path("data/processed/hk_impact.json")
+
+def main():
+    payload = {
+        "as_of_utc": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()),
+        "risk": "Low",
+        "note": "MVP demo: impact metrics will be added when track/intensity ensemble is ready."
+    }
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+if __name__ == "__main__":
+    main()
