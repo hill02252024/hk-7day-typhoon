@@ -1,5 +1,5 @@
 {
-  "fetched_at": 1761108187,
+  "fetched_at": 1761109084,
   "provider": "bom",
   "ok": false,
   "error": "404 Client Error: Not Found for url: https://reg.bom.gov.au/fwo/IDN11060.json"

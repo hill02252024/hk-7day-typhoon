@@ -1,5 +1,5 @@
 {
-  "fetched_at": 1761108194,
+  "fetched_at": 1761109086,
   "provider": "bmkg",
   "ok": false,
   "error": "Missing URL env for bmkg"

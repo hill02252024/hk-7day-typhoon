@@ -8,13 +8,13 @@
     },
     {
       "date": "2025-10-23",
-      "text": "Mainly cloudy. Slightly cooler in the morning. Bright periods during the day. | くもり　時々　晴れ",
+      "text": "Mainly cloudy. Slightly cooler in the morning. Bright periods during the day. | くもり 時々 晴れ",
       "tmin": 19.0,
       "tmax": 24.0
     },
     {
       "date": "2025-10-24",
-      "text": "Sunny intervals. Dry during the day. | 晴れ　時々　くもり",
+      "text": "Sunny intervals. Dry during the day. | 晴れ 時々 くもり",
       "tmin": 22.0,
       "tmax": 27.0
     },
@@ -43,6 +43,7 @@
       "2025-10-24": 2,
       "2025-10-25": 1,
       "2025-10-26": 1
-    }
+    },
+    "from_date_hk": "2025-10-22"
   }
 }
