@@ -22,6 +22,14 @@ def _safe_get(d: Any, *keys, default=None):
             return default
     return cur
 
+def _clean_text(s: Optional[str]) -> Optional[str]:
+    if not isinstance(s, str):
+        return None
+    # 全形空白→半形、連續空白壓縮
+    s = s.replace("\u3000", " ").replace("\xa0", " ").strip()
+    s = re.sub(r"\s+", " ", s)
+    return s or None
+
 def _as_iso_date(s: Optional[str]) -> Optional[str]:
     if not s:
         return None
@@ -43,10 +51,10 @@ def _append(out: List[Dict[str, Any]], date, text, tmin=None, tmax=None, src="")
         return
     out.append({
         "date": _as_iso_date(date),
-        "text": (text or "").strip() or None,
+        "text": _clean_text(text),
         "tmin": tmin if (isinstance(tmin, (int, float)) or tmin is None) else None,
         "tmax": tmax if (isinstance(tmax, (int, float)) or tmax is None) else None,
-        "src": src.upper()
+        "src": (src or "").upper()
     })
 
 # ---------- 各來源 mapper ----------
@@ -81,9 +89,8 @@ def _map_jma(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
         time_def = ts.get("timeDefines")
         areas = ts.get("areas")
         if isinstance(time_def, list) and isinstance(areas, list) and areas:
-            # 取第一個地區（JMA JSON 依地區代碼；這裡只為了 MVP 取一個，避免重複）
+            # 取第一個地區（JMA JSON 依地區代碼；這裡只為 MVP 取一個，避免重複）
             weathers = areas[0].get("weathers") or areas[0].get("weatherCodes")
-            # 部分 feed 放在 "pops"、"temps"；我們只取 weathers 作文字
             if isinstance(weathers, list) and weathers:
                 for i, t in enumerate(time_def):
                     text = weathers[i] if i < len(weathers) else None
@@ -118,7 +125,7 @@ def _map_bom(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
     root = raw.get("data") if isinstance(raw.get("data"), dict) else raw
     out: List[Dict[str, Any]] = []
 
-    # A. 有些 feed 長這樣：{"product":{"periods":[{"startTimeLocal":"...","text":"...", "tempMin":..,"tempMax":..}, ...]}}
+    # A. {"product":{"periods":[{"startTimeLocal":"...","text":"...", "tempMin":..,"tempMax":..}, ...]}}
     periods = _safe_get(root, "product", "periods", default=[])
     if isinstance(periods, list) and periods:
         for p in periods:
@@ -128,7 +135,7 @@ def _map_bom(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
             tmax = p.get("tempMax") or p.get("air_temperature_maximum")
             _append(out, date, text, tmin, tmax, src="BOM")
 
-    # B. 另一種：{"forecasts":{"districts":[{"forecast":{"days":[{"date":"YYYY-MM-DD","text":"...","temp_min":..,"temp_max":..}]}}]}}
+    # B. {"forecasts":{"districts":[{"forecast":{"days":[{"date":"YYYY-MM-DD","text":"...","temp_min":..,"temp_max":..}]}}]}}
     if not out:
         days = _safe_get(root, "forecasts", "districts", 0, "forecast", "days", default=[])
         if isinstance(days, list) and days:
@@ -222,14 +229,14 @@ def _map_generic(raw: Dict[str, Any], src_name: str) -> List[Dict[str, Any]]:
         if not isinstance(d, dict): 
             continue
         date = d.get("date") or d.get("validDate") or d.get("forecastDate") or d.get("startTime")
-        text = d.get("text") or d.get("summary") or d.get("weather") or d.get("forecast")
+        text = d.get("text") or d.get("summary") or d.get("weather") or d.get("forecast") or d.get("wx")
         tmin = d.get("tmin") or d.get("min") or d.get("min_temp") or _safe_get(d,"temperature","min")
         tmax = d.get("tmax") or d.get("max") or d.get("max_temp") or _safe_get(d,"temperature","max")
         _append(out, date, text, tmin, tmax, src_name)
     # 只取前 10 天（之後會在共識步驟切成 5 天或 7 天）
     return out[:10]
 
-# 入口：根據 provider 決定 mapper（★加上容錯回退★）
+# 入口：根據 provider 決定 mapper（含容錯回退）
 def normalize_one(provider: str) -> List[Dict[str, Any]]:
     p = RAW / provider / "latest.json"
     if not p.exists():
@@ -250,13 +257,13 @@ def normalize_one(provider: str) -> List[Dict[str, Any]]:
         elif provider == "noaa":
             result = _map_noaa(raw)
 
-        # ✨關鍵：如果專屬 mapper 沒產生資料，就退回通用 mapper
+        # 專屬 mapper 若沒產生資料，退回通用 mapper
         if not result:
             result = _map_generic(raw, provider)
 
         return result
     except Exception:
-        # 任何解析失敗都不讓流程中斷；最後再用通用 mapper 撐住
+        # 解析拋錯也退回通用 mapper（最後一道防線）
         try:
             return _map_generic(raw, provider)
         except Exception:
