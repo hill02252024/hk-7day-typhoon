@@ -1,8 +1,11 @@
 {
-  "fetched_at": 1761109523,
+  "fetched_at": 1761109922,
   "provider": "mss",
   "ok": true,
+  "requested_url": "https://api.data.gov.sg/v1/environment/24-hour-weather-forecast",
   "content_type": "json",
+  "http_status": 200,
+  "response_content_type": "application/json",
   "data": {
     "items": [
       {

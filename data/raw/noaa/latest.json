@@ -1,6 +1,7 @@
 {
-  "fetched_at": 1761109524,
+  "fetched_at": 1761109923,
   "provider": "noaa",
   "ok": false,
+  "requested_url": "https://api.weather.gov/gridpoints/HFO/153,37/forecast",
   "error": "404 Client Error: Not Found for url: https://api.weather.gov/gridpoints/HFO/153,37/forecast"
 }

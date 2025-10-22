@@ -1,6 +1,7 @@
 {
-  "fetched_at": 1761109519,
+  "fetched_at": 1761109918,
   "provider": "jtwc",
   "ok": false,
+  "requested_url": null,
   "error": "Missing URL env for jtwc"
 }

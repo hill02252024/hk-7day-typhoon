@@ -1,8 +1,11 @@
 {
-  "fetched_at": 1761109519,
+  "fetched_at": 1761109917,
   "provider": "jma",
   "ok": true,
+  "requested_url": "https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json",
   "content_type": "json",
+  "http_status": 200,
+  "response_content_type": "application/json",
   "data": [
     {
       "publishingOffice": "気象庁",
