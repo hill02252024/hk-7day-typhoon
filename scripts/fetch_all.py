@@ -50,6 +50,11 @@ def _headers_for(provider: str) -> Dict[str, str]:
     return h
 
 
+def _looks_like_json(s: str) -> bool:
+    s2 = s.strip()
+    return (s2.startswith("{") and s2.endswith("}")) or (s2.startswith("[") and s2.endswith("]"))
+
+
 def _fetch_one(session: requests.Session, provider: str, url: str) -> Dict[str, Any]:
     now = int(time.time())
     out: Dict[str, Any] = {
@@ -77,8 +82,19 @@ def _fetch_one(session: requests.Session, provider: str, url: str) -> Dict[str, 
             out["error"] = "Empty body"
             return out
 
-        # 允許 JSON / XML / RSS / 純文字（回到 normalize 再判斷）
-        out["data"] = text
+        # ✅ 重點：JSON 先 parse 成物件，其餘（XML/RSS/純文字）保留字串
+        data: Any
+        if "application/json" in ctype or _looks_like_json(text):
+            try:
+                data = json.loads(text)
+            except Exception as e:
+                # 無法解析就把原文存字串，交給 normalize 防呆
+                data = text
+                out["error"] = f"json_decode_error: {e!r}"
+        else:
+            data = text
+
+        out["data"] = data
         out["ok"] = True
         return out
     except Exception as e:
@@ -89,6 +105,13 @@ def _fetch_one(session: requests.Session, provider: str, url: str) -> Dict[str, 
 def main():
     RAW_ROOT.mkdir(parents=True, exist_ok=True)
     session = _make_session()
+
+    # （可選）列出有無 URL 的 provider，便於排錯
+    active, missing = [], []
+    for prov in PROVIDERS:
+        (active if get_url(prov) else missing).append(prov)
+    print("[fetch_all] active providers with URL:", ", ".join(active) or "(none)")
+    print("[fetch_all] providers missing URL:", ", ".join(missing) or "(none)")
 
     for prov in PROVIDERS:
         url = get_url(prov)
