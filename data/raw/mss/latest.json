@@ -1,83 +1,10 @@
 {
-  "fetched_at": 1761125097,
+  "fetched_at": 1761126566,
   "provider": "mss",
   "ok": true,
   "requested_url": "https://api.data.gov.sg/v1/environment/24-hour-weather-forecast",
   "http_status": 200,
   "response_content_type": "application/json",
-  "data": {
-    "items": [
-      {
-        "update_timestamp": "2025-10-22T15:51:15+08:00",
-        "timestamp": "2025-10-22T15:45:00+08:00",
-        "valid_period": {
-          "start": "2025-10-22T12:00:00+08:00",
-          "end": "2025-10-23T12:00:00+08:00"
-        },
-        "general": {
-          "forecast": "Cloudy",
-          "relative_humidity": {
-            "low": 60,
-            "high": 95
-          },
-          "temperature": {
-            "low": 23,
-            "high": 31
-          },
-          "wind": {
-            "speed": {
-              "low": 10,
-              "high": 20
-            },
-            "direction": "WNW"
-          }
-        },
-        "periods": [
-          {
-            "time": {
-              "start": "2025-10-22T12:00:00+08:00",
-              "end": "2025-10-22T18:00:00+08:00"
-            },
-            "regions": {
-              "west": "Cloudy",
-              "east": "Cloudy",
-              "central": "Cloudy",
-              "south": "Cloudy",
-              "north": "Cloudy"
-            }
-          },
-          {
-            "time": {
-              "start": "2025-10-22T18:00:00+08:00",
-              "end": "2025-10-23T06:00:00+08:00"
-            },
-            "regions": {
-              "west": "Cloudy",
-              "east": "Cloudy",
-              "central": "Cloudy",
-              "south": "Cloudy",
-              "north": "Cloudy"
-            }
-          },
-          {
-            "time": {
-              "start": "2025-10-23T06:00:00+08:00",
-              "end": "2025-10-23T12:00:00+08:00"
-            },
-            "regions": {
-              "west": "Partly Cloudy (Day)",
-              "east": "Partly Cloudy (Day)",
-              "central": "Partly Cloudy (Day)",
-              "south": "Partly Cloudy (Day)",
-              "north": "Partly Cloudy (Day)"
-            }
-          }
-        ]
-      }
-    ],
-    "api_info": {
-      "status": "healthy"
-    }
-  },
+  "data": "{\"items\":[{\"update_timestamp\":\"2025-10-22T17:41:12+08:00\",\"timestamp\":\"2025-10-22T17:35:00+08:00\",\"valid_period\":{\"start\":\"2025-10-22T18:00:00+08:00\",\"end\":\"2025-10-23T18:00:00+08:00\"},\"general\":{\"forecast\":\"Cloudy\",\"relative_humidity\":{\"low\":60,\"high\":95},\"temperature\":{\"low\":23,\"high\":32},\"wind\":{\"speed\":{\"low\":10,\"high\":25},\"direction\":\"WNW\"}},\"periods\":[{\"time\":{\"start\":\"2025-10-22T18:00:00+08:00\",\"end\":\"2025-10-23T06:00:00+08:00\"},\"regions\":{\"west\":\"Cloudy\",\"east\":\"Cloudy\",\"central\":\"Cloudy\",\"south\":\"Cloudy\",\"north\":\"Cloudy\"}},{\"time\":{\"start\":\"2025-10-23T06:00:00+08:00\",\"end\":\"2025-10-23T12:00:00+08:00\"},\"regions\":{\"west\":\"Cloudy\",\"east\":\"Cloudy\",\"central\":\"Cloudy\",\"south\":\"Cloudy\",\"north\":\"Cloudy\"}},{\"time\":{\"start\":\"2025-10-23T12:00:00+08:00\",\"end\":\"2025-10-23T18:00:00+08:00\"},\"regions\":{\"west\":\"Cloudy\",\"east\":\"Cloudy\",\"central\":\"Cloudy\",\"south\":\"Cloudy\",\"north\":\"Cloudy\"}}]}],\"api_info\":{\"status\":\"healthy\"}}",
   "error": null
 }
