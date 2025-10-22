@@ -1,63 +1,63 @@
 {
   "hko": [
     {
-      "date": "20251023",
+      "date": "2025-10-23",
       "text": "Mainly cloudy. Slightly cooler in the morning. Bright periods during the day.",
       "tmin": 19,
       "tmax": 24,
       "src": "HKO"
     },
     {
-      "date": "20251024",
+      "date": "2025-10-24",
       "text": "Sunny intervals. Dry during the day.",
       "tmin": 22,
       "tmax": 27,
       "src": "HKO"
     },
     {
-      "date": "20251025",
+      "date": "2025-10-25",
       "text": "Sunny periods. Dry during the day.",
       "tmin": 23,
       "tmax": 30,
       "src": "HKO"
     },
     {
-      "date": "20251026",
+      "date": "2025-10-26",
       "text": "Sunny periods. Dry during the day.",
       "tmin": 23,
       "tmax": 30,
       "src": "HKO"
     },
     {
-      "date": "20251027",
+      "date": "2025-10-27",
       "text": "Sunny intervals.",
       "tmin": 23,
       "tmax": 28,
       "src": "HKO"
     },
     {
-      "date": "20251028",
+      "date": "2025-10-28",
       "text": "Mainly cloudy with one or two rain patches. Bright periods during the day.",
       "tmin": 23,
       "tmax": 28,
       "src": "HKO"
     },
     {
-      "date": "20251029",
+      "date": "2025-10-29",
       "text": "Mainly cloudy. Sunny intervals during the day.",
       "tmin": 25,
       "tmax": 29,
       "src": "HKO"
     },
     {
-      "date": "20251030",
+      "date": "2025-10-30",
       "text": "Sunny periods.",
       "tmin": 25,
       "tmax": 29,
       "src": "HKO"
     },
     {
-      "date": "20251031",
+      "date": "2025-10-31",
       "text": "Sunny periods.",
       "tmin": 25,
       "tmax": 30,
@@ -66,15 +66,22 @@
   ],
   "jma": [
     {
-      "date": null,
-      "text": null,
+      "date": "2025-10-22",
+      "text": "雨",
       "tmin": null,
       "tmax": null,
       "src": "JMA"
     },
     {
-      "date": null,
-      "text": null,
+      "date": "2025-10-23",
+      "text": "くもり　時々　晴れ",
+      "tmin": null,
+      "tmax": null,
+      "src": "JMA"
+    },
+    {
+      "date": "2025-10-24",
+      "text": "晴れ　時々　くもり",
       "tmin": null,
       "tmax": null,
       "src": "JMA"
@@ -82,8 +89,8 @@
   ],
   "mss": [
     {
-      "date": null,
-      "text": null,
+      "date": "2025-10-22",
+      "text": "Light Rain",
       "tmin": null,
       "tmax": null,
       "src": "MSS"

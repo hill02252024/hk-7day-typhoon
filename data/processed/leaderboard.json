@@ -1,11 +1,11 @@
 {
-  "as_of_utc": "2025-10-22T04:01:42Z",
+  "as_of_utc": "2025-10-22T04:23:38Z",
   "overall_best": "HKO",
   "by_lead": {},
   "by_metric": {},
   "weights": {
-    "HKO": 0.75,
-    "JMA": 0.167,
-    "MSS": 0.083
+    "HKO": 0.692,
+    "JMA": 0.231,
+    "MSS": 0.077
   }
 }
