@@ -1,10 +1,10 @@
 {
-  "fetched_at": 1761119555,
+  "fetched_at": 1761120899,
   "provider": "bmkg",
   "ok": false,
   "requested_url": null,
   "http_status": null,
   "response_content_type": null,
   "data": null,
-  "error": "skipped: no URL"
+  "error": "MISSING_URL"
 }
