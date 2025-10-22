@@ -1,7 +1,10 @@
 {
-  "fetched_at": 1761114790,
+  "fetched_at": 1761119059,
   "provider": "cwa",
   "ok": false,
   "requested_url": null,
-  "error": "Missing URL env for cwa"
+  "http_status": null,
+  "response_content_type": null,
+  "data": null,
+  "error": "skipped: no URL"
 }

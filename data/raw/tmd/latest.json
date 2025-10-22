@@ -1,7 +1,10 @@
 {
-  "fetched_at": 1761114796,
+  "fetched_at": 1761119060,
   "provider": "tmd",
   "ok": false,
   "requested_url": null,
-  "error": "Missing URL env for tmd"
+  "http_status": null,
+  "response_content_type": null,
+  "data": null,
+  "error": "skipped: no URL"
 }

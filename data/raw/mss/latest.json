@@ -1,10 +1,10 @@
 {
-  "fetched_at": 1761118365,
+  "fetched_at": 1761119055,
   "provider": "mss",
   "ok": true,
   "requested_url": "https://api.data.gov.sg/v1/environment/24-hour-weather-forecast",
   "http_status": 200,
-  "content_type": "json",
+  "response_content_type": "application/json",
   "data": {
     "items": [
       {
@@ -78,5 +78,6 @@
     "api_info": {
       "status": "healthy"
     }
-  }
+  },
+  "error": null
 }

@@ -1,7 +1,10 @@
 {
-  "fetched_at": 1761114796,
+  "fetched_at": 1761119060,
   "provider": "noaa",
   "ok": false,
   "requested_url": "https://api.weather.gov/points/21.3069,-157.8583/forecast",
-  "error": "404 Client Error: Not Found for url: https://api.weather.gov/points/21.3069,-157.8583/forecast"
+  "http_status": 404,
+  "response_content_type": "application/problem+json",
+  "data": null,
+  "error": "HTTP 404"
 }
