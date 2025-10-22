@@ -23,6 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests pandas numpy python-dateutil
 
+      # 抓取所有來源（scripts/fetch_all.py 內已加入 UA 與重試）
       - name: Fetch all providers
         env:
           # === 將你的真正端點 & 金鑰放到 repo → Settings → Secrets and variables → Actions ===
@@ -41,6 +42,28 @@ jobs:
         run: |
           python scripts/fetch_all.py
 
+      # 立刻打印每個來源抓取結果的摘要（不外洩金鑰）
+      - name: Debug | summarize raw fetch results
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          base = pathlib.Path("data/raw")
+          if not base.exists():
+              print("no data/raw yet"); raise SystemExit(0)
+          for p in sorted([d for d in base.iterdir() if d.is_dir()]):
+              lj = p / "latest.json"
+              if not lj.exists():
+                  print(f"[{p.name}] missing latest.json"); continue
+              d = json.loads(lj.read_text(encoding="utf-8"))
+              ok = d.get("ok")
+              err = d.get("error")
+              http = d.get("http_status")
+              rctype = d.get("response_content_type")
+              url = d.get("requested_url")
+              size = len(json.dumps(d.get("data"), ensure_ascii=False)) if "data" in d else 0
+              print(f"[{p.name.upper()}] ok={ok} http={http} rctype={rctype} size≈{size} url={url} err={err}")
+          PY
+
       - name: Normalize & build products
         run: |
           python scripts/normalize_all.py
@@ -48,6 +71,29 @@ jobs:
           python scripts/build_risk_6_7d.py
           python scripts/build_hk_impact.py
           python scripts/build_leaderboard.py
+
+      # 打印標準化與共識輸出摘要，方便確認來源是否被納入
+      - name: Debug | summarize normalized & consensus
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          proc = pathlib.Path("data/processed")
+          n = proc/"normalized.json"
+          c = proc/"consensus_0_5d.json"
+          if n.exists():
+              d = json.loads(n.read_text(encoding="utf-8"))
+              provs = list(d.keys()) if isinstance(d, dict) else ["_flat_list"]
+              print("normalized providers:", ", ".join(sorted(provs)))
+          else:
+              print("normalized.json not found")
+          if c.exists():
+              d = json.loads(c.read_text(encoding="utf-8"))
+              meta = d.get("meta", {})
+              print("consensus sources_used:", meta.get("sources_used"))
+              print("consensus days:", [x.get("date") for x in d.get("days", [])])
+          else:
+              print("consensus_0_5d.json not found")
+          PY
 
       - name: Commit outputs
         run: |
