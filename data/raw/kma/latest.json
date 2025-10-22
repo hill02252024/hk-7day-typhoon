@@ -1,5 +1,5 @@
 {
-  "fetched_at": 1761104679,
+  "fetched_at": 1761105701,
   "provider": "kma",
   "ok": false,
   "error": "Missing URL env for kma"

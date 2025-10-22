@@ -61,5 +61,26 @@
     "tmin": 25,
     "tmax": 30,
     "src": "HKO"
+  },
+  {
+    "date": null,
+    "text": null,
+    "tmin": null,
+    "tmax": null,
+    "src": "JMA"
+  },
+  {
+    "date": null,
+    "text": null,
+    "tmin": null,
+    "tmax": null,
+    "src": "JMA"
+  },
+  {
+    "date": null,
+    "text": null,
+    "tmin": null,
+    "tmax": null,
+    "src": "MSS"
   }
 ]

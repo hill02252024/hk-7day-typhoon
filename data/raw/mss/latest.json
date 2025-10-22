@@ -1,6 +1,80 @@
 {
-  "fetched_at": 1761104679,
+  "fetched_at": 1761105701,
   "provider": "mss",
-  "ok": false,
-  "error": "Missing URL env for mss"
+  "ok": true,
+  "content_type": "json",
+  "data": {
+    "items": [
+      {
+        "update_timestamp": "2025-10-22T11:41:04+08:00",
+        "timestamp": "2025-10-22T11:31:00+08:00",
+        "valid_period": {
+          "start": "2025-10-22T12:00:00+08:00",
+          "end": "2025-10-23T12:00:00+08:00"
+        },
+        "general": {
+          "forecast": "Light Rain",
+          "relative_humidity": {
+            "low": 60,
+            "high": 95
+          },
+          "temperature": {
+            "low": 23,
+            "high": 31
+          },
+          "wind": {
+            "speed": {
+              "low": 10,
+              "high": 20
+            },
+            "direction": "WNW"
+          }
+        },
+        "periods": [
+          {
+            "time": {
+              "start": "2025-10-22T12:00:00+08:00",
+              "end": "2025-10-22T18:00:00+08:00"
+            },
+            "regions": {
+              "west": "Light Rain",
+              "east": "Light Rain",
+              "central": "Light Rain",
+              "south": "Light Rain",
+              "north": "Light Rain"
+            }
+          },
+          {
+            "time": {
+              "start": "2025-10-22T18:00:00+08:00",
+              "end": "2025-10-23T06:00:00+08:00"
+            },
+            "regions": {
+              "west": "Cloudy",
+              "east": "Cloudy",
+              "central": "Cloudy",
+              "south": "Cloudy",
+              "north": "Cloudy"
+            }
+          },
+          {
+            "time": {
+              "start": "2025-10-23T06:00:00+08:00",
+              "end": "2025-10-23T12:00:00+08:00"
+            },
+            "regions": {
+              "west": "Partly Cloudy (Day)",
+              "east": "Partly Cloudy (Day)",
+              "central": "Partly Cloudy (Day)",
+              "south": "Partly Cloudy (Day)",
+              "north": "Partly Cloudy (Day)"
+            }
+          }
+        ]
+      }
+    ],
+    "api_info": {
+      "status": "healthy"
+    }
+  }
 }
