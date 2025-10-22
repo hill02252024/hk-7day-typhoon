@@ -1,9 +1,12 @@
 {
-  "as_of_utc": "2025-10-22T08:50:31Z",
-  "overall_best": "SMG",
+  "as_of_utc": "2025-10-22T09:09:57Z",
+  "overall_best": "HKO",
   "by_lead": {},
   "by_metric": {},
   "weights": {
-    "SMG": 1.0
+    "HKO": 0.45,
+    "JMA": 0.15,
+    "MSS": 0.05,
+    "SMG": 0.35
   }
 }
