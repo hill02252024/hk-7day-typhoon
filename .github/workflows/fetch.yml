@@ -23,6 +23,29 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests pandas numpy python-dateutil feedparser beautifulsoup4
 
+      # 在抓取前，檢查 SMG_URL 是否正確（不外洩完整值）
+      - name: Debug | check SMG_URL
+        env:
+          SMG_URL: ${{ secrets.SMG_URL }}
+        run: |
+          python - <<'PY'
+          import os
+          from urllib.parse import urlparse
+          url = os.getenv("SMG_URL", "").strip()
+          if not url:
+              print("SMG_URL: ❌ 未設定（請到 Settings → Secrets → Actions 加入 SMG_URL）")
+          else:
+              u = urlparse(url)
+              print(f"SMG_URL: ✅ 已設定；scheme={u.scheme or '(空)'} host={u.netloc or '(空)'} path={u.path or '(空)'}")
+              if u.scheme.lower() == "https":
+                  print("提示：SMG RSS 建議使用 http（不是 https），以免 403/轉址造成抓取失敗。")
+              expected_host = "rss.smg.gov.mo"
+              expected_path = "/c_WForecast7days_rss.xml"
+              if u.netloc.lower() != expected_host:
+                  print(f"警告：網域看起來不是建議的 {expected_host}")
+              if not u.path.lower().endswith(expected_path.lower()):
+                  print(f"警告：路徑看起來不是建議的 {expected_path}")
+          PY
 
       # 抓取所有來源（scripts/fetch_all.py 內已加入 UA 與重試）
       - name: Fetch all providers
@@ -30,7 +53,7 @@ jobs:
           # === 將你的真正端點 & 金鑰放到 repo → Settings → Secrets and variables → Actions ===
           # HKO（香港天文台 9-day）
           HKO_URL: ${{ secrets.HKO_URL }}
-          # JMA / JTWC / CWA / KMA / BOM / MSS / TMD / NOAA / BMKG
+          # JMA / JTWC / CWA / KMA / BOM / MSS / TMD / NOAA / BMKG / SMG
           JMA_URL: ${{ secrets.JMA_URL }}
           JTWC_URL: ${{ secrets.JTWC_URL }}
           CWA_URL: ${{ secrets.CWA_URL }}
@@ -40,6 +63,7 @@ jobs:
           TMD_URL: ${{ secrets.TMD_URL }}
           NOAA_URL: ${{ secrets.NOAA_URL }}
           BMKG_URL: ${{ secrets.BMKG_URL }}
+          SMG_URL: ${{ secrets.SMG_URL }}     # ⬅️ 新增這行（關鍵）
         run: |
           python scripts/fetch_all.py
 
@@ -59,26 +83,11 @@ jobs:
               ok = d.get("ok")
               err = d.get("error")
               http = d.get("http_status")
-              rctype = d.get("response_content_type")
+              rctype = d.get("response_content_type") or d.get("content_type")
               url = d.get("requested_url")
               size = len(json.dumps(d.get("data"), ensure_ascii=False)) if "data" in d else 0
               print(f"[{p.name.upper()}] ok={ok} http={http} rctype={rctype} size≈{size} url={url} err={err}")
           PY
-
-      - name: Debug | show normalized keys
-        run: |
-          python - <<'PY'
-          import json, pathlib
-          p = pathlib.Path("data/processed/normalized.json")
-          if not p.exists():
-              print("normalized.json not found")
-          else:
-              j = json.loads(p.read_text(encoding="utf-8"))
-              print("normalized keys:", list(j.keys()))
-              for k,v in j.items():
-                  print(f"{k}: {len(v)} days")
-          PY
-
 
       - name: Normalize & build products
         run: |
@@ -95,20 +104,24 @@ jobs:
           import json, pathlib
           proc = pathlib.Path("data/processed")
           n = proc/"normalized.json"
-          c = proc/"consensus_0_5d.json"
+          e = proc/"ensemble_0_5.json"  # ← 你目前的共識檔
           if n.exists():
               d = json.loads(n.read_text(encoding="utf-8"))
               provs = list(d.keys()) if isinstance(d, dict) else ["_flat_list"]
               print("normalized providers:", ", ".join(sorted(provs)))
+              for k,v in d.items():
+                  if isinstance(v, list):
+                      print(f"  - {k}: {len(v)} days")
           else:
               print("normalized.json not found")
-          if c.exists():
-              d = json.loads(c.read_text(encoding="utf-8"))
+          if e.exists():
+              d = json.loads(e.read_text(encoding="utf-8"))
               meta = d.get("meta", {})
-              print("consensus sources_used:", meta.get("sources_used"))
-              print("consensus days:", [x.get("date") for x in d.get("days", [])])
+              rows = d.get("rows", [])
+              print("ensemble sources_used:", meta.get("sources_used"))
+              print("ensemble days:", [x.get("date") for x in rows])
           else:
-              print("consensus_0_5d.json not found")
+              print("ensemble_0_5.json not found")
           PY
 
       - name: Commit outputs
