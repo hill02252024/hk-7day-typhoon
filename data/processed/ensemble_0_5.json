@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at_utc": "2025-10-22 07:51:02",
+    "generated_at_utc": "2025-10-22 07:52:35",
     "sources_used": [
       "HKO",
       "JMA",
@@ -13,7 +13,7 @@
   "rows": [
     {
       "date": "2025-10-22",
-      "text": "雨 夜遅く くもり | Light Rain",
+      "text": "雨 夜遅く くもり | Cloudy",
       "tmin": null,
       "tmax": null,
       "source_count": 2,
