@@ -229,7 +229,7 @@ def _map_generic(raw: Dict[str, Any], src_name: str) -> List[Dict[str, Any]]:
     # 只取前 10 天（之後會在共識步驟切成 5 天或 7 天）
     return out[:10]
 
-# 入口：根據 provider 決定 mapper
+# 入口：根據 provider 決定 mapper（★加上容錯回退★）
 def normalize_one(provider: str) -> List[Dict[str, Any]]:
     p = RAW / provider / "latest.json"
     if not p.exists():
@@ -238,21 +238,29 @@ def normalize_one(provider: str) -> List[Dict[str, Any]]:
     if not raw.get("ok"):
         return []
     try:
+        result: List[Dict[str, Any]] = []
         if provider == "hko":
-            return _map_hko(raw)
-        if provider == "jma":
-            return _map_jma(raw)
-        if provider == "mss":
-            return _map_mss(raw)
-        if provider == "bom":
-            return _map_bom(raw)
-        if provider == "noaa":
-            return _map_noaa(raw)
-        # 其他來源先走通用解析；等你之後補 API 後再寫專屬 mapper
-        return _map_generic(raw, provider)
+            result = _map_hko(raw)
+        elif provider == "jma":
+            result = _map_jma(raw)
+        elif provider == "mss":
+            result = _map_mss(raw)
+        elif provider == "bom":
+            result = _map_bom(raw)
+        elif provider == "noaa":
+            result = _map_noaa(raw)
+
+        # ✨關鍵：如果專屬 mapper 沒產生資料，就退回通用 mapper
+        if not result:
+            result = _map_generic(raw, provider)
+
+        return result
     except Exception:
-        # 任何解析失敗都不讓流程中斷
-        return []
+        # 任何解析失敗都不讓流程中斷；最後再用通用 mapper 撐住
+        try:
+            return _map_generic(raw, provider)
+        except Exception:
+            return []
 
 def main():
     all_items: Dict[str, List[Dict[str, Any]]] = {}
