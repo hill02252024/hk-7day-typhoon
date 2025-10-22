@@ -1,0 +1,112 @@
+name: Debug SMG RSS
+
+on:
+  workflow_dispatch: {}   # 只手動觸發
+
+permissions:
+  contents: read
+
+jobs:
+  debug-smg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests feedparser beautifulsoup4
+
+      # 1) 先檢查 SMG_URL 是否存在與格式
+      - name: Debug | check SMG_URL
+        env:
+          SMG_URL: ${{ secrets.SMG_URL }}
+        run: |
+          python - <<'PY'
+          import os, sys, urllib.parse
+          url = (os.getenv("SMG_URL") or "").strip()
+          if not url:
+            print("❌ SMG_URL not set in Secrets → Settings ▸ Secrets and variables ▸ Actions")
+            sys.exit(1)
+          u = urllib.parse.urlparse(url)
+          print(f"SMG_URL={url}")
+          print(f"scheme={u.scheme} host={u.netloc} path={u.path}")
+          if u.scheme.lower() != "http":
+            print("⚠️  建議使用 http。若用 https 可能 403/404，請改 http://rss.smg.gov.mo/c_WForecast7days_rss.xml")
+          if u.netloc.lower() != "rss.smg.gov.mo":
+            print("⚠️  host 看起來不是 rss.smg.gov.mo，請再確認")
+          PY
+
+      # 2) 抓 RSS，印出 HTTP 狀態 / Content-Type / 前幾行 XML；同時存 latest.json
+      - name: Fetch & dump SMG RSS
+        env:
+          SMG_URL: ${{ secrets.SMG_URL }}
+        run: |
+          python - <<'PY'
+          import os, time, json
+          from pathlib import Path
+          import requests
+
+          url = (os.getenv("SMG_URL") or "").strip()
+          headers = {
+              "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                            "KHTML, like Gecko) Chrome/122.0 Safari/537.36 GitHubActions/SMG-Debug"
+          }
+          r = requests.get(url, headers=headers, timeout=30)
+          print(f"HTTP {r.status_code} {r.reason}")
+          print("Content-Type:", r.headers.get("content-type"))
+
+          text = r.text
+          lines = text.splitlines()
+          print("----- RSS head (first 15 lines) -----")
+          for i, line in enumerate(lines[:15], 1):
+              print(f"{i:02d}: {line[:200]}")
+          print("-------------------------------------")
+
+          out_dir = Path("data/raw/smg")
+          out_dir.mkdir(parents=True, exist_ok=True)
+          payload = {
+              "fetched_at": int(time.time()),
+              "provider": "smg",
+              "ok": r.ok,
+              "http_status": r.status_code,
+              "response_content_type": r.headers.get("content-type"),
+              "requested_url": url,
+              "data": text
+          }
+          (out_dir / "latest.json").write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+          print("Saved:", out_dir / "latest.json")
+          PY
+
+      # 3) 用 feedparser 大略解析，印出 feed 標題與前幾筆項目（不外洩全文）
+      - name: Parse with feedparser (preview)
+        run: |
+          python - <<'PY'
+          import json, pathlib, feedparser
+          p = pathlib.Path("data/raw/smg/latest.json")
+          if not p.exists():
+            print("❌ data/raw/smg/latest.json not found"); raise SystemExit(1)
+          j = json.loads(p.read_text(encoding="utf-8"))
+          feed = feedparser.parse(j.get("data",""))
+          print("Feed title:", feed.feed.get("title"))
+          print("Entries:", len(feed.entries))
+          for e in feed.entries[:5]:
+            title = e.get("title") or "(no-title)"
+            when = e.get("published") or e.get("updated") or e.get("id") or ""
+            print("-", title, "|", when)
+          PY
+
+      # 4) 附件：latest.json 方便下載檢查
+      - name: Upload artifact (smg-latest.json)
+        uses: actions/upload-artifact@v4
+        with:
+          name: smg-latest-json
+          path: data/raw/smg/latest.json
