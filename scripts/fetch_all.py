@@ -1,12 +1,9 @@
-# scripts/fetch_all.py
 # 統一抓取 data/raw/<provider>/latest.json
-# - 會寫入中繼欄位：ok/http_status/response_content_type/requested_url/data/error
-# - 針對 SMG 加上 Referer 與「瀏覽器 UA」避免被擋
+# - 會寫入 ok/http_status/response_content_type/requested_url/data/error
+# - 為 metno/mss/smg 調整必要 header 與重試；並即時打印抓取摘要
 from __future__ import annotations
-import json
-import pathlib
-import time
-from typing import Any, Dict, Optional
+import json, pathlib, time, os
+from typing import Any, Dict
 
 import requests
 from requests.adapters import HTTPAdapter, Retry
@@ -15,12 +12,11 @@ from providers import PROVIDERS, get_url
 
 RAW_ROOT = pathlib.Path("data/raw")
 
-
 def _make_session() -> requests.Session:
     s = requests.Session()
     retries = Retry(
-        total=3,
-        backoff_factor=0.6,
+        total=4,
+        backoff_factor=0.8,
         status_forcelist=[429, 500, 502, 503, 504],
         allowed_methods=["GET"],
         raise_on_status=False,
@@ -29,31 +25,38 @@ def _make_session() -> requests.Session:
     s.mount("https://", HTTPAdapter(max_retries=retries))
     return s
 
-
 def _headers_for(provider: str) -> Dict[str, str]:
-    # 一般 UA
     ua_default = (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/120.0.0.0 Safari/537.36"
     )
-    h = {
-        "User-Agent": ua_default,
-        "Accept": "*/*",
-    }
-    # SMG（澳門）RSS/XML 有時會擋非瀏覽器：加強 Accept 與 Referer
+    h = {"User-Agent": ua_default, "Accept": "*/*"}
+
+    # 澳門 SMG RSS/XML
     if provider == "smg":
         h.update({
-            "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+            "Accept": "application/xml,text/xml;q=0.9,*/*;q=0.8",
             "Referer": "https://xml.smg.gov.mo/",
         })
+
+    # 新加坡 data.gov.sg
+    if provider == "mss":
+        h.update({
+            "Accept": "application/json",
+            "Referer": "https://api.data.gov.sg/",
+        })
+
+    # MET Norway（嚴格要求 UA 與聯絡資訊）
+    if provider == "metno":
+        proj = os.getenv("METNO_PROJECT", "hk-7day-typhoon/1.0")
+        contact = os.getenv("METNO_CONTACT", "contact@example.com")
+        h.update({
+            "User-Agent": f"{proj} ({contact})",
+            "From": contact,
+            "Accept": "application/json,application/xml;q=0.9,*/*;q=0.8",
+        })
     return h
-
-
-def _looks_like_json(s: str) -> bool:
-    s2 = s.strip()
-    return (s2.startswith("{") and s2.endswith("}")) or (s2.startswith("[") and s2.endswith("]"))
-
 
 def _fetch_one(session: requests.Session, provider: str, url: str) -> Dict[str, Any]:
     now = int(time.time())
@@ -68,7 +71,7 @@ def _fetch_one(session: requests.Session, provider: str, url: str) -> Dict[str, 
         "error": None,
     }
     try:
-        resp = session.get(url, timeout=25, headers=_headers_for(provider))
+        resp = session.get(url, timeout=30, headers=_headers_for(provider))
         out["http_status"] = resp.status_code
         ctype = (resp.headers.get("Content-Type") or "").split(";")[0].strip().lower()
         out["response_content_type"] = ctype
@@ -82,46 +85,25 @@ def _fetch_one(session: requests.Session, provider: str, url: str) -> Dict[str, 
             out["error"] = "Empty body"
             return out
 
-        # ✅ 重點：JSON 先 parse 成物件，其餘（XML/RSS/純文字）保留字串
-        data: Any
-        if "application/json" in ctype or _looks_like_json(text):
-            try:
-                data = json.loads(text)
-            except Exception as e:
-                # 無法解析就把原文存字串，交給 normalize 防呆
-                data = text
-                out["error"] = f"json_decode_error: {e!r}"
-        else:
-            data = text
-
-        out["data"] = data
+        out["data"] = text  # 解析放 normalize 階段
         out["ok"] = True
         return out
     except Exception as e:
         out["error"] = repr(e)
         return out
 
-
 def main():
     RAW_ROOT.mkdir(parents=True, exist_ok=True)
-    session = _make_session()
-
-    # （可選）列出有無 URL 的 provider，便於排錯
-    active, missing = [], []
-    for prov in PROVIDERS:
-        (active if get_url(prov) else missing).append(prov)
-    print("[fetch_all] active providers with URL:", ", ".join(active) or "(none)")
-    print("[fetch_all] providers missing URL:", ", ".join(missing) or "(none)")
+    s = _make_session()
 
     for prov in PROVIDERS:
         url = get_url(prov)
-        prov_dir = RAW_ROOT / prov
-        prov_dir.mkdir(parents=True, exist_ok=True)
-        out_path = prov_dir / "latest.json"
+        d = RAW_ROOT / prov
+        d.mkdir(parents=True, exist_ok=True)
+        outp = d / "latest.json"
 
         if not url:
-            # 沒提供 URL → 不抓，但寫個簡短 stub 方便 debug
-            stub = {
+            result = {
                 "fetched_at": int(time.time()),
                 "provider": prov,
                 "ok": False,
@@ -131,12 +113,19 @@ def main():
                 "data": None,
                 "error": "MISSING_URL",
             }
-            out_path.write_text(json.dumps(stub, ensure_ascii=False, indent=2), encoding="utf-8")
+            outp.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"[{prov.upper()}] url=∅  -> skip")
             continue
 
-        result = _fetch_one(session, prov, url)
-        out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+        result = _fetch_one(s, prov, url)
+        outp.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
 
+        # 立刻打印重點（一眼看出哪個失敗）
+        ok = result.get("ok")
+        http = result.get("http_status")
+        rctype = result.get("response_content_type")
+        err = result.get("error")
+        print(f"[{prov.upper()}] ok={ok} http={http} type={rctype} err={err} url={url}")
 
 if __name__ == "__main__":
     main()
