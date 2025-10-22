@@ -1,1 +1,65 @@
-[]
+[
+  {
+    "date": "20251023",
+    "text": "Mainly cloudy. Slightly cooler in the morning. Bright periods during the day.",
+    "tmin": 19,
+    "tmax": 24,
+    "src": "HKO"
+  },
+  {
+    "date": "20251024",
+    "text": "Sunny intervals. Dry during the day.",
+    "tmin": 22,
+    "tmax": 27,
+    "src": "HKO"
+  },
+  {
+    "date": "20251025",
+    "text": "Sunny periods. Dry during the day.",
+    "tmin": 23,
+    "tmax": 30,
+    "src": "HKO"
+  },
+  {
+    "date": "20251026",
+    "text": "Sunny periods. Dry during the day.",
+    "tmin": 23,
+    "tmax": 30,
+    "src": "HKO"
+  },
+  {
+    "date": "20251027",
+    "text": "Sunny intervals.",
+    "tmin": 23,
+    "tmax": 28,
+    "src": "HKO"
+  },
+  {
+    "date": "20251028",
+    "text": "Mainly cloudy with one or two rain patches. Bright periods during the day.",
+    "tmin": 23,
+    "tmax": 28,
+    "src": "HKO"
+  },
+  {
+    "date": "20251029",
+    "text": "Mainly cloudy. Sunny intervals during the day.",
+    "tmin": 25,
+    "tmax": 29,
+    "src": "HKO"
+  },
+  {
+    "date": "20251030",
+    "text": "Sunny periods.",
+    "tmin": 25,
+    "tmax": 29,
+    "src": "HKO"
+  },
+  {
+    "date": "20251031",
+    "text": "Sunny periods.",
+    "tmin": 25,
+    "tmax": 30,
+    "src": "HKO"
+  }
+]

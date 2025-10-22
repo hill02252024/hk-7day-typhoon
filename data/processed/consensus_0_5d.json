@@ -1,7 +1,46 @@
 {
-  "days": [],
+  "days": [
+    {
+      "date": "20251023",
+      "text": "Mainly cloudy. Slightly cooler in the morning. Bright periods during the day.",
+      "tmin": 19.0,
+      "tmax": 24.0
+    },
+    {
+      "date": "20251024",
+      "text": "Sunny intervals. Dry during the day.",
+      "tmin": 22.0,
+      "tmax": 27.0
+    },
+    {
+      "date": "20251025",
+      "text": "Sunny periods. Dry during the day.",
+      "tmin": 23.0,
+      "tmax": 30.0
+    },
+    {
+      "date": "20251026",
+      "text": "Sunny periods. Dry during the day.",
+      "tmin": 23.0,
+      "tmax": 30.0
+    },
+    {
+      "date": "20251027",
+      "text": "Sunny intervals.",
+      "tmin": 23.0,
+      "tmax": 28.0
+    }
+  ],
   "meta": {
-    "sources_used": [],
-    "source_count_by_day": {}
+    "sources_used": [
+      "HKO"
+    ],
+    "source_count_by_day": {
+      "20251023": 1,
+      "20251024": 1,
+      "20251025": 1,
+      "20251026": 1,
+      "20251027": 1
+    }
   }
 }

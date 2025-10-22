@@ -1,7 +1,9 @@
 {
-  "as_of_utc": "2025-10-22T03:29:30Z",
-  "overall_best": "—",
+  "as_of_utc": "2025-10-22T03:42:43Z",
+  "overall_best": "HKO",
   "by_lead": {},
   "by_metric": {},
-  "weights": {}
+  "weights": {
+    "HKO": 1.0
+  }
 }
