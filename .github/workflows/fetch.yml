@@ -65,6 +65,21 @@ jobs:
               print(f"[{p.name.upper()}] ok={ok} http={http} rctype={rctype} size≈{size} url={url} err={err}")
           PY
 
+      - name: Debug | show normalized keys
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p = pathlib.Path("data/processed/normalized.json")
+          if not p.exists():
+              print("normalized.json not found")
+          else:
+              j = json.loads(p.read_text(encoding="utf-8"))
+              print("normalized keys:", list(j.keys()))
+              for k,v in j.items():
+                  print(f"{k}: {len(v)} days")
+          PY
+
+
       - name: Normalize & build products
         run: |
           python scripts/normalize_all.py
