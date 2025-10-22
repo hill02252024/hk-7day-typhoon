@@ -1,11 +1,10 @@
 {
-  "fetched_at": 1761114788,
+  "fetched_at": 1761116999,
   "provider": "hko",
   "ok": true,
   "requested_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=en",
-  "content_type": "json",
   "http_status": 200,
-  "response_content_type": "application/json; charset=utf-8",
+  "content_type": "json",
   "data": {
     "generalSituation": "Under the influence of an intense northeast monsoon, the weather will remain slightly cooler over Guangdong tomorrow morning. With the monsoon moderating gradually in the following couple of days, the weather will improve over southern China. It will be dry with temperatures rising during the day. An easterly airstream will affect Guangdong early to midweek next week. It will be cloudier over the region. Tropical Cyclone Fengshen will make landfall over the central part of Vietnam and weaken later tomorrow. Besides, the area of low pressure now over the seas east of Taiwan is bringing unsettled weather to the region.",
     "weatherForecast": [

@@ -1,11 +1,13 @@
 {
-  "as_of_utc": "2025-10-22T06:33:20Z",
-  "overall_best": "HKO",
+  "as_of_utc": "2025-10-22T07:10:04Z",
+  "overall_best": "METNO",
   "by_lead": {},
   "by_metric": {},
   "weights": {
-    "HKO": 0.692,
-    "JMA": 0.231,
-    "MSS": 0.077
+    "HKO": 0.375,
+    "JMA": 0.125,
+    "MSS": 0.042,
+    "METNO": 0.417,
+    "SMG": 0.042
   }
 }
