@@ -1,44 +1,53 @@
 # scripts/fetch_all.py
+# 統一抓取 data/raw/<provider>/latest.json
+# - 會寫入中繼欄位：ok/http_status/response_content_type/requested_url/data/error
+# - 針對 SMG 加上 Referer 與「瀏覽器 UA」避免被擋
 from __future__ import annotations
 import json
-import time
 import pathlib
-from typing import Dict, Any, Optional
+import time
+from typing import Any, Dict, Optional
+
 import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
+from requests.adapters import HTTPAdapter, Retry
 
 from providers import PROVIDERS, get_url
 
+RAW_ROOT = pathlib.Path("data/raw")
 
-RAW = pathlib.Path("data/raw")
-RAW.mkdir(parents=True, exist_ok=True)
-
-UA = (
-    "hk-7day-typhoon/1.0 (+github-actions; for research & non-commercial use) "
-    "python-requests"
-)
 
 def _make_session() -> requests.Session:
     s = requests.Session()
-    s.headers.update({"User-Agent": UA, "Accept": "*/*"})
     retries = Retry(
-        total=3, backoff_factor=0.5,
-        status_forcelist=(429, 500, 502, 503, 504),
-        allowed_methods=frozenset(["GET"])
+        total=3,
+        backoff_factor=0.6,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["GET"],
+        raise_on_status=False,
     )
     s.mount("http://", HTTPAdapter(max_retries=retries))
     s.mount("https://", HTTPAdapter(max_retries=retries))
     return s
 
 
-def _save(provider: str, payload: Dict[str, Any]) -> None:
-    outdir = RAW / provider
-    outdir.mkdir(parents=True, exist_ok=True)
-    (outdir / "latest.json").write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2),
-        encoding="utf-8"
+def _headers_for(provider: str) -> Dict[str, str]:
+    # 一般 UA
+    ua_default = (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/120.0.0.0 Safari/537.36"
     )
+    h = {
+        "User-Agent": ua_default,
+        "Accept": "*/*",
+    }
+    # SMG（澳門）RSS/XML 有時會擋非瀏覽器：加強 Accept 與 Referer
+    if provider == "smg":
+        h.update({
+            "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+            "Referer": "https://xml.smg.gov.mo/",
+        })
+    return h
 
 
 def _fetch_one(session: requests.Session, provider: str, url: str) -> Dict[str, Any]:
@@ -54,7 +63,7 @@ def _fetch_one(session: requests.Session, provider: str, url: str) -> Dict[str, 
         "error": None,
     }
     try:
-        resp = session.get(url, timeout=20)
+        resp = session.get(url, timeout=25, headers=_headers_for(provider))
         out["http_status"] = resp.status_code
         ctype = (resp.headers.get("Content-Type") or "").split(";")[0].strip().lower()
         out["response_content_type"] = ctype
@@ -63,18 +72,14 @@ def _fetch_one(session: requests.Session, provider: str, url: str) -> Dict[str, 
             out["error"] = f"HTTP {resp.status_code}"
             return out
 
-        # JSON → 解析為物件；RSS/XML/HTML → 儲存純文字
-        if "json" in ctype or url.lower().endswith(".json"):
-            try:
-                out["data"] = resp.json()
-                out["ok"] = True
-            except Exception as e:
-                out["error"] = f"JSON parse error: {e}"
-        else:
-            text = resp.text
-            out["data"] = text
-            out["ok"] = True
+        text = resp.text or ""
+        if not text.strip():
+            out["error"] = "Empty body"
+            return out
 
+        # 允許 JSON / XML / RSS / 純文字（回到 normalize 再判斷）
+        out["data"] = text
+        out["ok"] = True
         return out
     except Exception as e:
         out["error"] = repr(e)
@@ -82,14 +87,18 @@ def _fetch_one(session: requests.Session, provider: str, url: str) -> Dict[str, 
 
 
 def main():
-    s = _make_session()
-    any_success = False
+    RAW_ROOT.mkdir(parents=True, exist_ok=True)
+    session = _make_session()
 
     for prov in PROVIDERS:
         url = get_url(prov)
+        prov_dir = RAW_ROOT / prov
+        prov_dir.mkdir(parents=True, exist_ok=True)
+        out_path = prov_dir / "latest.json"
+
         if not url:
-            # 沒有設定 URL 就跳過，但仍然留一個 latest.json 告知 skipped
-            _save(prov, {
+            # 沒提供 URL → 不抓，但寫個簡短 stub 方便 debug
+            stub = {
                 "fetched_at": int(time.time()),
                 "provider": prov,
                 "ok": False,
@@ -97,20 +106,13 @@ def main():
                 "http_status": None,
                 "response_content_type": None,
                 "data": None,
-                "error": "skipped: no URL",
-            })
+                "error": "MISSING_URL",
+            }
+            out_path.write_text(json.dumps(stub, ensure_ascii=False, indent=2), encoding="utf-8")
             continue
 
-        payload = _fetch_one(s, prov, url)
-        _save(prov, payload)
-        if payload.get("ok"):
-            any_success = True
-
-    if not any_success:
-        # 讓 workflow 不要因沒有資料就靜默成功
-        print("No provider fetched successfully. Check secrets/URLs.")
-    else:
-        print("Fetch done.")
+        result = _fetch_one(session, prov, url)
+        out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":
