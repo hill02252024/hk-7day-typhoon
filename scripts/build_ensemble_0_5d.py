@@ -1,97 +1,99 @@
 # scripts/build_ensemble_0_5d.py
+# 目的：把 data/processed/normalized.json 中的多來源資料，合成 0–5 天「共識」輸出
+# 作法：
+# 1) 動態讀取所有已標準化成功的來源（不再用硬編碼白名單）；
+# 2) 依日期彙總各來源文字，tmin/tmax 取「中位數」（更抗極端值）；
+# 3) 寫出 data/processed/consensus_0_5d.json 給前端使用。
+
 from __future__ import annotations
-import json, pathlib
-from typing import Dict, Any, List, Optional
-from datetime import datetime
+import json, pathlib, statistics
+from typing import Dict, List, Any, Optional
 
-INP = pathlib.Path("data/processed/normalized.json")
-OUT = pathlib.Path("data/processed/ensemble_0_5.json")
-OUT.parent.mkdir(parents=True, exist_ok=True)
+PROC = pathlib.Path("data/processed")
+PROC.mkdir(parents=True, exist_ok=True)
 
-def _as_date(s: str) -> str:
-    # 已是 YYYY-MM-DD 就直接回傳；否則嘗試切片
-    if isinstance(s, str) and len(s) >= 10 and s[4] == "-":
-        return s[:10]
-    return s
-
-def _pick_temp(records: List[Dict[str, Any]], kind: str) -> Optional[float]:
-    """優先用 HKO 的 tmin/tmax；沒有就用其他來源第一個有數字的。"""
-    # 1) HKO
-    for r in records:
-        if r.get("src") == "HKO" and isinstance(r.get(kind), (int, float)):
-            return r[kind]
-    # 2) 其他
-    for r in records:
-        v = r.get(kind)
-        if isinstance(v, (int, float)):
-            return v
-    return None
+def _median(nums: List[float]) -> Optional[float]:
+    nums2 = [float(x) for x in nums if isinstance(x, (int, float))]
+    if not nums2:
+        return None
+    try:
+        return round(statistics.median(nums2), 1)
+    except Exception:
+        return None
 
 def main():
-    if not INP.exists():
-        print("normalized.json not found; skip ensemble.")
+    nfile = PROC / "normalized.json"
+    if not nfile.exists():
+        print("normalized.json not found; skip")
         return
-    norm = json.loads(INP.read_text(encoding="utf-8"))
+    norm = json.loads(nfile.read_text(encoding="utf-8"))
 
-    # 動態使用所有在 normalized.json 裡「有資料」的來源
-    sources: List[str] = [k for k,v in norm.items() if isinstance(v, list) and len(v) > 0]
-    sources = sorted(sources, key=lambda x: ["hko","jma","mss","metno","smg"].index(x) if x in ["hko","jma","mss","metno","smg"] else 99)
+    # ---- 來源使用邏輯 ----
+    # 偏好順序（只用來排序顯示；不限制來源）
+    PREFERRED = [
+        "hko", "jma", "metno", "mss", "smg",
+        "bom", "noaa", "cwa", "kma", "tmd", "bmkg", "jtwc"
+    ]
 
-    # 聚合所有日期
-    by_date: Dict[str, List[Dict[str, Any]]] = {}
-    for prov, arr in norm.items():
-        if not isinstance(arr, list) or not arr:
-            continue
-        for it in arr:
-            d = _as_date(it.get("date"))
+    # 先按偏好順序取交集，再把其它有資料的來源接在後面
+    present = list(norm.keys()) if isinstance(norm, dict) else []
+    ordered = [p for p in PREFERRED if p in present] + [p for p in present if p not in PREFERRED]
+
+    # 建立全域的日期清單（所有來源的 union），然後取最早的 5 天
+    date_set = set()
+    by_src: Dict[str, Dict[str, Dict[str, Any]]] = {}
+    for src in ordered:
+        items = norm.get(src, [])
+        m: Dict[str, Dict[str, Any]] = {}
+        for it in items:
+            d = it.get("date")
             if not d:
                 continue
-            rec = {
-                "src": (prov or "").upper(),
-                "text": (it.get("text") or "").strip() or None,
-                "tmin": it.get("tmin"),
-                "tmax": it.get("tmax"),
-            }
-            by_date.setdefault(d, []).append(rec)
+            date_set.add(d)
+            m[d] = it
+        by_src[src] = m
 
-    # 取未來 0–5 天（以日期排序後前 5 個）
-    dates = sorted(by_date.keys())[:5]
+    all_dates = sorted(date_set)[:5]  # 只做 0–5 天
+    out_days: List[Dict[str, Any]] = []
 
-    rows = []
-    for d in dates:
-        recs = by_date[d]
-        # 文字：把多來源文字去重後串起（順序用上面 sources 排序）
-        texts: List[str] = []
-        for s in [s.upper() for s in sources]:
-            for r in recs:
-                if r["src"] == s and r.get("text"):
-                    if r["text"] not in texts:
-                        texts.append(r["text"])
-        text_join = " | ".join(texts) if texts else None
+    for d in all_dates:
+        texts = []
+        tmins, tmaxs = [], []
+        used_srcs = []
 
-        tmin = _pick_temp(recs, "tmin")
-        tmax = _pick_temp(recs, "tmax")
+        for src in ordered:
+            it = by_src.get(src, {}).get(d)
+            if not it:
+                continue
+            used_srcs.append(src.upper())
+            if it.get("text"):
+                texts.append(it["text"])
+            if isinstance(it.get("tmin"), (int, float)):
+                tmins.append(it["tmin"])
+            if isinstance(it.get("tmax"), (int, float)):
+                tmaxs.append(it["tmax"])
 
-        # 參與該日的來源列表
-        part = sorted({r["src"] for r in recs})
-        rows.append({
+        day_obj = {
             "date": d,
-            "text": text_join,
-            "tmin": tmin,
-            "tmax": tmax,
-            "source_count": len(part),
-            "sources": part,
-        })
+            "text": " | ".join(texts) if texts else None,
+            "tmin": _median(tmins),
+            "tmax": _median(tmaxs),
+            "sources": used_srcs,   # 這一天實際有資料的來源
+        }
+        out_days.append(day_obj)
 
-    meta = {
-        "generated_at_utc": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"),
-        "sources_used": [s.upper() for s in sources],
-        "source_count": len(sources),
-        "note": "0–5 天共識使用 normalized.json 中所有可用來源；溫度優先 HKO，否則取其他首個數值。",
+    out = {
+        "meta": {
+            "sources_used": [s.upper() for s in ordered],  # 全局層級顯示的來源列表（依偏好排序）
+            "provider_count": len(ordered),
+        },
+        "days": out_days,
     }
 
-    OUT.write_text(json.dumps({"meta": meta, "rows": rows}, ensure_ascii=False, indent=2), encoding="utf-8")
-    print("ensemble_0_5.json written. sources_used:", meta["sources_used"])
+    (PROC / "consensus_0_5d.json").write_text(
+        json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    print("consensus_0_5d.json written. sources_used =", out["meta"]["sources_used"])
 
 if __name__ == "__main__":
     main()
