@@ -1,5 +1,5 @@
 {
-  "fetched_at": 1761117000,
+  "fetched_at": 1761117623,
   "provider": "metno",
   "ok": true,
   "requested_url": "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=22.302&lon=114.177",
