@@ -118,47 +118,74 @@ def _map_mss(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
         _append(out, date, text, src="MSS")
     return out
 
-# 4) BOM – 澳洲 BOM district forecast JSON（例如 IDN11060.json）
-# 常見結構：{"data":{...}} 或直接 {"forecasts": ...}；不同產品略有差異。
-# 我們嘗試多種常見鍵位，抓出 (date, text, min/max temperature)。
+# 4) BOM – 澳洲 BOM（新版 / 舊版都支援）
+# 新版（建議）結構：api.weather.bom.gov.au/v1/locations/{lat,lon}/forecasts/daily
+#   可能長：{"data":{"forecasts":[{"date":"YYYY-MM-DD","temp_min":..,"temp_max":..,"overview":"..."}]}}
+# 舊版 FWO：/fwo/IDN11060.json → 多層 product/periods 或 forecasts/districts
 def _map_bom(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
-    root = raw.get("data") if isinstance(raw.get("data"), dict) else raw
+    root = raw.get("data") if isinstance(raw.get("data"), (dict, list)) else raw
     out: List[Dict[str, Any]] = []
 
-    # A. {"product":{"periods":[{"startTimeLocal":"...","text":"...", "tempMin":..,"tempMax":..}, ...]}}
-    periods = _safe_get(root, "product", "periods", default=[])
-    if isinstance(periods, list) and periods:
-        for p in periods:
-            date = p.get("startTimeLocal") or p.get("startTimeUTC") or p.get("start")
-            text = p.get("text") or p.get("detailedForecast") or p.get("summary")
-            tmin = p.get("tempMin") or p.get("air_temperature_minimum")
-            tmax = p.get("tempMax") or p.get("air_temperature_maximum")
-            _append(out, date, text, tmin, tmax, src="BOM")
+    # A. 新版 daily（優先）
+    # 可能是 {"data":{"forecasts":[...]}} 或 {"forecasts":[...]} 或 {"data":[...]}
+    forecasts = _safe_get(root, "data", "forecasts", default=None)
+    if not isinstance(forecasts, list):
+        forecasts = root.get("forecasts") if isinstance(root, dict) else None
+    if not isinstance(forecasts, list):
+        forecasts = _safe_get(root, "data", default=None)  # 某些版本把 forecasts 直接放 data 陣列
+    if isinstance(forecasts, list) and forecasts:
+        for d in forecasts:
+            if not isinstance(d, dict): 
+                continue
+            _append(
+                out,
+                d.get("date") or d.get("startTimeLocal") or d.get("start"),
+                d.get("overview") or d.get("text") or d.get("summary") or d.get("detailedForecast"),
+                d.get("temp_min") or d.get("minimum_temp") or d.get("air_temperature_minimum"),
+                d.get("temp_max") or d.get("maximum_temp") or d.get("air_temperature_maximum"),
+                src="BOM"
+            )
 
-    # B. {"forecasts":{"districts":[{"forecast":{"days":[{"date":"YYYY-MM-DD","text":"...","temp_min":..,"temp_max":..}]}}]}}
+    # B. 舊版 product.periods
+    if not out:
+        periods = _safe_get(root, "product", "periods", default=[])
+        if isinstance(periods, list) and periods:
+            for p in periods:
+                _append(
+                    out,
+                    p.get("startTimeLocal") or p.get("startTimeUTC") or p.get("start"),
+                    p.get("text") or p.get("detailedForecast") or p.get("summary"),
+                    p.get("tempMin") or p.get("air_temperature_minimum"),
+                    p.get("tempMax") or p.get("air_temperature_maximum"),
+                    src="BOM"
+                )
+
+    # C. 舊版 forecasts.districts[].forecast.days
     if not out:
         days = _safe_get(root, "forecasts", "districts", 0, "forecast", "days", default=[])
         if isinstance(days, list) and days:
             for d in days:
                 _append(out, d.get("date"), d.get("text"), d.get("temp_min"), d.get("temp_max"), src="BOM")
 
-    # C. 保底：在陣列中找帶有 date 和 text 的物件
+    # D. 其它常見 key 的保底
     if not out:
         for key in ("forecasts", "daily", "items", "list", "days"):
             arr = _safe_get(root, key, default=[])
             if isinstance(arr, list) and arr:
                 for d in arr:
-                    if isinstance(d, dict) and (d.get("date") or d.get("start") or d.get("time")):
-                        _append(
-                            out,
-                            d.get("date") or d.get("start") or d.get("time"),
-                            d.get("text") or d.get("detailed") or d.get("summary"),
-                            d.get("min") or d.get("tmin") or d.get("temp_min"),
-                            d.get("max") or d.get("tmax") or d.get("temp_max"),
-                            src="BOM"
-                        )
+                    if not isinstance(d, dict):
+                        continue
+                    _append(
+                        out,
+                        d.get("date") or d.get("start") or d.get("time"),
+                        d.get("text") or d.get("detailed") or d.get("summary") or d.get("overview"),
+                        d.get("min") or d.get("tmin") or d.get("temp_min") or d.get("minimum_temp"),
+                        d.get("max") or d.get("tmax") or d.get("temp_max") or d.get("maximum_temp"),
+                        src="BOM"
+                    )
                 if out:
                     break
+
     # 去重日期
     dedup: Dict[str, Dict[str, Any]] = {}
     for it in out:
@@ -167,9 +194,8 @@ def _map_bom(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
             dedup[d] = it
     return list(dedup.values())
 
-# 5) NOAA / NWS – api.weather.gov gridpoints（JSON）
-# 結構：{"properties":{"periods":[{"startTime":"2025-10-22T06:00:00-10:00","isDaytime":true,"temperature":86,"temperatureUnit":"F","detailedForecast":"..."}]}}
-# 我們把 periods 依「日期」分組，偏好 isDaytime=True 的那筆；華氏→攝氏。
+# 5) NOAA / NWS – api.weather.gov
+# 最常見輸出：{"properties":{"periods":[{...}]}}（points 或 gridpoints 的 /forecast 最終都會有 periods）
 def _f_to_c(v: Any) -> Optional[float]:
     try:
         return round((float(v) - 32) * 5.0/9.0, 1)
@@ -177,12 +203,14 @@ def _f_to_c(v: Any) -> Optional[float]:
         return None
 
 def _map_noaa(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
+    # 可能是 {"data":{"properties":{"periods":[...]}}} 或 {"properties":{"periods":[...]}}
     root = raw.get("data") if isinstance(raw.get("data"), dict) else raw
     periods = _safe_get(root, "properties", "periods", default=[])
     out: List[Dict[str, Any]] = []
     if not isinstance(periods, list) or not periods:
         return out
-    # 依日期分組
+
+    # 依日期分組（優先 isDaytime=True）
     by_date: Dict[str, Dict[str, Any]] = {}
     for p in periods:
         date = _as_iso_date(p.get("startTime"))
@@ -194,7 +222,7 @@ def _map_noaa(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
             by_date[date]["day"] = p
         else:
             by_date[date]["night"] = p
-    # 優先取白天；溫度只放入對應那一筆
+
     for d in sorted(by_date.keys()):
         cand = by_date[d]["day"] or by_date[d]["night"]
         if not cand:
@@ -207,7 +235,7 @@ def _map_noaa(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
             t = float(temp)
             if unit and unit.upper() == "F":
                 t = _f_to_c(t)
-        # 由於 NWS 給的是單一溫度（時段），我們把它放到 tmax，tmin 留空
+        # NWS 給的是單一溫度（時段），放到 tmax，tmin 留空
         _append(out, d, text, None, t, src="NOAA")
     return out
 
@@ -229,9 +257,9 @@ def _map_generic(raw: Dict[str, Any], src_name: str) -> List[Dict[str, Any]]:
         if not isinstance(d, dict): 
             continue
         date = d.get("date") or d.get("validDate") or d.get("forecastDate") or d.get("startTime")
-        text = d.get("text") or d.get("summary") or d.get("weather") or d.get("forecast") or d.get("wx")
-        tmin = d.get("tmin") or d.get("min") or d.get("min_temp") or _safe_get(d,"temperature","min")
-        tmax = d.get("tmax") or d.get("max") or d.get("max_temp") or _safe_get(d,"temperature","max")
+        text = d.get("text") or d.get("summary") or d.get("weather") or d.get("forecast") or d.get("wx") or d.get("overview")
+        tmin = d.get("tmin") or d.get("min") or d.get("min_temp") or _safe_get(d,"temperature","min") or d.get("temp_min")
+        tmax = d.get("tmax") or d.get("max") or d.get("max_temp") or _safe_get(d,"temperature","max") or d.get("temp_max")
         _append(out, date, text, tmin, tmax, src_name)
     # 只取前 10 天（之後會在共識步驟切成 5 天或 7 天）
     return out[:10]
