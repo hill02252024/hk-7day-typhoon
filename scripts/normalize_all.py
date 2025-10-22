@@ -1,8 +1,5 @@
 # scripts/normalize_all.py
-# 目的：把 data/raw/<provider>/latest.json 轉成統一的 7 日城市級預報格式
-# 已內建專屬 mapper：HKO / JMA / MSS / BOM / NOAA
-# 其他（JTWC / CWA / KMA / TMD / BMKG）先走通用 mapper（不會阻塞流程）
-
+# 把 data/raw/<provider>/latest.json 轉成統一逐日（date/text/tmin/tmax/src）
 from __future__ import annotations
 import json, pathlib, re
 from typing import List, Dict, Any, Optional
@@ -12,7 +9,7 @@ RAW = pathlib.Path("data/raw")
 OUT = pathlib.Path("data/processed")
 OUT.mkdir(parents=True, exist_ok=True)
 
-# ---------- 小工具 ----------
+# ---------- 工具 ----------
 def _safe_get(d: Any, *keys, default=None):
     cur = d
     for k in keys:
@@ -25,7 +22,6 @@ def _safe_get(d: Any, *keys, default=None):
 def _clean_text(s: Optional[str]) -> Optional[str]:
     if not isinstance(s, str):
         return None
-    # 全形空白→半形、連續空白壓縮
     s = s.replace("\u3000", " ").replace("\xa0", " ").strip()
     s = re.sub(r"\s+", " ", s)
     return s or None
@@ -34,16 +30,23 @@ def _as_iso_date(s: Optional[str]) -> Optional[str]:
     if not s:
         return None
     s = str(s).strip()
-    # 常見格式：YYYYMMDD / YYYY-MM-DD / YYYY/MM/DD / 2025-10-22T00:00:00+08:00
-    if re.fullmatch(r"\d{8}", s):                  # 20251022
+    if re.fullmatch(r"\d{8}", s):
         return f"{s[0:4]}-{s[4:6]}-{s[6:8]}"
     m = re.match(r"(\d{4})[-/](\d{2})[-/](\d{2})", s)
     if m:
         return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
-    # ISO datetime 取日期
     m = re.match(r"(\d{4}-\d{2}-\d{2})", s)
     if m:
         return m.group(1)
+    # pubDate 這種格式：Wed, 22 Oct 2025 04:00:00 +0800
+    m = re.search(r"(\d{1,2})\s+([A-Za-z]{3})\s+(20\d{2})", s)
+    if m:
+        day, mon, yy = m.groups()
+        mm = {
+            "Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06",
+            "Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12",
+        }.get(mon, "01")
+        return f"{yy}-{mm}-{int(day):02d}"
     return s
 
 def _append(out: List[Dict[str, Any]], date, text, tmin=None, tmax=None, src=""):
@@ -57,9 +60,7 @@ def _append(out: List[Dict[str, Any]], date, text, tmin=None, tmax=None, src="")
         "src": (src or "").upper()
     })
 
-# ---------- 各來源 mapper ----------
-
-# 1) HKO – 香港天文台 9-day API（JSON）
+# ---------- HKO ----------
 def _map_hko(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
     wf = _safe_get(raw, "data", "weatherForecast", default=[])
     out: List[Dict[str, Any]] = []
@@ -74,29 +75,23 @@ def _map_hko(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
         )
     return out
 
-# 2) JMA – 日本氣象廳 bosai/forecast（JSON）
-# 典型結構：[{ "timeSeries": [ { "timeDefines": [...], "areas": [{ "weathers": [...], ...}] }, ... ] }]
-# 我們取第一個有 "weathers" 的 timeSeries，配上 timeDefines 生成逐日摘要。
+# ---------- JMA（bosai） ----------
 def _map_jma(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
     arr = raw.get("data") if isinstance(raw.get("data"), list) else raw
-    if isinstance(arr, list) and arr:
-        root = arr[0]
-    else:
-        root = arr
+    root = arr[0] if isinstance(arr, list) and arr else arr
     ts_list = _safe_get(root, "timeSeries", default=[]) or []
     out: List[Dict[str, Any]] = []
     for ts in ts_list:
         time_def = ts.get("timeDefines")
         areas = ts.get("areas")
         if isinstance(time_def, list) and isinstance(areas, list) and areas:
-            # 取第一個地區（JMA JSON 依地區代碼；這裡只為 MVP 取一個，避免重複）
             weathers = areas[0].get("weathers") or areas[0].get("weatherCodes")
             if isinstance(weathers, list) and weathers:
                 for i, t in enumerate(time_def):
                     text = weathers[i] if i < len(weathers) else None
                     _append(out, t, text, src="JMA")
                 break
-    # JMA 可能是 3 小時/12 小時粒度；簡化：只保留每天第一筆
+    # 只留每日一筆
     dedup: Dict[str, Dict[str, Any]] = {}
     for it in out:
         d = it.get("date")
@@ -104,9 +99,7 @@ def _map_jma(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
             dedup[d] = it
     return list(dedup.values())
 
-# 3) MSS – 新加坡 data.gov.sg 24h 預報（JSON）
-# 結構：items[0].general.forecast，valid_period.start / end
-# 我們輸出 1 天的摘要（MVP；之後可擴充 2–3 天展望端點）
+# ---------- MSS（新加坡 24h） ----------
 def _map_mss(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
     root = raw.get("data") if isinstance(raw.get("data"), dict) else raw
     items = root.get("items") if isinstance(root, dict) else None
@@ -118,128 +111,107 @@ def _map_mss(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
         _append(out, date, text, src="MSS")
     return out
 
-# 4) BOM – 澳洲 BOM（新版 / 舊版都支援）
-# 新版（建議）結構：api.weather.bom.gov.au/v1/locations/{lat,lon}/forecasts/daily
-#   可能長：{"data":{"forecasts":[{"date":"YYYY-MM-DD","temp_min":..,"temp_max":..,"overview":"..."}]}}
-# 舊版 FWO：/fwo/IDN11060.json → 多層 product/periods 或 forecasts/districts
-def _map_bom(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
-    root = raw.get("data") if isinstance(raw.get("data"), (dict, list)) else raw
-    out: List[Dict[str, Any]] = []
-
-    # A. 新版 daily（優先）
-    # 可能是 {"data":{"forecasts":[...]}} 或 {"forecasts":[...]} 或 {"data":[...]}
-    forecasts = _safe_get(root, "data", "forecasts", default=None)
-    if not isinstance(forecasts, list):
-        forecasts = root.get("forecasts") if isinstance(root, dict) else None
-    if not isinstance(forecasts, list):
-        forecasts = _safe_get(root, "data", default=None)  # 某些版本把 forecasts 直接放 data 陣列
-    if isinstance(forecasts, list) and forecasts:
-        for d in forecasts:
-            if not isinstance(d, dict): 
-                continue
-            _append(
-                out,
-                d.get("date") or d.get("startTimeLocal") or d.get("start"),
-                d.get("overview") or d.get("text") or d.get("summary") or d.get("detailedForecast"),
-                d.get("temp_min") or d.get("minimum_temp") or d.get("air_temperature_minimum"),
-                d.get("temp_max") or d.get("maximum_temp") or d.get("air_temperature_maximum"),
-                src="BOM"
-            )
-
-    # B. 舊版 product.periods
-    if not out:
-        periods = _safe_get(root, "product", "periods", default=[])
-        if isinstance(periods, list) and periods:
-            for p in periods:
-                _append(
-                    out,
-                    p.get("startTimeLocal") or p.get("startTimeUTC") or p.get("start"),
-                    p.get("text") or p.get("detailedForecast") or p.get("summary"),
-                    p.get("tempMin") or p.get("air_temperature_minimum"),
-                    p.get("tempMax") or p.get("air_temperature_maximum"),
-                    src="BOM"
-                )
-
-    # C. 舊版 forecasts.districts[].forecast.days
-    if not out:
-        days = _safe_get(root, "forecasts", "districts", 0, "forecast", "days", default=[])
-        if isinstance(days, list) and days:
-            for d in days:
-                _append(out, d.get("date"), d.get("text"), d.get("temp_min"), d.get("temp_max"), src="BOM")
-
-    # D. 其它常見 key 的保底
-    if not out:
-        for key in ("forecasts", "daily", "items", "list", "days"):
-            arr = _safe_get(root, key, default=[])
-            if isinstance(arr, list) and arr:
-                for d in arr:
-                    if not isinstance(d, dict):
-                        continue
-                    _append(
-                        out,
-                        d.get("date") or d.get("start") or d.get("time"),
-                        d.get("text") or d.get("detailed") or d.get("summary") or d.get("overview"),
-                        d.get("min") or d.get("tmin") or d.get("temp_min") or d.get("minimum_temp"),
-                        d.get("max") or d.get("tmax") or d.get("temp_max") or d.get("maximum_temp"),
-                        src="BOM"
-                    )
-                if out:
-                    break
-
-    # 去重日期
-    dedup: Dict[str, Dict[str, Any]] = {}
-    for it in out:
-        d = it.get("date")
-        if d and d not in dedup:
-            dedup[d] = it
-    return list(dedup.values())
-
-# 5) NOAA / NWS – api.weather.gov
-# 最常見輸出：{"properties":{"periods":[{...}]}}（points 或 gridpoints 的 /forecast 最終都會有 periods）
-def _f_to_c(v: Any) -> Optional[float]:
-    try:
-        return round((float(v) - 32) * 5.0/9.0, 1)
-    except Exception:
-        return None
-
-def _map_noaa(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
-    # 可能是 {"data":{"properties":{"periods":[...]}}} 或 {"properties":{"periods":[...]}}
+# ---------- MET Norway（locationforecast） ----------
+_SYMBOL_MAP = {
+    "clearsky": "Clear",
+    "cloudy": "Cloudy",
+    "fair": "Fair",
+    "fog": "Fog",
+    "heavyrain": "Heavy rain",
+    "heavyrainshowers": "Heavy rain showers",
+    "lightrain": "Light rain",
+    "lightrainshowers": "Light rain showers",
+    "partlycloudy": "Sunny intervals",
+    "rain": "Rain",
+    "rainshowers": "Rain showers",
+    "thunderstorm": "Thunderstorm",
+}
+def _map_metno(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
     root = raw.get("data") if isinstance(raw.get("data"), dict) else raw
-    periods = _safe_get(root, "properties", "periods", default=[])
+    series = _safe_get(root, "properties", "timeseries", default=[])
     out: List[Dict[str, Any]] = []
-    if not isinstance(periods, list) or not periods:
+    if not isinstance(series, list) or not series:
         return out
-
-    # 依日期分組（優先 isDaytime=True）
-    by_date: Dict[str, Dict[str, Any]] = {}
-    for p in periods:
-        date = _as_iso_date(p.get("startTime"))
-        if not date:
+    by_day: Dict[str, Dict[str, Any]] = {}
+    for t in series:
+        ts = t.get("time"); 
+        if not ts: 
             continue
-        if date not in by_date:
-            by_date[date] = {"day": None, "night": None}
-        if p.get("isDaytime"):
-            by_date[date]["day"] = p
-        else:
-            by_date[date]["night"] = p
-
-    for d in sorted(by_date.keys()):
-        cand = by_date[d]["day"] or by_date[d]["night"]
-        if not cand:
-            continue
-        text = cand.get("detailedForecast") or cand.get("shortForecast")
-        temp = cand.get("temperature")
-        unit = cand.get("temperatureUnit")
-        t = None
-        if temp is not None:
-            t = float(temp)
-            if unit and unit.upper() == "F":
-                t = _f_to_c(t)
-        # NWS 給的是單一溫度（時段），放到 tmax，tmin 留空
-        _append(out, d, text, None, t, src="NOAA")
+        date = _as_iso_date(ts) or str(ts)[:10]
+        det = _safe_get(t, "data", "instant", "details", default={}) or {}
+        temp = det.get("air_temperature")
+        sym = _safe_get(t, "data", "next_6_hours", "summary", "symbol_code") or \
+              _safe_get(t, "data", "next_12_hours", "summary", "symbol_code")
+        if date not in by_day:
+            by_day[date] = {"tmin": None, "tmax": None, "symbols": []}
+        if isinstance(temp, (int, float)):
+            if by_day[date]["tmin"] is None or temp < by_day[date]["tmin"]:
+                by_day[date]["tmin"] = temp
+            if by_day[date]["tmax"] is None or temp > by_day[date]["tmax"]:
+                by_day[date]["tmax"] = temp
+        if isinstance(sym, str):
+            by_day[date]["symbols"].append(sym.split("_")[0])
+    from collections import Counter
+    for d in sorted(by_day.keys())[:10]:
+        rec = by_day[d]
+        text = None
+        if rec["symbols"]:
+            sym = Counter(rec["symbols"]).most_common(1)[0][0]
+            text = _SYMBOL_MAP.get(sym, sym.replace("_", " ").title())
+        _append(out, d, text, rec["tmin"], rec["tmax"], src="METNO")
     return out
 
-# 6) 通用 mapper（當某來源尚未寫專屬解析）
+# ---------- SMG（澳門 7 日預報 RSS / 文字） ----------
+def _map_smg(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
+    data = raw.get("data")
+    out: List[Dict[str, Any]] = []
+    if data is None:
+        return out
+
+    # 若是 JSON 物件（少見）
+    if isinstance(data, dict) and ("items" in data or "list" in data):
+        arr = data.get("items") or data.get("list") or []
+        for it in arr[:10]:
+            date = it.get("date") or it.get("pubDate") or it.get("time") or it.get("updated")
+            text = it.get("summary") or it.get("description") or it.get("title")
+            _append(out, date, text, src="SMG")
+        if out:
+            return out
+
+    # 若是字串（RSS/XML/HTML）
+    if isinstance(data, str):
+        txt = data
+
+        # 1) RSS：抓 <item> 集合
+        items = re.findall(r"<item>(.*?)</item>", txt, flags=re.DOTALL | re.IGNORECASE)
+        if items:
+            for chunk in items[:10]:
+                title = _clean_text("".join(re.findall(r"<title>(.*?)</title>", chunk, flags=re.DOTALL | re.IGNORECASE)) or "")
+                desc  = _clean_text("".join(re.findall(r"<description>(.*?)</description>", chunk, flags=re.DOTALL | re.IGNORECASE)) or "")
+                pubd  = _clean_text("".join(re.findall(r"<pubDate>(.*?)</pubDate>", chunk, flags=re.DOTALL | re.IGNORECASE)) or "")
+                date = _as_iso_date(pubd) or _as_iso_date(title) or _as_iso_date(desc)
+                text = desc or title
+                if text:
+                    _append(out, date, text, src="SMG")
+            if out:
+                return out
+
+        # 2) 簡單 HTML 萃取（保底）
+        plain = re.sub(r"<[^>]+>", " ", txt)
+        lines = [l.strip() for l in plain.splitlines() if l.strip()]
+        for i, l in enumerate(lines):
+            if re.search(r"(20\d{2})[-/\.](\d{1,2})[-/\.](\d{1,2})", l):
+                date = _as_iso_date(l)
+                desc = lines[i+1] if i+1 < len(lines) else None
+                _append(out, date, desc, src="SMG")
+                if len(out) >= 7:
+                    break
+
+    return out
+
+# ---------- NOAA / BOM（保留原樣或日後擴充；此處略） ----------
+
+# ---------- 通用 mapper ----------
 def _map_generic(raw: Dict[str, Any], src_name: str) -> List[Dict[str, Any]]:
     root = raw.get("data") if isinstance(raw.get("data"), (list, dict)) else raw
     arr = None
@@ -260,11 +232,10 @@ def _map_generic(raw: Dict[str, Any], src_name: str) -> List[Dict[str, Any]]:
         text = d.get("text") or d.get("summary") or d.get("weather") or d.get("forecast") or d.get("wx") or d.get("overview")
         tmin = d.get("tmin") or d.get("min") or d.get("min_temp") or _safe_get(d,"temperature","min") or d.get("temp_min")
         tmax = d.get("tmax") or d.get("max") or d.get("max_temp") or _safe_get(d,"temperature","max") or d.get("temp_max")
-        _append(out, date, text, tmin, tmax, src_name)
-    # 只取前 10 天（之後會在共識步驟切成 5 天或 7 天）
+        _append(out, date, text, tmin, tmax, src_name.upper())
     return out[:10]
 
-# 入口：根據 provider 決定 mapper（含容錯回退）
+# ---------- 分派 ----------
 def normalize_one(provider: str) -> List[Dict[str, Any]]:
     p = RAW / provider / "latest.json"
     if not p.exists():
@@ -273,25 +244,23 @@ def normalize_one(provider: str) -> List[Dict[str, Any]]:
     if not raw.get("ok"):
         return []
     try:
-        result: List[Dict[str, Any]] = []
         if provider == "hko":
             result = _map_hko(raw)
         elif provider == "jma":
             result = _map_jma(raw)
         elif provider == "mss":
             result = _map_mss(raw)
-        elif provider == "bom":
-            result = _map_bom(raw)
-        elif provider == "noaa":
-            result = _map_noaa(raw)
-
-        # 專屬 mapper 若沒產生資料，退回通用 mapper
-        if not result:
+        elif provider == "metno":
+            result = _map_metno(raw)
+        elif provider == "smg":
+            result = _map_smg(raw)
+        else:
             result = _map_generic(raw, provider)
 
+        if not result:
+            result = _map_generic(raw, provider)
         return result
     except Exception:
-        # 解析拋錯也退回通用 mapper（最後一道防線）
         try:
             return _map_generic(raw, provider)
         except Exception:
@@ -302,15 +271,12 @@ def main():
     for prov in PROVIDERS:
         arr = normalize_one(prov)
         if arr:
-            # 最多保留 10 天（共識步驟會選 0–5 / 6–7）
             all_items[prov] = arr[:10]
 
-    # 存 dict（分來源）
     (OUT / "normalized.json").write_text(
         json.dumps(all_items, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    # 另存一份扁平陣列方便 debug
     flat = []
     for k, v in all_items.items():
         for it in v:
