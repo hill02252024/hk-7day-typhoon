@@ -1,15 +1,8 @@
 {
   "smg": [
     {
-      "date": "2025-10-25",
-      "text": "Slight flooding may occur in Inner Harbour area from 10 pm ~ 1 am due to astronomical tide. Cloudy apart from sunny intervals. Force 3 to 4 north to northeasterly winds, occasionally force 5 with gusts.",
-      "tmin": 21.0,
-      "tmax": 27.0,
-      "src": "SMG"
-    },
-    {
       "date": "2025-10-26",
-      "text": "Slight flooding may occur in Inner Harbour area from 10 pm ~ 1 am due to astronomical tide. Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds.",
+      "text": "Slight flooding may occur in Inner Harbour area from 10 pm ~ 1 am due to astronomical tide. Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds, occasionally force 5 with gusts.",
       "tmin": 21.0,
       "tmax": 28.0,
       "src": "SMG"
@@ -17,36 +10,43 @@
     {
       "date": "2025-10-27",
       "text": "Cloudy apart from sunny intervals. Force 3 to 4 north to northeasterly winds, occasionally force 5 with gusts.",
-      "tmin": 21.0,
+      "tmin": 20.0,
       "tmax": 26.0,
       "src": "SMG"
     },
     {
       "date": "2025-10-28",
-      "text": "Cloudy apart from sunny intervals. Force 3 to 4 east to northeasterly winds.",
+      "text": "Cloudy apart from sunny intervals. Force 3 to 4 northeasterly winds.",
       "tmin": 21.0,
-      "tmax": 27.0,
+      "tmax": 26.0,
       "src": "SMG"
     },
     {
       "date": "2025-10-29",
-      "text": "Cloudy apart from sunny periods. Force 3 to 4 east to northeasterly winds.",
+      "text": "Cloudy apart from sunny periods. Force 3 to 4 east to northeasterly winds, occasionally force 5 with gusts.",
       "tmin": 22.0,
       "tmax": 28.0,
       "src": "SMG"
     },
     {
       "date": "2025-10-30",
-      "text": "Cloudy apart from sunny intervals. Force 3 to 4 easterly winds.",
+      "text": "Cloudy apart from sunny periods. Force 3 to 4 easterly winds, occasionally force 5 with gusts.",
       "tmin": 23.0,
       "tmax": 29.0,
       "src": "SMG"
     },
     {
       "date": "2025-10-31",
-      "text": "Cloudy apart from sunny intervals. Force 2 to 4 easterly winds.",
-      "tmin": 23.0,
-      "tmax": 29.0,
+      "text": "Cloudy apart from sunny intervals. Force 3 to 4 easterly winds.",
+      "tmin": 24.0,
+      "tmax": 30.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2025-11-01",
+      "text": "Cloudy apart from sunny intervals. Force 3 northeasterly winds, becoming force 4 to 5 northerly winds with gusts.",
+      "tmin": 22.0,
+      "tmax": 28.0,
       "src": "SMG"
     }
   ]
