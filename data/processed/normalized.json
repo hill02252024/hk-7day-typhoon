@@ -2,8 +2,8 @@
   "smg": [
     {
       "date": "2025-10-30",
-      "text": "Cloudy apart from sunny intervals. Force 3 to 4 east to northeasterly winds, occasionally force 5 with gusts.",
-      "tmin": 22.0,
+      "text": "Cloudy apart from sunny intervals. Force 3 to 4 east to northeasterly winds.",
+      "tmin": 23.0,
       "tmax": 28.0,
       "src": "SMG"
     },
