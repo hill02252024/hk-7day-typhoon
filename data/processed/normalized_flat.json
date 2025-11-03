@@ -1,12 +1,5 @@
 [
   {
-    "date": "2025-11-03",
-    "text": "Mainly cloudy. A few light rain patches. Force 3 to 5 north to northeasterly winds with gusts.",
-    "tmin": 21.0,
-    "tmax": 25.0,
-    "src": "SMG"
-  },
-  {
     "date": "2025-11-04",
     "text": "Mainly cloudy. A few light rain patches. Force 3 to 5 north to northeasterly winds with gusts.",
     "tmin": 20.0,
@@ -15,35 +8,42 @@
   },
   {
     "date": "2025-11-05",
-    "text": "Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds.",
+    "text": "Cloudy apart from sunny periods. Force 3 to 4 northeasterly winds.",
     "tmin": 19.0,
     "tmax": 26.0,
     "src": "SMG"
   },
   {
     "date": "2025-11-06",
-    "text": "Fine apart from cloudy periods. Force 3 to 5 east to northeasterly winds with gusts.",
+    "text": "Cloudy apart from sunny intervals. Light rain later. Force 3 to 5 east to northeasterly winds with gusts.",
     "tmin": 21.0,
     "tmax": 27.0,
     "src": "SMG"
   },
   {
     "date": "2025-11-07",
-    "text": "Cloudy apart from sunny intervals. A few light rain patches. Force 4 to 5 easterly winds with gusts.",
-    "tmin": 22.0,
-    "tmax": 26.0,
-    "src": "SMG"
-  },
-  {
-    "date": "2025-11-08",
-    "text": "Cloudy apart from sunny periods. Force 3 to 5 easterly winds with gusts.",
-    "tmin": 22.0,
+    "text": "Mainly cloudy. A few light rain patches. Force 4 to 5 easterly winds with gusts.",
+    "tmin": 23.0,
     "tmax": 27.0,
     "src": "SMG"
   },
   {
+    "date": "2025-11-08",
+    "text": "Cloudy, becoming fine. Force 3 to 4 easterly winds.",
+    "tmin": 23.0,
+    "tmax": 28.0,
+    "src": "SMG"
+  },
+  {
     "date": "2025-11-09",
-    "text": "Cloudy apart from sunny periods. Force 3 to 4 east to northeasterly winds.",
+    "text": "Fine apart from cloudy periods. Force 2 to 3 east to northeasterly winds.",
+    "tmin": 23.0,
+    "tmax": 29.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2025-11-10",
+    "text": "Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds.",
     "tmin": 22.0,
     "tmax": 28.0,
     "src": "SMG"
