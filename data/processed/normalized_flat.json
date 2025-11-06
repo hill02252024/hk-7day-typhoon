@@ -1,51 +1,51 @@
 [
   {
-    "date": "2025-11-06",
-    "text": "Slight flooding will occur in Inner Harbour area from 8 pm ~ 0 am due to astronomical tide. Cloudy apart from sunny periods. Force 3 to 4 east to northeasterly winds.",
-    "tmin": 21.0,
-    "tmax": 29.0,
-    "src": "SMG"
-  },
-  {
     "date": "2025-11-07",
-    "text": "Slight flooding will occur in Inner Harbour area from 8 pm ~ 1 am due to astronomical tide. Cloudy. Rain. Force 4 to 5 easterly winds, occasionally force 6 with gusts.",
-    "tmin": 22.0,
-    "tmax": 25.0,
+    "text": "Slight flooding will occur in Inner Harbour area from 8 pm ~ 1 am due to astronomical tide. Mainly cloudy. Periods of rain. Force 4 to 5 east to northeasterly winds, occasionally force 6 with gusts.",
+    "tmin": 23.0,
+    "tmax": 27.0,
     "src": "SMG"
   },
   {
     "date": "2025-11-08",
-    "text": "Cloudy, becoming fine. Force 3 to 5 easterly winds with gusts.",
+    "text": "Cloudy apart from sunny periods. Force 3 to 4 easterly winds.",
     "tmin": 23.0,
-    "tmax": 28.0,
+    "tmax": 29.0,
     "src": "SMG"
   },
   {
     "date": "2025-11-09",
-    "text": "Fine apart from cloudy periods. Force 2 to 3 north to northeasterly winds.",
+    "text": "Fine apart from cloudy periods. Force 2 to 4 north to northeasterly winds.",
     "tmin": 23.0,
     "tmax": 30.0,
     "src": "SMG"
   },
   {
     "date": "2025-11-10",
-    "text": "Cloudy apart from sunny periods. Force 3 to 4 northerly winds.",
+    "text": "Cloudy apart from sunny periods. Force 3 to 5 northerly winds with gusts.",
     "tmin": 22.0,
     "tmax": 30.0,
     "src": "SMG"
   },
   {
     "date": "2025-11-11",
-    "text": "Cloudy apart from sunny periods. Force 4 to 5 northerly winds with gusts.",
-    "tmin": 20.0,
+    "text": "Cloudy apart from sunny periods. Force 4 to 5 north to northwesterly winds, occasionally force 6 with gusts.",
+    "tmin": 21.0,
     "tmax": 28.0,
     "src": "SMG"
   },
   {
     "date": "2025-11-12",
-    "text": "Cloudy apart from sunny periods. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
+    "text": "Cloudy apart from sunny periods. Force 4 to 5 north to northwesterly winds, occasionally force 6 with gusts.",
+    "tmin": 21.0,
+    "tmax": 27.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2025-11-13",
+    "text": "Temperature falling slightly. Fine apart from cloudy periods. Force 4 to 5 north to northwesterly winds with gusts.",
     "tmin": 19.0,
-    "tmax": 26.0,
+    "tmax": 28.0,
     "src": "SMG"
   }
 ]
