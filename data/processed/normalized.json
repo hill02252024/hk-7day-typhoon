@@ -1,15 +1,8 @@
 {
   "smg": [
     {
-      "date": "2025-11-11",
-      "text": "Mainly cloudy. Force 5 to 6 north to northwesterly winds with gusts.",
-      "tmin": 21.0,
-      "tmax": 25.0,
-      "src": "SMG"
-    },
-    {
       "date": "2025-11-12",
-      "text": "Temperature falling slightly. Cloudy apart from sunny periods. Force 4 to 5 north to northwesterly winds, occasionally force 6 with gusts.",
+      "text": "Temperature falling slightly. Dry. Cloudy apart from sunny periods. Force 4 to 5 north to northwesterly winds, occasionally force 6 with gusts.",
       "tmin": 19.0,
       "tmax": 26.0,
       "src": "SMG"
@@ -44,9 +37,16 @@
     },
     {
       "date": "2025-11-17",
-      "text": "Temperature falling. Fine apart from cloudy periods. Force 4 to 6 northerly winds with gusts.",
+      "text": "Temperature falling. Fine apart from cloudy periods. Force 4 to 5 northerly winds with gusts.",
       "tmin": 17.0,
       "tmax": 25.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2025-11-18",
+      "text": "Temperature falling slightly. Cloudy apart from sunny periods. Force 5 to 6 northerly winds with gusts.",
+      "tmin": 15.0,
+      "tmax": 20.0,
       "src": "SMG"
     }
   ]
