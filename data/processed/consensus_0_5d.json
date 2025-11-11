@@ -8,16 +8,16 @@
   "days": [
     {
       "date": "2025-11-11",
-      "text": "Dry. Cloudy apart from sunny periods. Force 5 to 6 north to northwesterly winds with gusts.",
-      "tmin": 20.0,
-      "tmax": 26.0,
+      "text": "Mainly cloudy. Force 5 to 6 north to northwesterly winds with gusts.",
+      "tmin": 21.0,
+      "tmax": 25.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2025-11-12",
-      "text": "Dry. Cloudy apart from sunny periods. Force 4 to 5 north to northwesterly winds, occasionally force 6 with gusts.",
+      "text": "Temperature falling slightly. Cloudy apart from sunny periods. Force 4 to 5 north to northwesterly winds, occasionally force 6 with gusts.",
       "tmin": 19.0,
       "tmax": 26.0,
       "sources": [
