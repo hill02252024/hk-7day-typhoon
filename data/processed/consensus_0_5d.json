@@ -8,7 +8,7 @@
   "days": [
     {
       "date": "2025-11-20",
-      "text": "Dry. Cloudy apart from sunny intervals. Light rain in the morning. Force 3 to 5 northerly winds with gusts.",
+      "text": "Dry. Mainly cloudy. Force 3 to 5 northerly winds with gusts.",
       "tmin": 13.0,
       "tmax": 17.0,
       "sources": [
@@ -17,9 +17,9 @@
     },
     {
       "date": "2025-11-21",
-      "text": "Very dry. Fine apart from cloudy periods. Force 3 to 5 north to northeasterly winds with gusts.",
+      "text": "Very dry. Cloudy apart from sunny periods. Force 3 to 5 north to northeasterly winds with gusts.",
       "tmin": 14.0,
-      "tmax": 22.0,
+      "tmax": 20.0,
       "sources": [
         "SMG"
       ]
