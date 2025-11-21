@@ -1,51 +1,51 @@
 [
   {
-    "date": "2025-11-21",
-    "text": "Very dry. Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds, occasionally force 5 with gusts.",
-    "tmin": 16.0,
-    "tmax": 22.0,
-    "src": "SMG"
-  },
-  {
     "date": "2025-11-22",
-    "text": "Very dry. Mainly fine. Force 2 to 4 north to northeasterly winds.",
-    "tmin": 16.0,
-    "tmax": 24.0,
+    "text": "Dry. Fine apart from cloudy periods. Force 2 to 4 north to northeasterly winds.",
+    "tmin": 17.0,
+    "tmax": 25.0,
     "src": "SMG"
   },
   {
     "date": "2025-11-23",
     "text": "Dry. Mainly fine. Force 2 to 3 north to northeasterly winds.",
-    "tmin": 16.0,
-    "tmax": 25.0,
-    "src": "SMG"
-  },
-  {
-    "date": "2025-11-24",
-    "text": "Dry. Mainly fine. Force 3 north to northeasterly winds, becoming force 4 to 5 with gusts.",
     "tmin": 17.0,
     "tmax": 26.0,
     "src": "SMG"
   },
   {
+    "date": "2025-11-24",
+    "text": "Dry. Mainly fine. Force 3 north to northeasterly winds, becoming force 4 to 5 with gusts.",
+    "tmin": 18.0,
+    "tmax": 27.0,
+    "src": "SMG"
+  },
+  {
     "date": "2025-11-25",
     "text": "Temperature falling slightly. Fine. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
-    "tmin": 15.0,
-    "tmax": 23.0,
+    "tmin": 16.0,
+    "tmax": 24.0,
     "src": "SMG"
   },
   {
     "date": "2025-11-26",
-    "text": "Very dry. Fine. Force 3 to 4 northerly winds.",
+    "text": "Temperature falling slightly. Fine. Force 2 to 4 northerly winds.",
     "tmin": 14.0,
-    "tmax": 22.0,
+    "tmax": 23.0,
     "src": "SMG"
   },
   {
     "date": "2025-11-27",
-    "text": "Very dry. Fine. Force 3 to 4 northerly winds, occasionally force 5 with gusts.",
+    "text": "Very dry. Fine. Force 3 to 5 north to northeasterly winds with gusts.",
+    "tmin": 15.0,
+    "tmax": 24.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2025-11-28",
+    "text": "Very dry. Fine. Force 3 to 5 north to northeasterly winds with gusts.",
     "tmin": 14.0,
-    "tmax": 22.0,
+    "tmax": 23.0,
     "src": "SMG"
   }
 ]
