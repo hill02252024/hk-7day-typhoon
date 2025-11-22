@@ -7,15 +7,6 @@
   },
   "days": [
     {
-      "date": "2025-11-22",
-      "text": "Dry. Mainly fine. Force 2 to 4 north to northeasterly winds.",
-      "tmin": 16.0,
-      "tmax": 24.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2025-11-23",
       "text": "Dry. Mainly fine. Force 2 to 3 north to northeasterly winds.",
       "tmin": 17.0,
@@ -35,8 +26,8 @@
     },
     {
       "date": "2025-11-25",
-      "text": "Temperature falling slightly. Fine. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
-      "tmin": 16.0,
+      "text": "Very dry. Fine. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
+      "tmin": 17.0,
       "tmax": 24.0,
       "sources": [
         "SMG"
@@ -45,7 +36,16 @@
     {
       "date": "2025-11-26",
       "text": "Temperature falling slightly. Fine. Force 2 to 4 northerly winds.",
-      "tmin": 14.0,
+      "tmin": 15.0,
+      "tmax": 24.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2025-11-27",
+      "text": "Very dry. Fine. Force 4 to 5 northerly winds with gusts.",
+      "tmin": 15.0,
       "tmax": 23.0,
       "sources": [
         "SMG"
