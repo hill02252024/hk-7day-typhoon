@@ -2,14 +2,14 @@
   "smg": [
     {
       "date": "2025-11-25",
-      "text": "Temperature falling. Very dry. Mainly fine. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
+      "text": "Very dry. Mainly fine. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
       "tmin": 16.0,
       "tmax": 23.0,
       "src": "SMG"
     },
     {
       "date": "2025-11-26",
-      "text": "Temperature falling slightly. Fine. Force 3 to 4 northerly winds, occasionally force 5 with gusts.",
+      "text": "Temperature falling slightly. Very dry. Fine. Force 3 to 4 northerly winds, occasionally force 5 with gusts.",
       "tmin": 14.0,
       "tmax": 22.0,
       "src": "SMG"
