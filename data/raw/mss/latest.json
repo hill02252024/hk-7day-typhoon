@@ -1,10 +1,10 @@
 {
-  "fetched_at": 1764311686,
+  "fetched_at": 1764321832,
   "provider": "mss",
   "ok": true,
   "requested_url": "https://api.data.gov.sg/v1/environment/24-hour-weather-forecast",
   "http_status": 200,
   "response_content_type": "application/json",
-  "data": "{\"items\":[{\"update_timestamp\":\"2025-11-28T13:20:33+08:00\",\"timestamp\":\"2025-11-28T13:09:00+08:00\",\"valid_period\":{\"start\":\"2025-11-28T12:00:00+08:00\",\"end\":\"2025-11-29T12:00:00+08:00\"},\"general\":{\"forecast\":\"Light Rain\",\"relative_humidity\":{\"low\":65,\"high\":95},\"temperature\":{\"low\":23,\"high\":31},\"wind\":{\"speed\":{\"low\":15,\"high\":35},\"direction\":\"SW\"}},\"periods\":[{\"time\":{\"start\":\"2025-11-28T12:00:00+08:00\",\"end\":\"2025-11-28T18:00:00+08:00\"},\"regions\":{\"west\":\"Light Rain\",\"east\":\"Light Rain\",\"central\":\"Light Rain\",\"south\":\"Light Rain\",\"north\":\"Light Rain\"}},{\"time\":{\"start\":\"2025-11-28T18:00:00+08:00\",\"end\":\"2025-11-29T06:00:00+08:00\"},\"regions\":{\"west\":\"Cloudy\",\"east\":\"Cloudy\",\"central\":\"Cloudy\",\"south\":\"Cloudy\",\"north\":\"Cloudy\"}},{\"time\":{\"start\":\"2025-11-29T06:00:00+08:00\",\"end\":\"2025-11-29T12:00:00+08:00\"},\"regions\":{\"west\":\"Cloudy\",\"east\":\"Cloudy\",\"central\":\"Cloudy\",\"south\":\"Cloudy\",\"north\":\"Cloudy\"}}]}],\"api_info\":{\"status\":\"healthy\"}}",
+  "data": "{\"items\":[{\"update_timestamp\":\"2025-11-28T16:40:43+08:00\",\"timestamp\":\"2025-11-28T16:31:00+08:00\",\"valid_period\":{\"start\":\"2025-11-28T12:00:00+08:00\",\"end\":\"2025-11-29T12:00:00+08:00\"},\"general\":{\"forecast\":\"Showers\",\"relative_humidity\":{\"low\":65,\"high\":95},\"temperature\":{\"low\":23,\"high\":31},\"wind\":{\"speed\":{\"low\":15,\"high\":35},\"direction\":\"SW\"}},\"periods\":[{\"time\":{\"start\":\"2025-11-28T12:00:00+08:00\",\"end\":\"2025-11-28T18:00:00+08:00\"},\"regions\":{\"west\":\"Showers\",\"east\":\"Showers\",\"central\":\"Showers\",\"south\":\"Showers\",\"north\":\"Showers\"}},{\"time\":{\"start\":\"2025-11-28T18:00:00+08:00\",\"end\":\"2025-11-29T06:00:00+08:00\"},\"regions\":{\"west\":\"Showers\",\"east\":\"Showers\",\"central\":\"Showers\",\"south\":\"Showers\",\"north\":\"Showers\"}},{\"time\":{\"start\":\"2025-11-29T06:00:00+08:00\",\"end\":\"2025-11-29T12:00:00+08:00\"},\"regions\":{\"west\":\"Cloudy\",\"east\":\"Cloudy\",\"central\":\"Cloudy\",\"south\":\"Cloudy\",\"north\":\"Cloudy\"}}]}],\"api_info\":{\"status\":\"healthy\"}}",
   "error": null
 }
