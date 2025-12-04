@@ -7,19 +7,10 @@
   },
   "days": [
     {
-      "date": "2025-12-04",
-      "text": "Cloudy apart from sunny intervals. Force 3 to 4 north to northeasterly winds.",
-      "tmin": 17.0,
-      "tmax": 22.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2025-12-05",
-      "text": "Fine apart from cloudy periods. Force 3 to 4 northeasterly winds.",
-      "tmin": 18.0,
-      "tmax": 24.0,
+      "text": "Cloudy apart from sunny periods. Force 3 to 4 northeasterly winds.",
+      "tmin": 17.0,
+      "tmax": 23.0,
       "sources": [
         "SMG"
       ]
@@ -27,6 +18,15 @@
     {
       "date": "2025-12-06",
       "text": "Mainly fine. Force 2 to 3 east to northeasterly winds.",
+      "tmin": 16.0,
+      "tmax": 24.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2025-12-07",
+      "text": "Mainly fine. Force 3 to 4 northeasterly winds.",
       "tmin": 17.0,
       "tmax": 25.0,
       "sources": [
@@ -34,19 +34,19 @@
       ]
     },
     {
-      "date": "2025-12-07",
-      "text": "Dry. Mainly fine. Force 2 to 3 east to northeasterly winds.",
-      "tmin": 18.0,
-      "tmax": 26.0,
+      "date": "2025-12-08",
+      "text": "Dry. Fine. Force 3 to 4 north to northeasterly winds.",
+      "tmin": 17.0,
+      "tmax": 25.0,
       "sources": [
         "SMG"
       ]
     },
     {
-      "date": "2025-12-08",
-      "text": "Dry. Mainly fine. Force 2 to 4 north to northeasterly winds.",
-      "tmin": 18.0,
-      "tmax": 26.0,
+      "date": "2025-12-09",
+      "text": "Dry. Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds.",
+      "tmin": 16.0,
+      "tmax": 23.0,
       "sources": [
         "SMG"
       ]
