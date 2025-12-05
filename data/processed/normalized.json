@@ -1,51 +1,51 @@
 {
   "smg": [
     {
-      "date": "2025-12-05",
-      "text": "Slight flooding will occur in Inner Harbour area from 8 ~ 11 pm due to astronomical tide. Fine apart from cloudy periods. Haze during the day. Force 3 to 4 east to northeasterly winds.",
-      "tmin": 17.0,
-      "tmax": 24.0,
-      "src": "SMG"
-    },
-    {
       "date": "2025-12-06",
-      "text": "Slight flooding will occur in Inner Harbour area from 8 ~ 11 pm due to astronomical tide. Mainly fine. Force 2 to 3 east to northeasterly winds.",
-      "tmin": 16.0,
+      "text": "Slight flooding will occur in Inner Harbour area from 8 ~ 11 pm due to astronomical tide. Mainly fine. Haze during the day. Force 2 to 3 east to northeasterly winds.",
+      "tmin": 17.0,
       "tmax": 24.0,
       "src": "SMG"
     },
     {
       "date": "2025-12-07",
-      "text": "Mainly fine. Force 3 to 4 northeasterly winds.",
+      "text": "Mainly fine. Haze during the day. Force 2 to 3 north to northeasterly winds.",
       "tmin": 17.0,
-      "tmax": 25.0,
+      "tmax": 26.0,
       "src": "SMG"
     },
     {
       "date": "2025-12-08",
-      "text": "Dry. Fine. Force 3 to 4 north to northeasterly winds.",
+      "text": "Fine. Force 3 to 4 north to northeasterly winds.",
+      "tmin": 17.0,
+      "tmax": 26.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2025-12-09",
+      "text": "Fine apart from cloudy periods. Force 3 to 4 north to northeasterly winds.",
       "tmin": 17.0,
       "tmax": 25.0,
       "src": "SMG"
     },
     {
-      "date": "2025-12-09",
-      "text": "Dry. Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds.",
-      "tmin": 16.0,
+      "date": "2025-12-10",
+      "text": "Mainly cloudy. A few light rain patches. Force 3 to 4 east to northeasterly winds.",
+      "tmin": 19.0,
       "tmax": 23.0,
       "src": "SMG"
     },
     {
-      "date": "2025-12-10",
-      "text": "Mainly cloudy. Force 2 to 4 northeasterly winds.",
-      "tmin": 18.0,
-      "tmax": 22.0,
+      "date": "2025-12-11",
+      "text": "Cloudy apart from sunny intervals. Light rain at first. Force 3 to 4 east to northeasterly winds.",
+      "tmin": 20.0,
+      "tmax": 24.0,
       "src": "SMG"
     },
     {
-      "date": "2025-12-11",
-      "text": "Cloudy apart from sunny intervals. Force 3 to 4 east to northeasterly winds.",
-      "tmin": 19.0,
+      "date": "2025-12-12",
+      "text": "Mainly cloudy. A few light rain patches. Force 3 to 4 easterly winds.",
+      "tmin": 20.0,
       "tmax": 24.0,
       "src": "SMG"
     }
