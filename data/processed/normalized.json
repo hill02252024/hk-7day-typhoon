@@ -1,17 +1,10 @@
 {
   "smg": [
     {
-      "date": "2025-12-06",
-      "text": "Slight flooding will occur in Inner Harbour area from 8 ~ 11 pm due to astronomical tide. Mainly fine. Haze during the day. Force 2 to 3 east to northeasterly winds.",
-      "tmin": 17.0,
-      "tmax": 24.0,
-      "src": "SMG"
-    },
-    {
       "date": "2025-12-07",
-      "text": "Mainly fine. Haze during the day. Force 2 to 3 north to northeasterly winds.",
+      "text": "Mainly fine. Haze during the day. Force 2 to 3 east to northeasterly winds.",
       "tmin": 17.0,
-      "tmax": 26.0,
+      "tmax": 25.0,
       "src": "SMG"
     },
     {
@@ -37,16 +30,23 @@
     },
     {
       "date": "2025-12-11",
-      "text": "Cloudy apart from sunny intervals. Light rain at first. Force 3 to 4 east to northeasterly winds.",
+      "text": "Cloudy apart from sunny intervals. Force 2 to 4 east to northeasterly winds.",
+      "tmin": 19.0,
+      "tmax": 25.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2025-12-12",
+      "text": "Mainly cloudy. Light rain later. Force 3 to 4 easterly winds.",
       "tmin": 20.0,
       "tmax": 24.0,
       "src": "SMG"
     },
     {
-      "date": "2025-12-12",
-      "text": "Mainly cloudy. A few light rain patches. Force 3 to 4 easterly winds.",
-      "tmin": 20.0,
-      "tmax": 24.0,
+      "date": "2025-12-13",
+      "text": "Temperature falling. Mainly cloudy. Light rain at first. Force 2 to 3 east to northeasterly winds, becoming force 5 to 6 northerly winds with gusts.",
+      "tmin": 16.0,
+      "tmax": 22.0,
       "src": "SMG"
     }
   ]
