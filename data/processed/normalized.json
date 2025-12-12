@@ -1,15 +1,8 @@
 {
   "smg": [
     {
-      "date": "2025-12-12",
-      "text": "Fine apart from cloudy periods. Force 4 to 5 easterly winds, occasionally force 6 with gusts.",
-      "tmin": 20.0,
-      "tmax": 23.0,
-      "src": "SMG"
-    },
-    {
       "date": "2025-12-13",
-      "text": "Temperature falling significantly. Mainly cloudy. A few rain patches. Force 3 to 4 east to northeasterly winds, becoming force 5 to 6 northerly winds with gusts.",
+      "text": "Temperature falling significantly. Mainly cloudy. Periods of rain. Force 3 to 4 east to northeasterly winds, becoming force 5 to 6 northerly winds with gusts.",
       "tmin": 15.0,
       "tmax": 21.0,
       "src": "SMG"
@@ -23,14 +16,14 @@
     },
     {
       "date": "2025-12-15",
-      "text": "Cloudy apart from sunny intervals. Force 3 to 4 east to northeasterly winds.",
+      "text": "Dry. Mainly cloudy. Force 3 to 4 east to northeasterly winds.",
       "tmin": 14.0,
       "tmax": 19.0,
       "src": "SMG"
     },
     {
       "date": "2025-12-16",
-      "text": "Cloudy apart from sunny periods. Force 2 to 4 east to northeasterly winds.",
+      "text": "Cloudy apart from sunny periods. Force 2 to 3 east to northeasterly winds.",
       "tmin": 16.0,
       "tmax": 23.0,
       "src": "SMG"
@@ -38,15 +31,22 @@
     {
       "date": "2025-12-17",
       "text": "Fine apart from cloudy periods. Force 2 to 4 northeasterly winds.",
-      "tmin": 17.0,
-      "tmax": 25.0,
+      "tmin": 16.0,
+      "tmax": 24.0,
       "src": "SMG"
     },
     {
       "date": "2025-12-18",
-      "text": "Mainly cloudy. Rain later. Force 3 to 4 east to northeasterly winds.",
+      "text": "Fine, becoming cloudy. A few rain patches later. Force 3 to 4 northeasterly winds.",
       "tmin": 18.0,
-      "tmax": 22.0,
+      "tmax": 24.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2025-12-19",
+      "text": "Mainly cloudy. Periods of rain. Force 3 to 4 east to northeasterly winds.",
+      "tmin": 17.0,
+      "tmax": 20.0,
       "src": "SMG"
     }
   ]
