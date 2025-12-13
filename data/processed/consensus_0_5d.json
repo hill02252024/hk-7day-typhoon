@@ -7,17 +7,8 @@
   },
   "days": [
     {
-      "date": "2025-12-13",
-      "text": "Temperature falling significantly. Mainly cloudy. Periods of rain. Haze in the afternoon. Force 3 to 4 north to northeasterly winds, becoming force 5 to 6 with gusts.",
-      "tmin": 15.0,
-      "tmax": 22.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2025-12-14",
-      "text": "Temperature falling slightly. Cloudy apart from sunny intervals. Light rain at first. Force 4 to 6 northerly winds with gusts.",
+      "text": "Temperature falling significantly. Dry. Cloudy apart from sunny intervals. Light rain at first. Force 4 to 6 northerly winds with gusts.",
       "tmin": 13.0,
       "tmax": 18.0,
       "sources": [
@@ -26,7 +17,7 @@
     },
     {
       "date": "2025-12-15",
-      "text": "Dry. Mainly cloudy. Force 3 to 4 east to northeasterly winds.",
+      "text": "Dry. Mainly cloudy. Force 3 to 4 northeasterly winds.",
       "tmin": 14.0,
       "tmax": 19.0,
       "sources": [
@@ -35,18 +26,27 @@
     },
     {
       "date": "2025-12-16",
-      "text": "Cloudy apart from sunny periods. Force 2 to 3 east to northeasterly winds.",
+      "text": "Cloudy apart from sunny periods. Force 2 to 4 east to northeasterly winds.",
       "tmin": 16.0,
-      "tmax": 23.0,
+      "tmax": 22.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2025-12-17",
-      "text": "Fine apart from cloudy periods. Force 2 to 4 northeasterly winds.",
+      "text": "Fine apart from cloudy periods. Force 2 to 3 northeasterly winds.",
       "tmin": 16.0,
       "tmax": 24.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2025-12-18",
+      "text": "Fine, becoming cloudy. A few rain patches later. Force 3 to 4 northeasterly winds.",
+      "tmin": 17.0,
+      "tmax": 23.0,
       "sources": [
         "SMG"
       ]
