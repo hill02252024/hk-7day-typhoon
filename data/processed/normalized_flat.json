@@ -1,35 +1,28 @@
 [
   {
-    "date": "2025-12-14",
-    "text": "Cloudy apart from sunny intervals. Force 4 to 5 northerly winds with gusts.",
-    "tmin": 14.0,
-    "tmax": 19.0,
-    "src": "SMG"
-  },
-  {
     "date": "2025-12-15",
-    "text": "Dry. Mainly cloudy. Force 3 to 4 northeasterly winds.",
-    "tmin": 14.0,
-    "tmax": 19.0,
+    "text": "Dry. Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds.",
+    "tmin": 13.0,
+    "tmax": 21.0,
     "src": "SMG"
   },
   {
     "date": "2025-12-16",
-    "text": "Cloudy apart from sunny periods. Force 2 to 4 east to northeasterly winds.",
-    "tmin": 16.0,
-    "tmax": 22.0,
-    "src": "SMG"
-  },
-  {
-    "date": "2025-12-17",
-    "text": "Fine apart from cloudy periods. Force 2 to 3 northeasterly winds.",
-    "tmin": 16.0,
+    "text": "Dry. Cloudy apart from sunny periods. Force 2 to 4 east to northeasterly winds.",
+    "tmin": 17.0,
     "tmax": 24.0,
     "src": "SMG"
   },
   {
+    "date": "2025-12-17",
+    "text": "Dry. Fine apart from cloudy periods. Force 2 to 3 northeasterly winds.",
+    "tmin": 16.0,
+    "tmax": 25.0,
+    "src": "SMG"
+  },
+  {
     "date": "2025-12-18",
-    "text": "Fine, becoming cloudy. A few rain patches later. Force 3 to 4 northeasterly winds.",
+    "text": "Fine, becoming cloudy. A few rain patches later. Force 3 to 4 east to northeasterly winds.",
     "tmin": 17.0,
     "tmax": 23.0,
     "src": "SMG"
@@ -43,9 +36,16 @@
   },
   {
     "date": "2025-12-20",
-    "text": "Cloudy apart from sunny intervals. A few rain patches at first. Force 2 to 3 northeasterly winds.",
+    "text": "Cloudy apart from sunny intervals. A few rain patches at first. Force 2 to 4 east to northeasterly winds.",
+    "tmin": 17.0,
+    "tmax": 22.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2025-12-21",
+    "text": "Cloudy apart from sunny periods. Force 2 to 3 north to northeasterly winds.",
     "tmin": 18.0,
-    "tmax": 23.0,
+    "tmax": 25.0,
     "src": "SMG"
   }
 ]
