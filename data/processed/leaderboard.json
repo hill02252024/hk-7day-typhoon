@@ -1,9 +1,7 @@
 {
-  "as_of_utc": "2025-12-15T01:55:39Z",
-  "overall_best": "SMG",
+  "as_of_utc": "2025-12-15T04:07:24Z",
+  "overall_best": "—",
   "by_lead": {},
   "by_metric": {},
-  "weights": {
-    "SMG": 1.0
-  }
+  "weights": {}
 }
