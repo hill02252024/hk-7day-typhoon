@@ -8,8 +8,8 @@
   "days": [
     {
       "date": "2025-12-23",
-      "text": "Cloudy apart from sunny intervals. A few light rain patches. Force 3 to 5 east to northeasterly winds with gusts.",
-      "tmin": 18.0,
+      "text": "Cloudy apart from sunny intervals. A few rain patches in the morning. Force 3 to 4 east to northeasterly winds.",
+      "tmin": 17.0,
       "tmax": 23.0,
       "sources": [
         "SMG"
@@ -18,7 +18,7 @@
     {
       "date": "2025-12-24",
       "text": "Cloudy apart from sunny periods. Force 2 to 4 east to northeasterly winds.",
-      "tmin": 19.0,
+      "tmin": 18.0,
       "tmax": 25.0,
       "sources": [
         "SMG"
