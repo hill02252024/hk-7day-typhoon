@@ -1,50 +1,50 @@
 {
   "smg": [
     {
-      "date": "2025-12-29",
-      "text": "Mainly fine. Haze during the day. Force 2 to 3 easterly winds.",
-      "tmin": 14.0,
-      "tmax": 23.0,
-      "src": "SMG"
-    },
-    {
       "date": "2025-12-30",
-      "text": "Mainly fine. Haze during the day. Light winds.",
+      "text": "Mainly fine. Mist and haze. Force 2 to 3 east to northeasterly winds.",
       "tmin": 14.0,
       "tmax": 24.0,
       "src": "SMG"
     },
     {
       "date": "2025-12-31",
-      "text": "Fine apart from cloudy periods. Light winds, becoming force 3 to 4 easterly winds.",
-      "tmin": 15.0,
+      "text": "Cloudy apart from sunny periods. Light winds, becoming force 3 to 4 easterly winds.",
+      "tmin": 16.0,
       "tmax": 22.0,
       "src": "SMG"
     },
     {
       "date": "2026-01-01",
-      "text": "Cloudy apart from sunny intervals. Force 3 to 4 easterly winds, becoming force 5 northerly winds with gusts.",
+      "text": "Temperature falling slightly. Cloudy apart from sunny intervals. Force 3 to 4 east to northeasterly winds, becoming force 5 northerly winds with gusts.",
       "tmin": 14.0,
-      "tmax": 22.0,
+      "tmax": 21.0,
       "src": "SMG"
     },
     {
       "date": "2026-01-02",
       "text": "Cold and dry. Cloudy apart from sunny periods. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
-      "tmin": 12.0,
-      "tmax": 18.0,
+      "tmin": 11.0,
+      "tmax": 16.0,
       "src": "SMG"
     },
     {
       "date": "2026-01-03",
-      "text": "Cold and dry. Mainly fine. Force 3 to 5 north to northeasterly winds with gusts.",
-      "tmin": 11.0,
-      "tmax": 19.0,
+      "text": "Cold and dry. Fine. Force 3 to 5 north to northeasterly winds with gusts.",
+      "tmin": 9.0,
+      "tmax": 17.0,
       "src": "SMG"
     },
     {
       "date": "2026-01-04",
-      "text": "Cold and dry. Fine. Force 2 to 4 north to northeasterly winds.",
+      "text": "Cold and dry. Mainly fine. Force 3 to 4 north to northeasterly winds.",
+      "tmin": 11.0,
+      "tmax": 20.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2026-01-05",
+      "text": "Cold and dry. Fine. Force 3 to 5 northerly winds with gusts.",
       "tmin": 12.0,
       "tmax": 20.0,
       "src": "SMG"
