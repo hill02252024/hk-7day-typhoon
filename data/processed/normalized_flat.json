@@ -1,49 +1,49 @@
 [
   {
-    "date": "2026-01-01",
-    "text": "Slight flooding may occur in Inner Harbour area from 6 ~ 9 pm due to astronomical tide. Cloudy apart from sunny periods. Force 3 to 4 easterly winds, becoming force 5 to 6 northerly winds with gusts.",
-    "tmin": 14.0,
-    "tmax": 24.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-01-02",
-    "text": "Slight flooding will occur in Inner Harbour area from 7 ~ 10 pm due to astronomical tide. Fine apart from cloudy periods. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
-    "tmin": 11.0,
-    "tmax": 17.0,
+    "text": "Slight flooding will occur in Inner Harbour area from 7 ~ 10 pm due to astronomical tide. Cloudy, becoming fine. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
+    "tmin": 10.0,
+    "tmax": 16.0,
     "src": "SMG"
   },
   {
     "date": "2026-01-03",
-    "text": "Cold and dry. Fine. Force 3 to 5 northeasterly winds with gusts.",
+    "text": "Cold and dry. Mainly fine. Force 3 to 5 northeasterly winds with gusts.",
     "tmin": 9.0,
-    "tmax": 18.0,
+    "tmax": 17.0,
     "src": "SMG"
   },
   {
     "date": "2026-01-04",
     "text": "Cold and dry. Fine apart from cloudy periods. Force 2 to 4 northeasterly winds.",
     "tmin": 12.0,
-    "tmax": 21.0,
-    "src": "SMG"
-  },
-  {
-    "date": "2026-01-05",
-    "text": "Cold and dry. Fine. Force 2 to 3 northerly winds, becoming force 4 to 5 with gusts.",
-    "tmin": 12.0,
     "tmax": 20.0,
     "src": "SMG"
   },
   {
+    "date": "2026-01-05",
+    "text": "Cold and dry. Fine. Force 3 to 4 north to northeasterly winds.",
+    "tmin": 12.0,
+    "tmax": 21.0,
+    "src": "SMG"
+  },
+  {
     "date": "2026-01-06",
-    "text": "Cold and very dry. Fine. Force 3 to 5 northerly winds with gusts.",
+    "text": "Cold and very dry. Fine. Force 4 to 5 northerly winds with gusts.",
     "tmin": 11.0,
     "tmax": 19.0,
     "src": "SMG"
   },
   {
     "date": "2026-01-07",
-    "text": "Cold and very dry. Fine. Force 3 to 4 northerly winds.",
+    "text": "Cold and very dry. Fine. Force 3 to 5 north to northeasterly winds with gusts.",
+    "tmin": 10.0,
+    "tmax": 20.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-01-08",
+    "text": "Cold and very dry. Fine. Force 3 to 4 north to northeasterly winds.",
     "tmin": 10.0,
     "tmax": 20.0,
     "src": "SMG"
