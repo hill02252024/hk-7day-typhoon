@@ -2,15 +2,15 @@
   "smg": [
     {
       "date": "2026-01-04",
-      "text": "Slight flooding will occur in Inner Harbour area from 8 pm ~ 0 am due to astronomical tide. Mainly fine. Force 2 to 4 northeasterly winds.",
-      "tmin": 12.0,
-      "tmax": 22.0,
+      "text": "Slight flooding will occur in Inner Harbour area from 8 pm ~ 0 am due to astronomical tide. Fine apart from cloudy periods. Force 2 to 4 northeasterly winds.",
+      "tmin": 13.0,
+      "tmax": 21.0,
       "src": "SMG"
     },
     {
       "date": "2026-01-05",
-      "text": "Cold and dry. Fine. Force 3 to 4 north to northeasterly winds.",
-      "tmin": 12.0,
+      "text": "Dry. Fine. Force 3 to 4 north to northeasterly winds.",
+      "tmin": 13.0,
       "tmax": 22.0,
       "src": "SMG"
     },
