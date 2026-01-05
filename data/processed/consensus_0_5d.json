@@ -7,28 +7,19 @@
   },
   "days": [
     {
-      "date": "2026-01-05",
-      "text": "Slight flooding will occur in Inner Harbour area from 9 pm ~ 0 am due to astronomical tide. Mainly fine. Force 4 to 5 northerly winds with gusts.",
-      "tmin": 13.0,
-      "tmax": 21.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-01-06",
-      "text": "Temperature falling slightly. Cold and dry. Fine. Force 4 to 5 northerly winds with gusts.",
-      "tmin": 11.0,
-      "tmax": 19.0,
+      "text": "Temperature falling. Cold and dry. Fine. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
+      "tmin": 10.0,
+      "tmax": 17.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-01-07",
-      "text": "Cold and very dry. Fine. Force 3 to 5 north to northeasterly winds with gusts.",
-      "tmin": 10.0,
-      "tmax": 19.0,
+      "text": "Cold and very dry. Fine. Force 4 to 5 northerly winds with gusts.",
+      "tmin": 9.0,
+      "tmax": 17.0,
       "sources": [
         "SMG"
       ]
@@ -36,6 +27,15 @@
     {
       "date": "2026-01-08",
       "text": "Cold and very dry. Fine. Force 3 to 4 north to northeasterly winds.",
+      "tmin": 9.0,
+      "tmax": 18.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-01-09",
+      "text": "Cold and very dry. Fine. Force 2 to 4 north to northeasterly winds.",
       "tmin": 10.0,
       "tmax": 19.0,
       "sources": [
@@ -43,8 +43,8 @@
       ]
     },
     {
-      "date": "2026-01-09",
-      "text": "Cold and very dry. Fine. Force 3 to 4 north to northeasterly winds.",
+      "date": "2026-01-10",
+      "text": "Cold and very dry. Fine. Force 2 to 3 north to northeasterly winds.",
       "tmin": 11.0,
       "tmax": 20.0,
       "sources": [
