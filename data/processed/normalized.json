@@ -1,15 +1,8 @@
 {
   "smg": [
     {
-      "date": "2026-01-06",
-      "text": "Cold and dry. Fine. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
-      "tmin": 10.0,
-      "tmax": 17.0,
-      "src": "SMG"
-    },
-    {
       "date": "2026-01-07",
-      "text": "Cold and very dry. Fine. Force 4 to 5 northerly winds with gusts.",
+      "text": "Cold and very dry. Fine. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
       "tmin": 9.0,
       "tmax": 17.0,
       "src": "SMG"
@@ -45,8 +38,15 @@
     {
       "date": "2026-01-12",
       "text": "Cloudy apart from sunny intervals. Force 2 to 4 east to northeasterly winds.",
-      "tmin": 14.0,
+      "tmin": 15.0,
       "tmax": 20.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2026-01-13",
+      "text": "Dry. Mainly fine. Force 2 to 4 northerly winds.",
+      "tmin": 14.0,
+      "tmax": 21.0,
       "src": "SMG"
     }
   ]
