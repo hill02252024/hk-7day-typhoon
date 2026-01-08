@@ -9,8 +9,8 @@
     {
       "date": "2026-01-08",
       "text": "Cold and very dry. Fine. Force 4 to 5 north to northeasterly winds with gusts.",
-      "tmin": 9.0,
-      "tmax": 16.0,
+      "tmin": 11.0,
+      "tmax": 17.0,
       "sources": [
         "SMG"
       ]
@@ -18,7 +18,7 @@
     {
       "date": "2026-01-09",
       "text": "Cold and very dry. Fine. Force 2 to 4 north to northeasterly winds.",
-      "tmin": 9.0,
+      "tmin": 10.0,
       "tmax": 17.0,
       "sources": [
         "SMG"
