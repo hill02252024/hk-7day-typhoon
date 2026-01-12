@@ -1,22 +1,15 @@
 [
   {
-    "date": "2026-01-12",
-    "text": "Dry. Cloudy apart from sunny periods. Force 2 to 4 east to northeasterly winds.",
-    "tmin": 14.0,
-    "tmax": 21.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-01-13",
-    "text": "Dry. Mainly fine. Force 2 to 3 north to northeasterly winds.",
-    "tmin": 13.0,
-    "tmax": 23.0,
+    "text": "Temperature falling slightly. Cold and dry. Mainly fine. Haze during the day. Force 2 to 3 north to northeasterly winds.",
+    "tmin": 12.0,
+    "tmax": 22.0,
     "src": "SMG"
   },
   {
     "date": "2026-01-14",
-    "text": "Fine apart from cloudy periods. Force 2 to 4 east to northeasterly winds.",
-    "tmin": 15.0,
+    "text": "Fine, becoming cloudy. Force 2 to 4 east to northeasterly winds.",
+    "tmin": 14.0,
     "tmax": 21.0,
     "src": "SMG"
   },
@@ -31,7 +24,7 @@
     "date": "2026-01-16",
     "text": "Fine apart from cloudy periods. Force 2 to 3 east to northeasterly winds.",
     "tmin": 15.0,
-    "tmax": 22.0,
+    "tmax": 23.0,
     "src": "SMG"
   },
   {
@@ -43,6 +36,13 @@
   },
   {
     "date": "2026-01-18",
+    "text": "Mainly fine. Force 2 to 3 east to northeasterly winds.",
+    "tmin": 16.0,
+    "tmax": 23.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-01-19",
     "text": "Mainly fine. Force 2 to 3 east to northeasterly winds.",
     "tmin": 16.0,
     "tmax": 23.0,
