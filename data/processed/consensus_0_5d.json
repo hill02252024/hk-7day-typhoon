@@ -7,18 +7,9 @@
   },
   "days": [
     {
-      "date": "2026-01-13",
-      "text": "Dry. Fine. Haze during the day. Force 2 to 3 east to northeasterly winds.",
-      "tmin": 13.0,
-      "tmax": 23.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-01-14",
-      "text": "Fine, becoming cloudy. Force 2 to 4 east to northeasterly winds.",
-      "tmin": 14.0,
+      "text": "Fine apart from cloudy periods. Mist at first. Force 3 to 4 east to northeasterly winds.",
+      "tmin": 15.0,
       "tmax": 21.0,
       "sources": [
         "SMG"
@@ -26,7 +17,7 @@
     },
     {
       "date": "2026-01-15",
-      "text": "Cloudy apart from sunny periods. Force 2 to 3 east to northeasterly winds.",
+      "text": "Fine apart from cloudy periods. Force 2 to 3 east to northeasterly winds.",
       "tmin": 15.0,
       "tmax": 22.0,
       "sources": [
@@ -44,6 +35,15 @@
     },
     {
       "date": "2026-01-17",
+      "text": "Mainly fine. Force 2 to 3 east to northeasterly winds.",
+      "tmin": 16.0,
+      "tmax": 23.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-01-18",
       "text": "Mainly fine. Force 2 to 3 east to northeasterly winds.",
       "tmin": 16.0,
       "tmax": 23.0,
