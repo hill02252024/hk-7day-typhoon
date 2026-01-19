@@ -1,51 +1,51 @@
 [
   {
-    "date": "2026-01-19",
-    "text": "Mainly fine. Force 3 to 4 east to southeasterly winds.",
-    "tmin": 17.0,
+    "date": "2026-01-20",
+    "text": "Temperature falling slightly. Cloudy apart from sunny periods. Force 3 to 5 east to northeasterly winds, becoming northerlies with gusts.",
+    "tmin": 15.0,
     "tmax": 22.0,
     "src": "SMG"
   },
   {
-    "date": "2026-01-20",
-    "text": "Temperature falling slightly. Cloudy apart from sunny periods. Force 3 to 5 east to northeasterly winds, becoming northerlies with gusts.",
-    "tmin": 15.0,
-    "tmax": 23.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-01-21",
-    "text": "Cold and dry. Cloudy apart from sunny periods. Force 4 to 5 northerly winds with gusts.",
-    "tmin": 12.0,
-    "tmax": 17.0,
-    "src": "SMG"
-  },
-  {
-    "date": "2026-01-22",
-    "text": "Cold and dry. Cloudy apart from sunny periods. Force 3 to 5 north to northeasterly winds with gusts.",
+    "text": "Cold and dry. Cloudy apart from sunny intervals. Force 4 to 5 northerly winds with gusts.",
     "tmin": 11.0,
     "tmax": 16.0,
     "src": "SMG"
   },
   {
+    "date": "2026-01-22",
+    "text": "Cold and dry. Mainly cloudy. Force 3 to 5 north to northeasterly winds with gusts.",
+    "tmin": 10.0,
+    "tmax": 15.0,
+    "src": "SMG"
+  },
+  {
     "date": "2026-01-23",
     "text": "Cold. Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds.",
-    "tmin": 12.0,
-    "tmax": 18.0,
+    "tmin": 11.0,
+    "tmax": 17.0,
     "src": "SMG"
   },
   {
     "date": "2026-01-24",
-    "text": "Cloudy apart from sunny periods. Force 3 to 4 east to northeasterly winds.",
-    "tmin": 14.0,
-    "tmax": 20.0,
+    "text": "Cloudy apart from sunny intervals. Force 3 to 4 east to northeasterly winds.",
+    "tmin": 13.0,
+    "tmax": 19.0,
     "src": "SMG"
   },
   {
     "date": "2026-01-25",
     "text": "Mainly cloudy. Force 3 to 5 east to northeasterly winds with gusts.",
-    "tmin": 16.0,
-    "tmax": 21.0,
+    "tmin": 15.0,
+    "tmax": 20.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-01-26",
+    "text": "Mainly cloudy. Force 3 to 4 east to northeasterly winds.",
+    "tmin": 17.0,
+    "tmax": 22.0,
     "src": "SMG"
   }
 ]
