@@ -8,7 +8,7 @@
   "days": [
     {
       "date": "2026-01-20",
-      "text": "Cloudy apart from sunny periods. Force 3 to 5 east to northeasterly winds, becoming northerlies with gusts.",
+      "text": "Cloudy apart from sunny periods. Force 4 to 6 easterly winds, becoming northerlies with gusts.",
       "tmin": 15.0,
       "tmax": 22.0,
       "sources": [
@@ -17,7 +17,7 @@
     },
     {
       "date": "2026-01-21",
-      "text": "Temperature falling. Cloudy apart from sunny intervals. Force 4 to 5 northerly winds with gusts.",
+      "text": "Temperature falling. Cold and dry. Cloudy apart from sunny intervals. Force 4 to 5 northerly winds with gusts.",
       "tmin": 11.0,
       "tmax": 16.0,
       "sources": [
