@@ -1,5 +1,5 @@
 {
-  "fetched_at": 1768960772,
+  "fetched_at": 1768968389,
   "provider": "bom",
   "ok": false,
   "requested_url": "https://api.weather.bom.gov.au/v1/locations/-33.8688,151.2093/forecasts/daily?days=7",
