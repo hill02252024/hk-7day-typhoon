@@ -8,16 +8,16 @@
   "days": [
     {
       "date": "2026-01-21",
-      "text": "Temperature falling significantly. Cloudy apart from sunny intervals. Mist at first. Light rain at first. Force 4 to 5 northerly winds, occasionally force 6 with gusts.",
-      "tmin": 11.0,
-      "tmax": 16.0,
+      "text": "Cold and dry. Cloudy apart from sunny intervals. Force 4 to 5 northerly winds with gusts.",
+      "tmin": 12.0,
+      "tmax": 17.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-01-22",
-      "text": "Cold and dry. Mainly cloudy. Force 3 to 5 north to northeasterly winds with gusts.",
+      "text": "Temperature falling slightly. Mainly cloudy. Force 3 to 5 north to northeasterly winds with gusts.",
       "tmin": 10.0,
       "tmax": 15.0,
       "sources": [
