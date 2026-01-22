@@ -8,8 +8,8 @@
   "days": [
     {
       "date": "2026-01-22",
-      "text": "Temperature falling. Cold and dry. Mainly cloudy. Force 3 to 5 north to northeasterly winds with gusts.",
-      "tmin": 9.0,
+      "text": "Cold and dry. Mainly cloudy. Force 3 to 4 north to northeasterly winds, occasionally force 5 with gusts.",
+      "tmin": 10.0,
       "tmax": 14.0,
       "sources": [
         "SMG"
@@ -17,7 +17,7 @@
     },
     {
       "date": "2026-01-23",
-      "text": "Cold. Cloudy apart from sunny intervals. Force 2 to 4 northeasterly winds.",
+      "text": "Cold and dry. Cloudy apart from sunny intervals. Force 2 to 4 northeasterly winds.",
       "tmin": 10.0,
       "tmax": 17.0,
       "sources": [
