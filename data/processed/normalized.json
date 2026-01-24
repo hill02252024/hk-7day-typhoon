@@ -2,9 +2,9 @@
   "smg": [
     {
       "date": "2026-01-24",
-      "text": "Cold. Cloudy apart from sunny intervals. Force 3 to 4 north to northeasterly winds, becoming easterlies.",
-      "tmin": 10.0,
-      "tmax": 17.0,
+      "text": "Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds, becoming easterlies.",
+      "tmin": 13.0,
+      "tmax": 18.0,
       "src": "SMG"
     },
     {
