@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-01-26",
-      "text": "Cloudy apart from sunny periods. Force 2 to 4 east to northeasterly winds.",
+      "text": "Cloudy apart from sunny periods. Haze. Force 2 to 3 east to northeasterly winds.",
       "tmin": 16.0,
-      "tmax": 25.0,
+      "tmax": 24.0,
       "sources": [
         "SMG"
       ]
