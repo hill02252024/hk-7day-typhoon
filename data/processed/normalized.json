@@ -2,14 +2,14 @@
   "smg": [
     {
       "date": "2026-01-26",
-      "text": "Cloudy apart from sunny periods. Force 2 to 4 northeasterly winds.",
+      "text": "Cloudy apart from sunny periods. Force 2 to 4 east to northeasterly winds.",
       "tmin": 16.0,
-      "tmax": 24.0,
+      "tmax": 25.0,
       "src": "SMG"
     },
     {
       "date": "2026-01-27",
-      "text": "Mainly cloudy. A few rain patches. Mist at first. Force 2 to 3 north to northeasterly winds.",
+      "text": "Cloudy apart from sunny intervals. A few light rain patches. Mist at first. Force 2 to 3 north to northeasterly winds.",
       "tmin": 17.0,
       "tmax": 21.0,
       "src": "SMG"
