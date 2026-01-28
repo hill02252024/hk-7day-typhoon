@@ -7,35 +7,8 @@
   },
   "days": [
     {
-      "date": "2026-01-28",
-      "text": "Cloudy apart from sunny periods. Haze during the day. Force 3 to 5 north to northeasterly winds, becoming easterlies with gusts.",
-      "tmin": 17.0,
-      "tmax": 22.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-01-29",
-      "text": "Cloudy apart from sunny intervals. Force 4 to 5 easterly winds with gusts.",
-      "tmin": 17.0,
-      "tmax": 21.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
-      "date": "2026-01-30",
-      "text": "Mainly cloudy. A few light rain patches. Force 3 to 4 easterly winds, occasionally force 5 with gusts.",
-      "tmin": 17.0,
-      "tmax": 20.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
-      "date": "2026-01-31",
-      "text": "Cloudy. A few rain patches. Force 3 to 4 east to northeasterly winds, becoming force 5 northerly winds with gusts.",
+      "text": "Cloudy apart from sunny intervals. Light rain at night. Force 4 to 5 east to northeasterly winds with gusts.",
       "tmin": 16.0,
       "tmax": 20.0,
       "sources": [
@@ -43,10 +16,37 @@
       ]
     },
     {
+      "date": "2026-01-30",
+      "text": "Cloudy. Periods of rain. Force 3 to 4 easterly winds, occasionally force 5 with gusts.",
+      "tmin": 16.0,
+      "tmax": 19.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-01-31",
+      "text": "Mainly cloudy. Rain at first. Mist at first. Force 3 to 4 east to northeasterly winds, becoming force 5 northerly winds with gusts.",
+      "tmin": 16.0,
+      "tmax": 21.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
       "date": "2026-02-01",
-      "text": "Temperature falling. Cloudy apart from sunny intervals. A few rain patches at first. Force 3 to 5 north to northeasterly winds with gusts.",
+      "text": "Temperature falling. Fine apart from cloudy periods. Force 3 to 5 north to northeasterly winds with gusts.",
       "tmin": 13.0,
-      "tmax": 17.0,
+      "tmax": 19.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-02-02",
+      "text": "Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds.",
+      "tmin": 13.0,
+      "tmax": 20.0,
       "sources": [
         "SMG"
       ]
