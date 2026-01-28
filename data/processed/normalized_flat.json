@@ -1,16 +1,16 @@
 [
   {
     "date": "2026-01-28",
-    "text": "Cloudy apart from sunny periods. Haze at first. Force 3 to 5 north to northeasterly winds, becoming easterlies with gusts.",
-    "tmin": 16.0,
+    "text": "Cloudy apart from sunny periods. Haze during the day. Force 3 to 5 north to northeasterly winds, becoming easterlies with gusts.",
+    "tmin": 17.0,
     "tmax": 22.0,
     "src": "SMG"
   },
   {
     "date": "2026-01-29",
     "text": "Cloudy apart from sunny intervals. Force 4 to 5 easterly winds with gusts.",
-    "tmin": 16.0,
-    "tmax": 20.0,
+    "tmin": 17.0,
+    "tmax": 21.0,
     "src": "SMG"
   },
   {
