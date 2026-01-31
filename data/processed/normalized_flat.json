@@ -1,14 +1,14 @@
 [
   {
     "date": "2026-01-31",
-    "text": "Mainly cloudy. A few rain patches. Mist at first. Force 3 to 4 northerly winds, occasionally force 5 with gusts.",
+    "text": "Mainly cloudy. A few rain patches. Mist in the morning. Force 3 to 4 northerly winds, occasionally force 5 with gusts.",
     "tmin": 15.0,
-    "tmax": 19.0,
+    "tmax": 18.0,
     "src": "SMG"
   },
   {
     "date": "2026-02-01",
-    "text": "Temperature falling. Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds, occasionally force 5 with gusts.",
+    "text": "Temperature falling. Cold. Cloudy apart from sunny periods. Force 3 to 4 north to northeasterly winds, occasionally force 5 with gusts.",
     "tmin": 12.0,
     "tmax": 18.0,
     "src": "SMG"
