@@ -7,18 +7,9 @@
   },
   "days": [
     {
-      "date": "2026-02-01",
-      "text": "Cold. Cloudy apart from sunny intervals. Force 3 to 4 north to northeasterly winds.",
-      "tmin": 12.0,
-      "tmax": 19.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-02-02",
-      "text": "Fine apart from cloudy periods. Force 3 to 4 north to northeasterly winds.",
-      "tmin": 13.0,
+      "text": "Slight flooding will occur in Inner Harbour area from 9 pm ~ 0 am due to astronomical tide. Fine apart from cloudy periods. Force 3 to 4 north to northeasterly winds.",
+      "tmin": 12.0,
       "tmax": 21.0,
       "sources": [
         "SMG"
@@ -27,17 +18,17 @@
     {
       "date": "2026-02-03",
       "text": "Fine apart from cloudy periods. Force 3 to 4 east to northeasterly winds, occasionally force 5.",
-      "tmin": 14.0,
-      "tmax": 21.0,
+      "tmin": 13.0,
+      "tmax": 20.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-02-04",
-      "text": "Cloudy apart from sunny periods. Force 3 to 4 easterly winds.",
+      "text": "Cloudy apart from sunny periods. Force 3 to 4 easterly winds, occasionally force 5.",
       "tmin": 16.0,
-      "tmax": 22.0,
+      "tmax": 21.0,
       "sources": [
         "SMG"
       ]
@@ -46,6 +37,15 @@
       "date": "2026-02-05",
       "text": "Cloudy apart from sunny periods. Mist in the morning and at night. Force 2 to 3 east to southeasterly winds.",
       "tmin": 17.0,
+      "tmax": 23.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-02-06",
+      "text": "Cloudy apart from sunny intervals. Mist. A few light rain patches. Force 2 to 3 east to southeasterly winds.",
+      "tmin": 18.0,
       "tmax": 23.0,
       "sources": [
         "SMG"
