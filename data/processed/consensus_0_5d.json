@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-02-05",
-      "text": "Cloudy apart from sunny periods. Mist in the morning and at night. Force 2 to 3 easterly winds.",
+      "text": "Cloudy apart from sunny periods. Haze in the morning. Force 2 to 3 east to northeasterly winds.",
       "tmin": 17.0,
-      "tmax": 24.0,
+      "tmax": 25.0,
       "sources": [
         "SMG"
       ]
