@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-02-07",
-    "text": "Temperature falling. Mainly cloudy. Light rain at night. Force 3 to 5 north to northeasterly winds with gusts.",
-    "tmin": 15.0,
-    "tmax": 22.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-02-08",
     "text": "Temperature falling. Cold and dry. Fine apart from cloudy periods. Force 4 to 5 north to northeasterly winds with gusts.",
     "tmin": 12.0,
@@ -15,37 +8,44 @@
   },
   {
     "date": "2026-02-09",
-    "text": "Cloudy apart from sunny intervals. Force 4 to 5 east to northeasterly winds, occasionally force 6 with gusts.",
+    "text": "Cloudy apart from sunny intervals. Force 4 to 5 east to northeasterly winds with gusts.",
     "tmin": 13.0,
-    "tmax": 18.0,
+    "tmax": 17.0,
     "src": "SMG"
   },
   {
     "date": "2026-02-10",
-    "text": "Mainly cloudy. Force 3 to 4 easterly winds.",
+    "text": "Cloudy apart from sunny intervals. Force 3 to 4 easterly winds.",
     "tmin": 15.0,
-    "tmax": 20.0,
+    "tmax": 21.0,
     "src": "SMG"
   },
   {
     "date": "2026-02-11",
-    "text": "Cloudy apart from sunny intervals. Force 2 to 3 north to northeasterly winds.",
+    "text": "Cloudy apart from sunny periods. Force 2 to 4 north to northeasterly winds.",
     "tmin": 16.0,
     "tmax": 23.0,
     "src": "SMG"
   },
   {
     "date": "2026-02-12",
-    "text": "Cloudy apart from sunny periods. Force 3 to 4 east to northeasterly winds, occasionally force 5.",
+    "text": "Fine apart from cloudy periods. Force 3 to 4 east to northeasterly winds, occasionally force 5.",
     "tmin": 16.0,
     "tmax": 22.0,
     "src": "SMG"
   },
   {
     "date": "2026-02-13",
-    "text": "Cloudy apart from sunny periods. Force 3 to 4 east to northeasterly winds.",
+    "text": "Cloudy apart from sunny periods. Force 3 to 4 easterly winds.",
     "tmin": 17.0,
     "tmax": 23.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-02-14",
+    "text": "Fine apart from cloudy periods. Force 2 to 3 easterly winds.",
+    "tmin": 17.0,
+    "tmax": 24.0,
     "src": "SMG"
   }
 ]
