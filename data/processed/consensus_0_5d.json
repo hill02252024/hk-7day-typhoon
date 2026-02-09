@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-02-09",
-      "text": "Cloudy apart from sunny intervals. Force 4 to 5 east to northeasterly winds with gusts.",
-      "tmin": 13.0,
-      "tmax": 17.0,
+      "text": "Cloudy apart from sunny intervals. Force 4 to 5 easterly winds with gusts.",
+      "tmin": 14.0,
+      "tmax": 18.0,
       "sources": [
         "SMG"
       ]
