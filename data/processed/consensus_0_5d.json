@@ -7,17 +7,8 @@
   },
   "days": [
     {
-      "date": "2026-02-10",
-      "text": "Mainly cloudy. Force 2 to 3 easterly winds.",
-      "tmin": 16.0,
-      "tmax": 20.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-02-11",
-      "text": "Cloudy apart from sunny periods. Haze during the day. Force 2 to 3 east to northeasterly winds.",
+      "text": "Cloudy apart from sunny periods. Haze during the day. Force 2 to 3 north to northeasterly winds, becoming easterlies.",
       "tmin": 16.0,
       "tmax": 24.0,
       "sources": [
@@ -27,8 +18,8 @@
     {
       "date": "2026-02-12",
       "text": "Cloudy apart from sunny periods. Force 3 to 4 easterly winds, occasionally force 5.",
-      "tmin": 16.0,
-      "tmax": 22.0,
+      "tmin": 17.0,
+      "tmax": 23.0,
       "sources": [
         "SMG"
       ]
@@ -45,8 +36,17 @@
     {
       "date": "2026-02-14",
       "text": "Cloudy apart from sunny periods. Mist in the morning and at night. Force 2 to 3 east to southeasterly winds.",
-      "tmin": 17.0,
+      "tmin": 18.0,
       "tmax": 25.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-02-15",
+      "text": "Cloudy apart from sunny intervals. Mist in the morning and at night. Force 2 to 3 east to southeasterly winds.",
+      "tmin": 18.0,
+      "tmax": 24.0,
       "sources": [
         "SMG"
       ]
