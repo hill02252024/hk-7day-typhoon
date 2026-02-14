@@ -1,28 +1,21 @@
 [
   {
-    "date": "2026-02-14",
-    "text": "Mainly fine. Mist at night. Force 2 to 3 east to southeasterly winds.",
-    "tmin": 17.0,
+    "date": "2026-02-15",
+    "text": "Fine apart from cloudy periods. Mist and fog in the morning and at night. Force 2 to 3 east to southeasterly winds.",
+    "tmin": 18.0,
     "tmax": 26.0,
     "src": "SMG"
   },
   {
-    "date": "2026-02-15",
-    "text": "Cloudy apart from sunny periods. Mist in the morning and at night. Force 2 to 3 east to southeasterly winds.",
-    "tmin": 18.0,
-    "tmax": 25.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-02-16",
-    "text": "Cloudy apart from sunny intervals. Mist and fog in the morning and at night. Light rain later. Force 2 to 3 east to southeasterly winds.",
-    "tmin": 20.0,
+    "text": "Cloudy apart from sunny periods. Mist and fog in the morning and at night. Light rain later. Force 2 to 3 east to southeasterly winds.",
+    "tmin": 19.0,
     "tmax": 26.0,
     "src": "SMG"
   },
   {
     "date": "2026-02-17",
-    "text": "Temperature falling. Mainly cloudy. Light rain at first. Force 3 to 5 east to northeasterly winds with gusts.",
+    "text": "Temperature falling slightly. Mainly cloudy. Mist at first. Light rain at first. Force 3 to 5 east to northeasterly winds with gusts.",
     "tmin": 17.0,
     "tmax": 22.0,
     "src": "SMG"
@@ -37,14 +30,21 @@
   {
     "date": "2026-02-19",
     "text": "Cloudy apart from sunny periods. Force 2 to 4 east to northeasterly winds.",
-    "tmin": 16.0,
+    "tmin": 17.0,
     "tmax": 23.0,
     "src": "SMG"
   },
   {
     "date": "2026-02-20",
-    "text": "Cloudy apart from sunny periods. Force 2 to 4 east to southeasterly winds.",
+    "text": "Fine apart from cloudy periods. Force 2 to 3 east to northeasterly winds.",
     "tmin": 17.0,
+    "tmax": 25.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-02-21",
+    "text": "Cloudy apart from sunny intervals. Light winds.",
+    "tmin": 18.0,
     "tmax": 25.0,
     "src": "SMG"
   }
