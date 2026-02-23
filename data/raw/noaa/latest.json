@@ -1,5 +1,5 @@
 {
-  "fetched_at": 1771840678,
+  "fetched_at": 1771852274,
   "provider": "noaa",
   "ok": false,
   "requested_url": "https://api.weather.gov/points/21.3069,-157.8583/forecast",
