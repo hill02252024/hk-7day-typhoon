@@ -1,13 +1,6 @@
 {
   "smg": [
     {
-      "date": "2026-02-23",
-      "text": "Cloudy apart from sunny intervals. Force 3 to 4 east to southeasterly winds, occasionally force 5.",
-      "tmin": 19.0,
-      "tmax": 24.0,
-      "src": "SMG"
-    },
-    {
       "date": "2026-02-24",
       "text": "Cloudy apart from sunny intervals. Mist in the morning and at night. Force 2 to 4 east to southeasterly winds.",
       "tmin": 20.0,
@@ -16,37 +9,44 @@
     },
     {
       "date": "2026-02-25",
-      "text": "Cloudy apart from sunny intervals. Mist at first. Force 2 to 4 east to southeasterly winds.",
-      "tmin": 21.0,
+      "text": "Cloudy apart from sunny intervals. Mist in the morning and at night. Force 2 to 4 east to southeasterly winds.",
+      "tmin": 20.0,
       "tmax": 26.0,
       "src": "SMG"
     },
     {
       "date": "2026-02-26",
-      "text": "Cloudy apart from sunny intervals. A few rain patches. Force 3 to 4 east to southeasterly winds.",
+      "text": "Mainly cloudy. Mist in the morning and at night. A few rain patches. Force 3 to 4 east to southeasterly winds.",
       "tmin": 21.0,
-      "tmax": 26.0,
+      "tmax": 25.0,
       "src": "SMG"
     },
     {
       "date": "2026-02-27",
-      "text": "Mainly cloudy. Mist in the morning and at night. A few showers. Force 2 to 4 south to southeasterly winds.",
+      "text": "Mainly cloudy. Mist at first. Occasional showers. Force 2 to 4 east to southeasterly winds.",
       "tmin": 21.0,
       "tmax": 24.0,
       "src": "SMG"
     },
     {
       "date": "2026-02-28",
-      "text": "Cloudy. Mist at first. Occasional showers. Force 2 to 3 south to southeasterly winds, becoming force 4 to 5 easterly winds with gusts.",
+      "text": "Cloudy. Occasional showers. Possible thunderstorms. Force 3 to 4 easterly winds, occasionally force 5.",
       "tmin": 20.0,
-      "tmax": 22.0,
+      "tmax": 23.0,
       "src": "SMG"
     },
     {
       "date": "2026-03-01",
-      "text": "Cloudy. Occasional showers. Force 3 to 5 easterly winds with gusts.",
-      "tmin": 19.0,
-      "tmax": 22.0,
+      "text": "Mainly cloudy. A few rain patches. Force 3 to 4 east to southeasterly winds, occasionally force 5.",
+      "tmin": 21.0,
+      "tmax": 24.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2026-03-02",
+      "text": "Mainly cloudy. A few rain patches. Force 2 to 3 south to southeasterly winds.",
+      "tmin": 22.0,
+      "tmax": 26.0,
       "src": "SMG"
     }
   ]
