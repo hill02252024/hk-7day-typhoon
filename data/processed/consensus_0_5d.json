@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-02-27",
-      "text": "Mainly cloudy. Mist. A few showers. Possible thunderstorms later. Force 2 to 4 east to southeasterly winds.",
+      "text": "Mainly cloudy. Mist. A few showers. Force 2 to 4 east to southeasterly winds.",
       "tmin": 20.0,
-      "tmax": 24.0,
+      "tmax": 23.0,
       "sources": [
         "SMG"
       ]
