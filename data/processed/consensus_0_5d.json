@@ -7,26 +7,17 @@
   },
   "days": [
     {
-      "date": "2026-02-27",
-      "text": "Mainly cloudy. Mist. A few showers. Force 2 to 4 east to southeasterly winds.",
-      "tmin": 20.0,
-      "tmax": 23.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-02-28",
-      "text": "Cloudy. Mist at first. Showers. A few thunderstorms. Force 3 to 4 east to southeasterly winds, occasionally force 5 with gusts.",
+      "text": "Humid. Cloudy. Mist. Showers. Possible thunderstorms at first. Force 3 to 4 east to southeasterly winds, occasionally force 5 with gusts.",
       "tmin": 20.0,
-      "tmax": 23.0,
+      "tmax": 22.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-03-01",
-      "text": "Mainly cloudy. Mist in the morning and at night. A few showers. Force 3 to 4 south to southeasterly winds.",
+      "text": "Mainly cloudy. Mist. A few rain patches. Force 3 to 4 south to southeasterly winds.",
       "tmin": 21.0,
       "tmax": 24.0,
       "sources": [
@@ -35,17 +26,26 @@
     },
     {
       "date": "2026-03-02",
-      "text": "Mainly cloudy. Mist at first. A few showers. Force 2 to 3 southerly winds.",
-      "tmin": 21.0,
-      "tmax": 25.0,
+      "text": "Humid. Cloudy. Mist. Occasional showers. Possible thunderstorms later. Force 2 to 3 southerly winds with gusts.",
+      "tmin": 22.0,
+      "tmax": 24.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-03-03",
-      "text": "Temperature falling. Mainly cloudy. A few rain patches. Force 3 to 5 north to northeasterly winds with gusts.",
+      "text": "Temperature falling. Mainly cloudy. A few rain patches at first. Force 3 to 5 north to northeasterly winds with gusts.",
       "tmin": 18.0,
+      "tmax": 22.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-03-04",
+      "text": "Mainly cloudy. Force 3 to 4 east to northeasterly winds.",
+      "tmin": 17.0,
       "tmax": 21.0,
       "sources": [
         "SMG"
