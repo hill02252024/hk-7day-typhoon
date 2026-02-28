@@ -1,14 +1,14 @@
 [
   {
     "date": "2026-02-28",
-    "text": "Humid. Cloudy. Mist. Showers. Possible thunderstorms at first. Force 3 to 4 east to southeasterly winds, occasionally force 5 with gusts.",
+    "text": "Humid. Cloudy. Showers. Force 4 to 6 east to southeasterly winds with gusts.",
     "tmin": 20.0,
     "tmax": 22.0,
     "src": "SMG"
   },
   {
     "date": "2026-03-01",
-    "text": "Mainly cloudy. Mist. A few rain patches. Force 3 to 4 south to southeasterly winds.",
+    "text": "Humid. Mainly cloudy. Mist. A few rain patches. Force 3 to 4 south to southeasterly winds.",
     "tmin": 21.0,
     "tmax": 24.0,
     "src": "SMG"
