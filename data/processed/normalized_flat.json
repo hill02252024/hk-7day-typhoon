@@ -1,51 +1,51 @@
 [
   {
-    "date": "2026-03-04",
-    "text": "Mainly cloudy. A few rain patches. Force 3 to 4 north to northeasterly winds.",
-    "tmin": 14.0,
-    "tmax": 18.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-03-05",
-    "text": "Cloudy apart from sunny periods. Force 2 to 4 east to northeasterly winds.",
-    "tmin": 16.0,
-    "tmax": 22.0,
+    "text": "Cloudy apart from sunny periods. Light rain at first. Force 2 to 4 east to northeasterly winds.",
+    "tmin": 15.0,
+    "tmax": 21.0,
     "src": "SMG"
   },
   {
     "date": "2026-03-06",
     "text": "Mainly fine. Force 3 to 4 east to northeasterly winds, occasionally force 5.",
-    "tmin": 17.0,
-    "tmax": 24.0,
+    "tmin": 16.0,
+    "tmax": 23.0,
     "src": "SMG"
   },
   {
     "date": "2026-03-07",
-    "text": "Mainly fine. Force 4 to 5 east to northeasterly winds, occasionally force 6.",
+    "text": "Mainly fine. Force 4 to 5 east to northeasterly winds, occasionally force 6 with gusts.",
     "tmin": 17.0,
     "tmax": 22.0,
     "src": "SMG"
   },
   {
     "date": "2026-03-08",
-    "text": "Fine apart from cloudy periods. Force 4 to 5 easterly winds, occasionally force 6 with gusts.",
+    "text": "Mainly fine. Force 4 to 5 easterly winds, occasionally force 6 with gusts.",
     "tmin": 16.0,
     "tmax": 21.0,
     "src": "SMG"
   },
   {
     "date": "2026-03-09",
-    "text": "Cloudy apart from sunny periods. Force 3 to 4 easterly winds, occasionally force 5.",
+    "text": "Fine apart from cloudy periods. Force 3 to 4 easterly winds, occasionally force 5.",
     "tmin": 17.0,
     "tmax": 22.0,
     "src": "SMG"
   },
   {
     "date": "2026-03-10",
-    "text": "Cloudy apart from sunny intervals. Force 3 to 5 north to northeasterly winds.",
+    "text": "Cloudy apart from sunny intervals. Force 3 to 5 northeasterly winds.",
     "tmin": 16.0,
     "tmax": 21.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-03-11",
+    "text": "Cloudy apart from sunny periods. Force 3 to 4 easterly winds.",
+    "tmin": 17.0,
+    "tmax": 22.0,
     "src": "SMG"
   }
 ]
