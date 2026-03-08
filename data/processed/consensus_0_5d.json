@@ -7,17 +7,8 @@
   },
   "days": [
     {
-      "date": "2026-03-08",
-      "text": "Mainly fine. Force 3 to 4 easterly winds, occasionally force 5.",
-      "tmin": 16.0,
-      "tmax": 23.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-03-09",
-      "text": "Fine apart from cloudy periods. Force 3 to 5 northeasterly winds with gusts.",
+      "text": "Cloudy apart from sunny periods. Force 3 to 4 east to northeasterly winds, occasionally force 5.",
       "tmin": 17.0,
       "tmax": 23.0,
       "sources": [
@@ -26,7 +17,7 @@
     },
     {
       "date": "2026-03-10",
-      "text": "Mainly cloudy. Force 3 to 4 northeasterly winds, occasionally force 5 with gusts.",
+      "text": "Mainly cloudy. Force 3 to 4 north to northeasterly winds, occasionally force 5.",
       "tmin": 16.0,
       "tmax": 20.0,
       "sources": [
@@ -36,7 +27,7 @@
     {
       "date": "2026-03-11",
       "text": "Cloudy apart from sunny periods. Force 3 to 4 east to northeasterly winds.",
-      "tmin": 17.0,
+      "tmin": 16.0,
       "tmax": 22.0,
       "sources": [
         "SMG"
@@ -44,9 +35,18 @@
     },
     {
       "date": "2026-03-12",
-      "text": "Mainly fine. Force 3 to 5 east to northeasterly winds with gusts.",
+      "text": "Mainly fine. Force 3 to 4 east to northeasterly winds, occasionally force 5.",
       "tmin": 17.0,
-      "tmax": 23.0,
+      "tmax": 24.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "text": "Mainly fine. Force 4 to 6 easterly winds with gusts.",
+      "tmin": 16.0,
+      "tmax": 21.0,
       "sources": [
         "SMG"
       ]
