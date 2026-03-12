@@ -2,14 +2,14 @@
   "smg": [
     {
       "date": "2026-03-12",
-      "text": "Mainly fine. Force 2 to 4 east to northeasterly winds, becoming force 5 easterly winds with gusts.",
+      "text": "Fine. Haze during the day. Force 3 to 4 northeasterly winds, becoming force 5 easterly winds with gusts.",
       "tmin": 16.0,
-      "tmax": 24.0,
+      "tmax": 25.0,
       "src": "SMG"
     },
     {
       "date": "2026-03-13",
-      "text": "Dry. Mainly fine. Force 5 to 6 easterly winds with gusts.",
+      "text": "Dry. Fine. Force 5 to 6 easterly winds with gusts.",
       "tmin": 15.0,
       "tmax": 20.0,
       "src": "SMG"
