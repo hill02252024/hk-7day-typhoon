@@ -1,13 +1,6 @@
 {
   "smg": [
     {
-      "date": "2026-03-17",
-      "text": "Cloudy apart from sunny intervals. A few light rain patches. Force 3 to 4 easterly winds.",
-      "tmin": 19.0,
-      "tmax": 24.0,
-      "src": "SMG"
-    },
-    {
       "date": "2026-03-18",
       "text": "Cloudy apart from sunny periods. Light rain at first. Mist at night. Force 2 to 3 east to southeasterly winds.",
       "tmin": 20.0,
@@ -23,29 +16,36 @@
     },
     {
       "date": "2026-03-20",
-      "text": "Cloudy apart from sunny intervals. Mist at first. Force 3 to 4 easterly winds.",
+      "text": "Cloudy apart from sunny intervals. Mist at first. A few light rain patches. Force 2 to 4 easterly winds.",
       "tmin": 20.0,
       "tmax": 24.0,
       "src": "SMG"
     },
     {
       "date": "2026-03-21",
-      "text": "Cloudy apart from sunny intervals. Force 2 to 4 easterly winds.",
+      "text": "Cloudy apart from sunny intervals. Force 3 to 4 easterly winds.",
       "tmin": 20.0,
       "tmax": 24.0,
       "src": "SMG"
     },
     {
       "date": "2026-03-22",
-      "text": "Cloudy apart from sunny intervals. Mist at first. Force 2 to 3 east to southeasterly winds.",
+      "text": "Cloudy apart from sunny intervals. Force 3 to 4 easterly winds.",
       "tmin": 20.0,
-      "tmax": 25.0,
+      "tmax": 24.0,
       "src": "SMG"
     },
     {
       "date": "2026-03-23",
-      "text": "Cloudy apart from sunny periods. Mist at first. Force 2 to 4 east to southeasterly winds.",
-      "tmin": 20.0,
+      "text": "Cloudy apart from sunny intervals. Mist at night. Force 2 to 4 east to southeasterly winds.",
+      "tmin": 21.0,
+      "tmax": 25.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2026-03-24",
+      "text": "Cloudy apart from sunny periods. Mist in the morning and at night. Force 2 to 3 east to southeasterly winds.",
+      "tmin": 21.0,
       "tmax": 26.0,
       "src": "SMG"
     }
