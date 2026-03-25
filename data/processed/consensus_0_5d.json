@@ -7,17 +7,8 @@
   },
   "days": [
     {
-      "date": "2026-03-25",
-      "text": "Fine apart from cloudy periods. Mist later. Light winds, becoming force 2 to 3 south to southeasterly winds.",
-      "tmin": 21.0,
-      "tmax": 28.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-03-26",
-      "text": "Cloudy apart from sunny intervals. Mist in the morning and at night. Force 2 to 4 south to southeasterly winds.",
+      "text": "Cloudy apart from sunny intervals. Mist at first. Light rain at first. Force 2 to 4 south to southeasterly winds.",
       "tmin": 21.0,
       "tmax": 27.0,
       "sources": [
@@ -26,27 +17,36 @@
     },
     {
       "date": "2026-03-27",
-      "text": "Cloudy apart from sunny intervals. Mist in the morning and at night. Force 2 to 3 south to southeasterly winds.",
-      "tmin": 21.0,
-      "tmax": 27.0,
+      "text": "Cloudy apart from sunny periods. Force 2 to 3 south to southeasterly winds.",
+      "tmin": 22.0,
+      "tmax": 28.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-03-28",
-      "text": "Cloudy apart from sunny intervals. Mist at first. Light winds, becoming force 3 to 4 southeasterly winds.",
+      "text": "Cloudy apart from sunny periods. Force 2 to 4 south to southeasterly winds.",
       "tmin": 22.0,
-      "tmax": 27.0,
+      "tmax": 28.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-03-29",
-      "text": "Cloudy apart from sunny intervals. One or two showers. Force 3 to 4 south to southeasterly winds.",
-      "tmin": 22.0,
-      "tmax": 27.0,
+      "text": "Cloudy apart from sunny intervals. A few showers. Force 3 to 4 south to southeasterly winds.",
+      "tmin": 23.0,
+      "tmax": 28.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "text": "Cloudy apart from sunny periods. A few showers. Force 3 to 5 south to southwesterly winds with gusts.",
+      "tmin": 23.0,
+      "tmax": 29.0,
       "sources": [
         "SMG"
       ]
