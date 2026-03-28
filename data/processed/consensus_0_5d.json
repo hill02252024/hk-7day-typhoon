@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-03-28",
-      "text": "Cloudy apart from sunny intervals. One or two showers. Mist in the morning. Force 2 to 4 southeasterly winds.",
-      "tmin": 22.0,
-      "tmax": 26.0,
+      "text": "Cloudy apart from sunny intervals. One or two showers. Force 2 to 4 southeasterly winds.",
+      "tmin": 23.0,
+      "tmax": 27.0,
       "sources": [
         "SMG"
       ]
@@ -18,8 +18,8 @@
     {
       "date": "2026-03-29",
       "text": "Cloudy apart from sunny intervals. One or two showers. Force 3 to 4 south to southeasterly winds.",
-      "tmin": 22.0,
-      "tmax": 26.0,
+      "tmin": 23.0,
+      "tmax": 27.0,
       "sources": [
         "SMG"
       ]
