@@ -8,8 +8,8 @@
   "days": [
     {
       "date": "2026-04-01",
-      "text": "Mainly cloudy. A few showers. A few thunderstorms at first. Force 3 to 4 northerly winds with gusts, becoming east to southeasterlies.",
-      "tmin": 21.0,
+      "text": "Mainly cloudy. A few showers. Force 3 to 4 northerly winds, becoming east to southeasterlies.",
+      "tmin": 20.0,
       "tmax": 26.0,
       "sources": [
         "SMG"
