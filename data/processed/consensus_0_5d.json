@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-03-31",
-      "text": "Cloudy apart from sunny intervals. A few showers. A few thunderstorms later. Force 3 to 4 south to southwesterly winds, occasionally force 5 with gusts.",
-      "tmin": 22.0,
-      "tmax": 28.0,
+      "text": "Mainly cloudy. A few thundery showers. Force 3 to 4 south to southwesterly winds, occasionally force 5 with gusts.",
+      "tmin": 23.0,
+      "tmax": 27.0,
       "sources": [
         "SMG"
       ]
