@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-01",
-    "text": "Mainly cloudy. A few showers. Force 3 to 4 northerly winds, becoming east to southeasterlies.",
+    "text": "Cloudy apart from sunny intervals. One or two showers at night. Force 3 to 4 northerly winds, becoming east to southeasterlies.",
     "tmin": 20.0,
     "tmax": 26.0,
     "src": "SMG"
@@ -9,7 +9,7 @@
   {
     "date": "2026-04-02",
     "text": "Mainly cloudy. A few showers. Force 3 to 4 south to southeasterly winds, occasionally force 5 with gusts.",
-    "tmin": 23.0,
+    "tmin": 22.0,
     "tmax": 28.0,
     "src": "SMG"
   },
