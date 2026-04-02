@@ -1,52 +1,52 @@
 {
   "smg": [
     {
-      "date": "2026-04-02",
-      "text": "Mainly cloudy. A few showers. Force 4 to 5 east to southeasterly winds with gusts.",
-      "tmin": 22.0,
-      "tmax": 25.0,
-      "src": "SMG"
-    },
-    {
       "date": "2026-04-03",
-      "text": "Cloudy apart from sunny intervals. A few showers. A few thunderstorms later. Force 3 to 5 south to southwesterly winds with gusts.",
+      "text": "Cloudy apart from sunny intervals. A few showers. A few thunderstorms by the end of the day. Force 4 to 5 south to southwesterly winds, occasionally force 6 with gusts.",
       "tmin": 23.0,
       "tmax": 27.0,
       "src": "SMG"
     },
     {
       "date": "2026-04-04",
-      "text": "Cloudy. Occasional Thundery showers. Force 2 to 4 southerly winds with gusts.",
-      "tmin": 21.0,
-      "tmax": 24.0,
+      "text": "Cloudy. Occasional Thundery showers. Force 3 to 4 south to southwesterly winds with gusts.",
+      "tmin": 22.0,
+      "tmax": 25.0,
       "src": "SMG"
     },
     {
       "date": "2026-04-05",
-      "text": "Cloudy. Occasional showers. A few thunderstorms. Force 4 to 5 southerly winds with gusts.",
+      "text": "Cloudy. Occasional Thundery showers. Force 4 to 5 southerly winds with gusts.",
       "tmin": 22.0,
       "tmax": 26.0,
       "src": "SMG"
     },
     {
       "date": "2026-04-06",
-      "text": "Mainly cloudy. A few thundery showers. Force 4 to 5 south to southwesterly winds with gusts.",
+      "text": "Mainly cloudy. A few showers. Force 4 to 5 south to southwesterly winds with gusts.",
       "tmin": 23.0,
       "tmax": 27.0,
       "src": "SMG"
     },
     {
       "date": "2026-04-07",
-      "text": "Cloudy apart from sunny periods. One or two showers. Force 2 to 4 south to southwesterly winds.",
+      "text": "Cloudy apart from sunny periods. One or two showers. Force 3 to 4 south to southwesterly winds.",
       "tmin": 24.0,
       "tmax": 29.0,
       "src": "SMG"
     },
     {
       "date": "2026-04-08",
-      "text": "Cloudy apart from sunny intervals. A few showers. Force 3 to 4 south to southeasterly winds, occasionally force 5 with gusts.",
-      "tmin": 24.0,
+      "text": "Cloudy apart from sunny intervals. A few showers. Force 3 to 4 southeasterly winds, occasionally force 5.",
+      "tmin": 23.0,
       "tmax": 28.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2026-04-09",
+      "text": "Cloudy apart from sunny periods. Force 3 to 4 southerly winds.",
+      "tmin": 24.0,
+      "tmax": 29.0,
       "src": "SMG"
     }
   ]
