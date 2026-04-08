@@ -2,14 +2,14 @@
   "smg": [
     {
       "date": "2026-04-08",
-      "text": "Mainly cloudy. A few rain patches. Force 4 to 5 east to southeasterly winds, occasionally force 6 with gusts.",
+      "text": "Mainly cloudy. Force 4 to 5 east to southeasterly winds, occasionally force 6 with gusts.",
       "tmin": 22.0,
       "tmax": 25.0,
       "src": "SMG"
     },
     {
       "date": "2026-04-09",
-      "text": "Cloudy apart from sunny periods. One or two showers at first. Force 3 to 4 south to southeasterly winds, occasionally force 5.",
+      "text": "Cloudy apart from sunny periods. Force 3 to 4 south to southeasterly winds, occasionally force 5.",
       "tmin": 23.0,
       "tmax": 28.0,
       "src": "SMG"
