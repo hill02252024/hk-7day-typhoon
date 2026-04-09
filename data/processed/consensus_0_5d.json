@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-04-09",
-      "text": "Cloudy apart from sunny intervals. Mist at first. Force 3 to 4 south to southeasterly winds, occasionally force 5.",
-      "tmin": 23.0,
-      "tmax": 28.0,
+      "text": "Cloudy apart from sunny intervals. Force 3 to 4 south to southeasterly winds, occasionally force 5.",
+      "tmin": 24.0,
+      "tmax": 29.0,
       "sources": [
         "SMG"
       ]
@@ -19,7 +19,7 @@
       "date": "2026-04-10",
       "text": "Cloudy apart from sunny periods. Force 3 to 4 southerly winds.",
       "tmin": 24.0,
-      "tmax": 29.0,
+      "tmax": 30.0,
       "sources": [
         "SMG"
       ]
