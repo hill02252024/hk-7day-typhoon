@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-04-12",
-    "text": "Cloudy apart from sunny intervals. One or two showers. Force 3 to 4 southerly winds, occasionally force 5.",
-    "tmin": 25.0,
-    "tmax": 28.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-04-13",
     "text": "Cloudy apart from sunny intervals. One or two showers. Force 3 to 4 southerly winds.",
     "tmin": 25.0,
@@ -22,7 +15,7 @@
   },
   {
     "date": "2026-04-15",
-    "text": "Cloudy apart from sunny periods. Force 3 to 4 southerly winds.",
+    "text": "Cloudy apart from sunny periods. Force 2 to 4 southerly winds.",
     "tmin": 25.0,
     "tmax": 29.0,
     "src": "SMG"
@@ -43,9 +36,16 @@
   },
   {
     "date": "2026-04-18",
-    "text": "Cloudy apart from sunny intervals. A few showers. Force 2 to 3 south to southeasterly winds.",
+    "text": "Mainly cloudy. A few showers. Force 2 to 3 south to southeasterly winds.",
     "tmin": 24.0,
-    "tmax": 28.0,
+    "tmax": 27.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-04-19",
+    "text": "Mainly cloudy. Occasional showers. Force 2 to 3 south to southeasterly winds.",
+    "tmin": 24.0,
+    "tmax": 27.0,
     "src": "SMG"
   }
 ]
