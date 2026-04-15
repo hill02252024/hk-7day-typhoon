@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-04-15",
-      "text": "Cloudy apart from sunny periods. Force 3 to 4 southerly winds, occasionally force 5 with gusts.",
+      "text": "Mainly cloudy. One or two showers. Force 3 to 4 southerly winds, occasionally force 5 with gusts.",
       "tmin": 24.0,
-      "tmax": 29.0,
+      "tmax": 28.0,
       "sources": [
         "SMG"
       ]
