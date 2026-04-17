@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-04-18",
-      "text": "Mainly cloudy. A few showers. A few thunderstorms at first. Light winds, becoming force 2 to 3 south to southwesterly winds with gusts.",
-      "tmin": 21.0,
-      "tmax": 27.0,
+      "text": "Mainly cloudy. A few showers. Light winds, becoming force 2 to 3 south to southwesterly winds.",
+      "tmin": 20.0,
+      "tmax": 26.0,
       "sources": [
         "SMG"
       ]
