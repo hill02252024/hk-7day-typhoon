@@ -1,15 +1,15 @@
 [
   {
     "date": "2026-04-18",
-    "text": "Cloudy apart from sunny periods. Haze during the day. Light winds, becoming force 2 to 3 south to southwesterly winds.",
+    "text": "Cloudy apart from sunny periods. Haze. Force 2 to 4 southerly winds.",
     "tmin": 20.0,
-    "tmax": 29.0,
+    "tmax": 28.0,
     "src": "SMG"
   },
   {
     "date": "2026-04-19",
-    "text": "Cloudy apart from sunny periods. Force 2 to 3 south to southwesterly winds.",
-    "tmin": 23.0,
+    "text": "Cloudy apart from sunny periods. Haze during the day. Force 2 to 3 south to southwesterly winds.",
+    "tmin": 22.0,
     "tmax": 29.0,
     "src": "SMG"
   },
