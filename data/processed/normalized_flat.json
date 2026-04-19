@@ -1,14 +1,7 @@
 [
   {
-    "date": "2026-04-19",
-    "text": "Mainly fine. Haze. Force 2 to 3 south to southeasterly winds.",
-    "tmin": 22.0,
-    "tmax": 30.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-04-20",
-    "text": "Mainly cloudy. A few showers. Force 2 to 4 south to southeasterly winds.",
+    "text": "Mainly cloudy. Mist at first. A few showers. Possible thunderstorms later. Force 2 to 4 south to southeasterly winds.",
     "tmin": 23.0,
     "tmax": 28.0,
     "src": "SMG"
@@ -43,9 +36,16 @@
   },
   {
     "date": "2026-04-25",
-    "text": "Mainly cloudy. A few showers. Force 3 to 4 east to northeasterly winds.",
+    "text": "Mainly cloudy. A few showers. Force 2 to 4 east to northeasterly winds.",
     "tmin": 21.0,
     "tmax": 25.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-04-26",
+    "text": "Cloudy apart from sunny intervals. One or two showers. Force 2 to 3 east to southeasterly winds.",
+    "tmin": 22.0,
+    "tmax": 27.0,
     "src": "SMG"
   }
 ]
