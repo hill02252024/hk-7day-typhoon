@@ -3,20 +3,20 @@
     {
       "date": "2026-04-24",
       "text": "Overcast. Occasional showers, heavy at times. A few thunderstorms. Force 3 to 4 north to northeasterly winds with gusts.",
-      "tmin": 18.0,
+      "tmin": 17.0,
       "tmax": 22.0,
       "src": "SMG"
     },
     {
       "date": "2026-04-25",
-      "text": "Mainly cloudy. A few showers at first. Force 3 to 4 east to northeasterly winds.",
-      "tmin": 19.0,
+      "text": "Mainly cloudy. A few showers at first. Force 3 to 4 north to northeasterly winds.",
+      "tmin": 18.0,
       "tmax": 25.0,
       "src": "SMG"
     },
     {
       "date": "2026-04-26",
-      "text": "Cloudy apart from sunny periods. Force 3 to 4 easterly winds.",
+      "text": "Cloudy apart from sunny intervals. Force 3 to 4 easterly winds.",
       "tmin": 21.0,
       "tmax": 27.0,
       "src": "SMG"
@@ -24,28 +24,28 @@
     {
       "date": "2026-04-27",
       "text": "Mainly cloudy. A few showers. A few thunderstorms later. Force 3 to 4 east to southeasterly winds with gusts.",
-      "tmin": 23.0,
+      "tmin": 22.0,
       "tmax": 26.0,
       "src": "SMG"
     },
     {
       "date": "2026-04-28",
       "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 southerly winds with gusts.",
-      "tmin": 23.0,
-      "tmax": 26.0,
-      "src": "SMG"
-    },
-    {
-      "date": "2026-04-29",
-      "text": "Cloudy. Showers. A few thunderstorms. Force 3 to 5 south to southwesterly winds with gusts.",
       "tmin": 22.0,
       "tmax": 25.0,
       "src": "SMG"
     },
     {
+      "date": "2026-04-29",
+      "text": "Cloudy. Showers. A few thunderstorms. Force 3 to 5 south to southwesterly winds with gusts.",
+      "tmin": 21.0,
+      "tmax": 24.0,
+      "src": "SMG"
+    },
+    {
       "date": "2026-04-30",
-      "text": "Mainly cloudy. A few showers. A few thunderstorms at first. Force 2 to 4 southwesterly winds with gusts, becoming east to northeasterlies.",
-      "tmin": 22.0,
+      "text": "Mainly cloudy. Force 2 to 4 north to northeasterly winds, becoming easterlies.",
+      "tmin": 21.0,
       "tmax": 26.0,
       "src": "SMG"
     }
