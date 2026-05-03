@@ -9,7 +9,7 @@
     {
       "date": "2026-05-04",
       "text": "Mainly cloudy. A few showers. Force 3 to 4 north to northeasterly winds.",
-      "tmin": 21.0,
+      "tmin": 20.0,
       "tmax": 26.0,
       "sources": [
         "SMG"
@@ -18,8 +18,8 @@
     {
       "date": "2026-05-05",
       "text": "Mainly cloudy. A few showers. Force 3 to 4 east to northeasterly winds.",
-      "tmin": 22.0,
-      "tmax": 26.0,
+      "tmin": 21.0,
+      "tmax": 25.0,
       "sources": [
         "SMG"
       ]
