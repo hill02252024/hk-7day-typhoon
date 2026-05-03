@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-05-03",
-    "text": "Cloudy. Showers, heavy at times. Thunderstorms. Force 3 to 5 northerly winds with gusts.",
-    "tmin": 22.0,
-    "tmax": 30.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-05-04",
     "text": "Mainly cloudy. One or two showers. Force 3 to 4 north to northeasterly winds.",
     "tmin": 21.0,
@@ -15,37 +8,44 @@
   },
   {
     "date": "2026-05-05",
-    "text": "Mainly cloudy. A few showers. Force 4 to 5 east to northeasterly winds.",
+    "text": "Mainly cloudy. A few showers. Force 3 to 4 east to northeasterly winds.",
     "tmin": 22.0,
-    "tmax": 25.0,
+    "tmax": 26.0,
     "src": "SMG"
   },
   {
     "date": "2026-05-06",
-    "text": "Cloudy apart from sunny intervals. Force 3 to 5 easterly winds.",
+    "text": "Cloudy apart from sunny intervals. Force 3 to 5 east to southeasterly winds.",
     "tmin": 23.0,
     "tmax": 27.0,
     "src": "SMG"
   },
   {
     "date": "2026-05-07",
-    "text": "Cloudy apart from sunny periods. One or two showers. Force 2 to 4 southeasterly winds.",
-    "tmin": 24.0,
-    "tmax": 28.0,
-    "src": "SMG"
-  },
-  {
-    "date": "2026-05-08",
-    "text": "Cloudy apart from sunny periods. One or two showers. Force 2 to 4 south to southwesterly winds.",
+    "text": "Cloudy apart from sunny periods. Force 2 to 4 east to southeasterly winds.",
     "tmin": 24.0,
     "tmax": 29.0,
     "src": "SMG"
   },
   {
+    "date": "2026-05-08",
+    "text": "Cloudy apart from sunny intervals. A few showers. Force 2 to 4 south to southwesterly winds.",
+    "tmin": 24.0,
+    "tmax": 28.0,
+    "src": "SMG"
+  },
+  {
     "date": "2026-05-09",
-    "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 west to southwesterly winds with gusts.",
+    "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 south to southwesterly winds with gusts.",
     "tmin": 23.0,
     "tmax": 27.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-05-10",
+    "text": "Mainly cloudy. A few showers. Force 3 to 4 east to northeasterly winds.",
+    "tmin": 23.0,
+    "tmax": 28.0,
     "src": "SMG"
   }
 ]
