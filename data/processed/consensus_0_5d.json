@@ -7,35 +7,35 @@
   },
   "days": [
     {
-      "date": "2026-05-04",
-      "text": "Mainly cloudy. A few showers. Force 3 to 4 north to northeasterly winds.",
-      "tmin": 20.0,
-      "tmax": 26.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-05-05",
-      "text": "Cloudy. Occasional showers. Showers will ease off later. Possible thunderstorms at first. Force 3 to 5 east to northeasterly winds with gusts.",
+      "text": "Mainly cloudy. Showers. Showers will ease off later. Possible thunderstorms at first. Force 3 to 4 east to northeasterly winds, occasionally force 5 with gusts.",
       "tmin": 20.0,
-      "tmax": 23.0,
+      "tmax": 25.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-05-06",
-      "text": "Cloudy apart from sunny intervals. One or two showers. Force 3 to 5 east to southeasterly winds.",
+      "text": "Cloudy apart from sunny intervals. One or two showers at first. Force 3 to 5 east to southeasterly winds.",
       "tmin": 22.0,
-      "tmax": 26.0,
+      "tmax": 27.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-05-07",
-      "text": "Cloudy apart from sunny periods. Force 2 to 4 east to southeasterly winds.",
+      "text": "Cloudy apart from sunny periods. A few showers later. Force 2 to 4 east to southeasterly winds.",
+      "tmin": 23.0,
+      "tmax": 29.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "text": "Cloudy apart from sunny intervals. A few showers. Force 2 to 3 northerly winds.",
       "tmin": 23.0,
       "tmax": 28.0,
       "sources": [
@@ -43,10 +43,10 @@
       ]
     },
     {
-      "date": "2026-05-08",
-      "text": "Cloudy apart from sunny intervals. A few showers. Force 2 to 4 south to southwesterly winds.",
-      "tmin": 24.0,
-      "tmax": 28.0,
+      "date": "2026-05-09",
+      "text": "Mainly cloudy. A few showers. Force 3 to 4 north to northeasterly winds.",
+      "tmin": 22.0,
+      "tmax": 26.0,
       "sources": [
         "SMG"
       ]
