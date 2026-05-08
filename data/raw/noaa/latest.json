@@ -1,10 +1,10 @@
 {
-  "fetched_at": 1778256866,
+  "fetched_at": 1778268134,
   "provider": "noaa",
   "ok": false,
   "requested_url": "https://api.weather.gov/points/21.3069,-157.8583/forecast",
-  "http_status": null,
-  "response_content_type": null,
+  "http_status": 404,
+  "response_content_type": "application/problem+json",
   "data": null,
-  "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'api.weather.gov\\', port=443): Max retries exceeded with url: /points/21.3069,-157.8583/forecast (Caused by ReadTimeoutError(\"HTTPSConnectionPool(host=\\'api.weather.gov\\', port=443): Read timed out. (read timeout=30)\"))'))"
+  "error": "HTTP 404"
 }
