@@ -7,8 +7,8 @@
   },
   "days": [
     {
-      "date": "2026-05-17",
-      "text": "Cloudy. Occasional showers. Possible thunderstorms. Force 4 to 6 east to southeasterly winds with gusts.",
+      "date": "2026-05-18",
+      "text": "Slight flooding will occur in Inner Harbour area from 8 am ~ 12 pm due to astronomical tide. Cloudy. Occasional showers. Force 4 to 5 east to southeasterly winds, occasionally force 6.",
       "tmin": 23.0,
       "tmax": 26.0,
       "sources": [
@@ -16,35 +16,35 @@
       ]
     },
     {
-      "date": "2026-05-18",
-      "text": "Slight flooding will occur in Inner Harbour area from 8 am ~ 12 pm due to astronomical tide. Cloudy. Occasional showers. Possible thunderstorms at first. Force 3 to 5 southeasterly winds with gusts.",
-      "tmin": 24.0,
-      "tmax": 27.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-05-19",
-      "text": "Cloudy apart from sunny intervals. A few showers. Force 3 to 4 south to southeasterly winds.",
-      "tmin": 25.0,
-      "tmax": 29.0,
+      "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 south to southeasterly winds with gusts.",
+      "tmin": 24.0,
+      "tmax": 28.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-05-20",
-      "text": "Cloudy apart from sunny intervals. A few showers. Force 3 to 4 southerly winds.",
-      "tmin": 25.0,
-      "tmax": 29.0,
+      "text": "Mainly cloudy. A few thundery showers. Force 3 to 4 southerly winds with gusts.",
+      "tmin": 24.0,
+      "tmax": 28.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-05-21",
-      "text": "Cloudy apart from sunny periods. One or two showers at first. Force 2 to 4 southerly winds.",
+      "text": "Mainly cloudy. A few showers. A few thunderstorms at first. Force 3 to 4 southerly winds with gusts.",
+      "tmin": 24.0,
+      "tmax": 29.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-05-22",
+      "text": "Cloudy apart from sunny intervals. Force 3 to 4 southerly winds.",
       "tmin": 25.0,
       "tmax": 30.0,
       "sources": [
