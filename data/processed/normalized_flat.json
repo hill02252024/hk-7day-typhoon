@@ -1,21 +1,14 @@
 [
   {
-    "date": "2026-05-30",
-    "text": "Very hot. Cloudy apart from sunny intervals. A few thundery showers later. Force 2 to 4 east to northeasterly winds with gusts.",
-    "tmin": 27.0,
-    "tmax": 33.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-05-31",
-    "text": "Cloudy apart from sunny intervals. A few showers at first. Force 2 to 3 east to southeasterly winds.",
+    "text": "Cloudy apart from sunny intervals. A few showers at first. Force 2 to 3 southeasterly winds.",
     "tmin": 26.0,
-    "tmax": 30.0,
+    "tmax": 31.0,
     "src": "SMG"
   },
   {
     "date": "2026-06-01",
-    "text": "Cloudy apart from sunny intervals. One or two showers. Force 2 to 4 south to southwesterly winds.",
+    "text": "Cloudy apart from sunny intervals. A few showers at first. Force 2 to 4 south to southwesterly winds.",
     "tmin": 26.0,
     "tmax": 31.0,
     "src": "SMG"
@@ -29,23 +22,30 @@
   },
   {
     "date": "2026-06-03",
-    "text": "Cloudy apart from sunny periods. One or two showers. Force 2 to 4 south to southwesterly winds.",
+    "text": "Very hot. Cloudy apart from sunny periods. Force 3 to 4 south to southwesterly winds.",
     "tmin": 27.0,
-    "tmax": 32.0,
+    "tmax": 33.0,
     "src": "SMG"
   },
   {
     "date": "2026-06-04",
-    "text": "Very hot. Cloudy apart from sunny periods. One or two showers. Force 3 to 4 south to southwesterly winds.",
+    "text": "Very hot. Cloudy apart from sunny periods. Force 3 to 4 south to southwesterly winds.",
     "tmin": 28.0,
     "tmax": 33.0,
     "src": "SMG"
   },
   {
     "date": "2026-06-05",
-    "text": "Cloudy apart from sunny intervals. A few showers. Force 2 to 4 south to southwesterly winds.",
-    "tmin": 28.0,
-    "tmax": 32.0,
+    "text": "Very hot. Cloudy apart from sunny intervals. A few showers later. Force 2 to 4 south to southwesterly winds.",
+    "tmin": 27.0,
+    "tmax": 33.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-06-06",
+    "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 south to southwesterly winds with gusts.",
+    "tmin": 27.0,
+    "tmax": 31.0,
     "src": "SMG"
   }
 ]
