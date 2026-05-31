@@ -7,17 +7,8 @@
   },
   "days": [
     {
-      "date": "2026-05-31",
-      "text": "Cloudy apart from sunny intervals. One or two showers. Force 3 to 4 southeasterly winds.",
-      "tmin": 24.0,
-      "tmax": 30.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-06-01",
-      "text": "Cloudy apart from sunny intervals. A few showers at first. Force 2 to 4 south to southwesterly winds.",
+      "text": "Cloudy apart from sunny intervals. A few showers. Force 2 to 4 south to southwesterly winds.",
       "tmin": 26.0,
       "tmax": 31.0,
       "sources": [
@@ -36,7 +27,7 @@
     {
       "date": "2026-06-03",
       "text": "Very hot. Cloudy apart from sunny periods. Force 3 to 4 south to southwesterly winds.",
-      "tmin": 27.0,
+      "tmin": 28.0,
       "tmax": 33.0,
       "sources": [
         "SMG"
@@ -45,6 +36,15 @@
     {
       "date": "2026-06-04",
       "text": "Very hot. Cloudy apart from sunny periods. Force 3 to 4 south to southwesterly winds.",
+      "tmin": 28.0,
+      "tmax": 33.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-06-05",
+      "text": "Very hot. Cloudy apart from sunny periods. One or two showers. Force 3 to 4 southwesterly winds.",
       "tmin": 28.0,
       "tmax": 33.0,
       "sources": [
