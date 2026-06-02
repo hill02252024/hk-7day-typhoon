@@ -1,15 +1,8 @@
 {
   "smg": [
     {
-      "date": "2026-06-02",
-      "text": "Very hot. Cloudy apart from sunny periods. A few showers. Force 2 to 4 south to southwesterly winds.",
-      "tmin": 27.0,
-      "tmax": 32.0,
-      "src": "SMG"
-    },
-    {
       "date": "2026-06-03",
-      "text": "Very hot. Fine apart from cloudy periods. Force 3 to 4 south to southwesterly winds.",
+      "text": "Very hot. Fine apart from cloudy periods. Force 2 to 4 south to southwesterly winds.",
       "tmin": 28.0,
       "tmax": 33.0,
       "src": "SMG"
@@ -39,7 +32,7 @@
       "date": "2026-06-07",
       "text": "Mainly cloudy. A few thundery showers. Force 3 to 4 southerly winds with gusts.",
       "tmin": 25.0,
-      "tmax": 29.0,
+      "tmax": 30.0,
       "src": "SMG"
     },
     {
@@ -47,6 +40,13 @@
       "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 southerly winds with gusts.",
       "tmin": 25.0,
       "tmax": 28.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2026-06-09",
+      "text": "Cloudy. Showers. Occasional thunderstorms. Force 3 to 4 south to southwesterly winds with gusts.",
+      "tmin": 24.0,
+      "tmax": 27.0,
       "src": "SMG"
     }
   ]
