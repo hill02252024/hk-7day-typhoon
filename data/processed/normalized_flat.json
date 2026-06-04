@@ -1,37 +1,30 @@
 [
   {
-    "date": "2026-06-04",
-    "text": "Very hot. Fine apart from cloudy periods. A few showers later. Force 2 to 3 southwesterly winds.",
-    "tmin": 28.0,
-    "tmax": 34.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-06-05",
     "text": "Very hot. Fine apart from cloudy periods. A few thundery showers later. Force 2 to 4 west to southwesterly winds with gusts.",
-    "tmin": 28.0,
+    "tmin": 27.0,
     "tmax": 34.0,
     "src": "SMG"
   },
   {
     "date": "2026-06-06",
-    "text": "Cloudy apart from sunny periods. A few showers later. Force 2 to 4 south to southwesterly winds.",
+    "text": "Cloudy apart from sunny periods. A few thundery showers. Force 2 to 4 south to southwesterly winds with gusts.",
     "tmin": 27.0,
-    "tmax": 32.0,
+    "tmax": 31.0,
     "src": "SMG"
   },
   {
     "date": "2026-06-07",
-    "text": "Mainly cloudy. A few thundery showers. Force 3 to 4 south to southwesterly winds with gusts.",
-    "tmin": 26.0,
-    "tmax": 30.0,
+    "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 south to southwesterly winds with gusts.",
+    "tmin": 25.0,
+    "tmax": 29.0,
     "src": "SMG"
   },
   {
     "date": "2026-06-08",
-    "text": "Cloudy. Showers. Occasional thunderstorms. Force 3 to 4 south to southwesterly winds with gusts.",
-    "tmin": 25.0,
-    "tmax": 28.0,
+    "text": "Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 3 to 4 south to southwesterly winds with gusts.",
+    "tmin": 24.0,
+    "tmax": 27.0,
     "src": "SMG"
   },
   {
@@ -43,9 +36,16 @@
   },
   {
     "date": "2026-06-10",
-    "text": "Cloudy. Occasional showers. A few thunderstorms. Force 2 to 4 north to northwesterly winds with gusts.",
+    "text": "Cloudy. A few thundery showers. Force 2 to 4 north to northwesterly winds with gusts.",
     "tmin": 24.0,
     "tmax": 27.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-06-11",
+    "text": "Mainly cloudy. A few thundery showers. Force 2 to 3 east to northeasterly winds.",
+    "tmin": 25.0,
+    "tmax": 28.0,
     "src": "SMG"
   }
 ]
