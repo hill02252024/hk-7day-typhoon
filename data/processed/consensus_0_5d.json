@@ -7,19 +7,10 @@
   },
   "days": [
     {
-      "date": "2026-06-06",
-      "text": "Mainly cloudy. A few thundery showers. Force 3 to 4 south to southwesterly winds with gusts.",
-      "tmin": 25.0,
-      "tmax": 31.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-06-07",
-      "text": "Cloudy. Thundery showers. Force 3 to 4 south to southwesterly winds with gusts.",
-      "tmin": 26.0,
-      "tmax": 30.0,
+      "text": "Cloudy. Occasional showers, heavy at times. Occasional thunderstorms. Force 3 to 4 south to southwesterly winds with gusts.",
+      "tmin": 24.0,
+      "tmax": 29.0,
       "sources": [
         "SMG"
       ]
@@ -27,7 +18,7 @@
     {
       "date": "2026-06-08",
       "text": "Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 3 to 4 south to southwesterly winds with gusts.",
-      "tmin": 25.0,
+      "tmin": 24.0,
       "tmax": 28.0,
       "sources": [
         "SMG"
@@ -35,18 +26,27 @@
     },
     {
       "date": "2026-06-09",
-      "text": "Cloudy. Showers, heavy at first. Occasional thunderstorms. Force 3 to 4 south to southwesterly winds, becoming northerlies with gusts.",
-      "tmin": 25.0,
-      "tmax": 28.0,
+      "text": "Cloudy. Showers, heavy at first. Occasional thunderstorms. Force 3 to 4 west to southwesterly winds, becoming northerlies with gusts.",
+      "tmin": 24.0,
+      "tmax": 27.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-06-10",
-      "text": "Mainly cloudy. A few showers. A few thunderstorms at first. Force 2 to 4 northerly winds, becoming easterlies with gusts.",
+      "text": "Mainly cloudy. A few showers. Force 2 to 4 north to northeasterly winds.",
+      "tmin": 23.0,
+      "tmax": 28.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-06-11",
+      "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 east to northeasterly winds with gusts.",
       "tmin": 24.0,
-      "tmax": 27.0,
+      "tmax": 29.0,
       "sources": [
         "SMG"
       ]
