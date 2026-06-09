@@ -7,17 +7,8 @@
   },
   "days": [
     {
-      "date": "2026-06-09",
-      "text": "Cloudy apart from sunny intervals. One or two showers in the morning. Force 3 to 4 north to northwesterly winds.",
-      "tmin": 24.0,
-      "tmax": 30.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-06-10",
-      "text": "Cloudy apart from sunny intervals. One or two showers. Force 2 to 4 north to northeasterly winds.",
+      "text": "Cloudy apart from sunny intervals. One or two showers. Force 2 to 4 east to northeasterly winds.",
       "tmin": 23.0,
       "tmax": 30.0,
       "sources": [
@@ -26,7 +17,7 @@
     },
     {
       "date": "2026-06-11",
-      "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 east to northeasterly winds with gusts.",
+      "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 2 to 4 east to northeasterly winds with gusts.",
       "tmin": 24.0,
       "tmax": 29.0,
       "sources": [
@@ -35,7 +26,7 @@
     },
     {
       "date": "2026-06-12",
-      "text": "Cloudy. Occasional Thundery showers. Force 2 to 4 east to southeasterly winds with gusts.",
+      "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 2 to 4 east to southeasterly winds with gusts.",
       "tmin": 25.0,
       "tmax": 28.0,
       "sources": [
@@ -44,7 +35,16 @@
     },
     {
       "date": "2026-06-13",
-      "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 south to southwesterly winds with gusts.",
+      "text": "Cloudy. Occasional Thundery showers. Force 3 to 4 south to southwesterly winds with gusts.",
+      "tmin": 25.0,
+      "tmax": 29.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-06-14",
+      "text": "Cloudy. Occasional Thundery showers. Force 4 to 5 southwesterly winds with gusts.",
       "tmin": 25.0,
       "tmax": 29.0,
       "sources": [
