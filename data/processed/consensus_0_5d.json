@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-06-15",
-      "text": "Unsettled. Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 4 to 5 southwesterly winds with gusts.",
+      "text": "Unsettled. Cloudy. Occasional showers, heavy at times. Occasional thunderstorms. Force 3 to 5 southwesterly winds with gusts.",
       "tmin": 25.0,
-      "tmax": 29.0,
+      "tmax": 31.0,
       "sources": [
         "SMG"
       ]
