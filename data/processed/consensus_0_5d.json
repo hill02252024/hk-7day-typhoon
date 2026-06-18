@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-06-18",
-      "text": "Cloudy. Showers, heavy at times. Showers will ease off later. A few thunderstorms in the morning. Force 3 to 5 southerly winds with gusts.",
+      "text": "Overcast. Showers, heavy at times. Showers will ease off later. A few thunderstorms. Force 3 to 5 southerly winds with gusts.",
       "tmin": 24.0,
-      "tmax": 29.0,
+      "tmax": 28.0,
       "sources": [
         "SMG"
       ]
