@@ -1,49 +1,49 @@
 {
   "smg": [
     {
-      "date": "2026-06-21",
-      "text": "Cloudy apart from sunny periods. One or two showers. Force 3 to 4 south to southwesterly winds.",
-      "tmin": 27.0,
-      "tmax": 31.0,
-      "src": "SMG"
-    },
-    {
       "date": "2026-06-22",
-      "text": "Mainly fine. Force 3 to 4 south to southwesterly winds.",
+      "text": "Very hot. Fine apart from cloudy periods. Force 3 to 4 south to southwesterly winds.",
       "tmin": 27.0,
       "tmax": 32.0,
       "src": "SMG"
     },
     {
       "date": "2026-06-23",
-      "text": "Mainly fine. Force 3 to 4 south to southwesterly winds.",
+      "text": "Very hot. Fine apart from cloudy periods. One or two showers. Force 3 to 4 south to southwesterly winds.",
       "tmin": 28.0,
       "tmax": 32.0,
       "src": "SMG"
     },
     {
       "date": "2026-06-24",
-      "text": "Very hot. Fine apart from cloudy periods. Force 3 to 4 south to southwesterly winds.",
+      "text": "Very hot. Fine apart from cloudy periods. One or two showers. Force 3 to 4 south to southwesterly winds.",
       "tmin": 28.0,
       "tmax": 33.0,
       "src": "SMG"
     },
     {
       "date": "2026-06-25",
-      "text": "Very hot. Cloudy apart from sunny periods. One or two showers later. Force 3 to 4 south to southwesterly winds.",
+      "text": "Very hot. Cloudy apart from sunny periods. One or two showers. Force 3 to 4 south to southwesterly winds.",
       "tmin": 28.0,
       "tmax": 33.0,
       "src": "SMG"
     },
     {
       "date": "2026-06-26",
-      "text": "Cloudy apart from sunny periods. One or two showers. Force 2 to 4 southerly winds.",
-      "tmin": 27.0,
+      "text": "Cloudy apart from sunny periods. One or two showers. Force 2 to 4 south to southwesterly winds.",
+      "tmin": 28.0,
       "tmax": 32.0,
       "src": "SMG"
     },
     {
       "date": "2026-06-27",
+      "text": "Cloudy apart from sunny intervals. A few showers. Force 2 to 4 southerly winds.",
+      "tmin": 27.0,
+      "tmax": 31.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2026-06-28",
       "text": "Cloudy apart from sunny intervals. A few showers. Force 2 to 4 southerly winds.",
       "tmin": 27.0,
       "tmax": 31.0,
