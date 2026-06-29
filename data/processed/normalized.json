@@ -2,8 +2,8 @@
   "smg": [
     {
       "date": "2026-06-30",
-      "text": "Cloudy apart from sunny intervals. A few showers. Possible thunderstorms at first. Force 2 to 4 southeasterly winds.",
-      "tmin": 26.0,
+      "text": "Cloudy apart from sunny intervals. A few thundery showers. Force 2 to 4 southeasterly winds with gusts.",
+      "tmin": 25.0,
       "tmax": 31.0,
       "src": "SMG"
     },
