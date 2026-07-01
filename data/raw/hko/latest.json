@@ -1,5 +1,5 @@
 {
-  "fetched_at": 1782899502,
+  "fetched_at": 1782916834,
   "provider": "hko",
   "ok": true,
   "requested_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=en",
