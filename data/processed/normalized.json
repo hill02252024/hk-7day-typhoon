@@ -2,8 +2,8 @@
   "smg": [
     {
       "date": "2026-07-03",
-      "text": "Mainly cloudy. A few thundery showers. Showers will become more frequent later. Force 4 to 6 east to southeasterly winds with gusts.",
-      "tmin": 26.0,
+      "text": "Mainly cloudy. Occasional showers, heavy at times. Occasional thunderstorms. Force 4 to 6 east to southeasterly winds with gusts.",
+      "tmin": 25.0,
       "tmax": 30.0,
       "src": "SMG"
     },
