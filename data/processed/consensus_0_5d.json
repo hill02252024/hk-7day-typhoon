@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-07-04",
-      "text": "Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 4 to 5 south to southeasterly winds, occasionally force 6 with gusts.",
-      "tmin": 24.0,
-      "tmax": 28.0,
+      "text": "Cloudy apart from sunny intervals. Showers, heavy at times. A few thunderstorms. Force 4 to 5 south to southeasterly winds, occasionally force 6 with gusts.",
+      "tmin": 25.0,
+      "tmax": 30.0,
       "sources": [
         "SMG"
       ]
