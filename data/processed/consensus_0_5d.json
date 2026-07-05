@@ -7,15 +7,6 @@
   },
   "days": [
     {
-      "date": "2026-07-05",
-      "text": "Cloudy apart from sunny intervals. A few thundery showers. Force 4 to 5 southerly winds with gusts.",
-      "tmin": 25.0,
-      "tmax": 31.0,
-      "sources": [
-        "SMG"
-      ]
-    },
-    {
       "date": "2026-07-06",
       "text": "Cloudy apart from sunny intervals. Occasional showers. A few thunderstorms. Force 4 to 5 southerly winds with gusts.",
       "tmin": 25.0,
@@ -45,8 +36,17 @@
     {
       "date": "2026-07-09",
       "text": "Cloudy apart from sunny intervals. A few showers. Force 3 to 4 southerly winds.",
-      "tmin": 27.0,
+      "tmin": 26.0,
       "tmax": 31.0,
+      "sources": [
+        "SMG"
+      ]
+    },
+    {
+      "date": "2026-07-10",
+      "text": "Very hot. Fine apart from cloudy periods. A few thundery showers later. Force 2 to 4 west to southwesterly winds with gusts.",
+      "tmin": 27.0,
+      "tmax": 33.0,
       "sources": [
         "SMG"
       ]
