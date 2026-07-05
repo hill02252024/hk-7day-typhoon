@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-07-05",
-      "text": "Cloudy apart from sunny intervals. Occasional showers. A few thunderstorms. Force 4 to 5 southerly winds with gusts.",
+      "text": "Cloudy apart from sunny intervals. A few thundery showers. Force 4 to 5 southerly winds with gusts.",
       "tmin": 25.0,
-      "tmax": 30.0,
+      "tmax": 31.0,
       "sources": [
         "SMG"
       ]
