@@ -1,28 +1,21 @@
 [
   {
-    "date": "2026-07-09",
-    "text": "Cloudy apart from sunny periods. A few showers. Force 3 to 4 southerly winds.",
-    "tmin": 25.0,
-    "tmax": 31.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-07-10",
-    "text": "Very hot. Cloudy apart from sunny periods. One or two showers. Force 2 to 3 south to southwesterly winds.",
+    "text": "Very hot. Fine apart from cloudy periods. One or two showers at first. Force 2 to 3 south to southwesterly winds.",
     "tmin": 26.0,
     "tmax": 32.0,
     "src": "SMG"
   },
   {
     "date": "2026-07-11",
-    "text": "Very hot. Fine apart from cloudy periods. A few thundery showers later. Force 3 to 4 west to northwesterly winds, becoming force 5 southwesterly winds with gusts.",
+    "text": "Very hot. Fine apart from cloudy periods. Haze during the day. A few thundery showers later. Force 3 to 4 west to northwesterly winds, becoming force 5 southwesterly winds with gusts.",
     "tmin": 27.0,
     "tmax": 35.0,
     "src": "SMG"
   },
   {
     "date": "2026-07-12",
-    "text": "Very hot. Fine apart from cloudy periods. One or two showers later. Force 3 to 5 south to southwesterly winds.",
+    "text": "Very hot. Fine apart from cloudy periods. A few showers later. Force 3 to 4 south to southwesterly winds, occasionally force 5.",
     "tmin": 28.0,
     "tmax": 33.0,
     "src": "SMG"
@@ -30,8 +23,8 @@
   {
     "date": "2026-07-13",
     "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 south to southeasterly winds with gusts.",
-    "tmin": 27.0,
-    "tmax": 31.0,
+    "tmin": 26.0,
+    "tmax": 30.0,
     "src": "SMG"
   },
   {
@@ -44,6 +37,13 @@
   {
     "date": "2026-07-15",
     "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 2 to 4 south to southwesterly winds with gusts.",
+    "tmin": 25.0,
+    "tmax": 29.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-07-16",
+    "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 southwesterly winds with gusts.",
     "tmin": 25.0,
     "tmax": 29.0,
     "src": "SMG"
