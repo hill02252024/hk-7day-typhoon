@@ -1,28 +1,21 @@
 [
   {
-    "date": "2026-07-11",
-    "text": "Very hot. Fine apart from cloudy periods. A few showers later. Possible thunderstorms later. Force 2 to 3 east to southeasterly winds, becoming force 4 southwesterly winds.",
-    "tmin": 26.0,
+    "date": "2026-07-12",
+    "text": "Very hot. Fine apart from cloudy periods. One or two showers later. Force 3 to 4 south to southwesterly winds, occasionally force 5.",
+    "tmin": 28.0,
     "tmax": 34.0,
     "src": "SMG"
   },
   {
-    "date": "2026-07-12",
-    "text": "Very hot. Fine apart from cloudy periods. A few showers later. Force 3 to 4 south to southwesterly winds, occasionally force 5.",
-    "tmin": 28.0,
-    "tmax": 33.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-07-13",
-    "text": "Mainly cloudy. A few showers. Force 2 to 4 south to southwesterly winds.",
+    "text": "Very hot. Cloudy apart from sunny intervals. A few showers. Force 2 to 4 south to southwesterly winds.",
     "tmin": 27.0,
     "tmax": 32.0,
     "src": "SMG"
   },
   {
     "date": "2026-07-14",
-    "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 2 to 4 south to southwesterly winds with gusts.",
+    "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 2 to 4 southerly winds with gusts.",
     "tmin": 25.0,
     "tmax": 29.0,
     "src": "SMG"
@@ -44,6 +37,13 @@
   {
     "date": "2026-07-17",
     "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 south to southwesterly winds with gusts.",
+    "tmin": 26.0,
+    "tmax": 30.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-07-18",
+    "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 2 to 4 south to southwesterly winds with gusts.",
     "tmin": 26.0,
     "tmax": 30.0,
     "src": "SMG"
