@@ -8,7 +8,7 @@
   "days": [
     {
       "date": "2026-07-13",
-      "text": "Very hot. Cloudy apart from sunny intervals. A few showers. Force 2 to 4 south to southwesterly winds.",
+      "text": "Very hot. Cloudy apart from sunny intervals. A few showers. Force 2 to 4 south to southeasterly winds.",
       "tmin": 27.0,
       "tmax": 32.0,
       "sources": [
@@ -26,7 +26,7 @@
     },
     {
       "date": "2026-07-15",
-      "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 south to southwesterly winds, occasionally force 5 with gusts.",
+      "text": "Mainly cloudy. Showers, heavy at first. A few thunderstorms. Force 3 to 4 south to southwesterly winds, occasionally force 5 with gusts.",
       "tmin": 25.0,
       "tmax": 29.0,
       "sources": [
