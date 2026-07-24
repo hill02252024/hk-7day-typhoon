@@ -1,8 +1,8 @@
 [
   {
     "date": "2026-07-24",
-    "text": "Very hot. Mainly fine. Force 2 to 3 southerly winds.",
-    "tmin": 26.0,
+    "text": "Very hot. Mainly fine. Light winds.",
+    "tmin": 27.0,
     "tmax": 33.0,
     "src": "SMG"
   },
@@ -36,7 +36,7 @@
   },
   {
     "date": "2026-07-29",
-    "text": "Mainly cloudy. Showers. Occasional thunderstorms. Force 4 to 5 south to southeasterly winds, occasionally force 6 with gusts.",
+    "text": "Cloudy. Showers. Occasional thunderstorms. Force 4 to 5 south to southeasterly winds, occasionally force 6 with gusts.",
     "tmin": 25.0,
     "tmax": 28.0,
     "src": "SMG"
