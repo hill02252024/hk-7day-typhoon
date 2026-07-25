@@ -1,13 +1,6 @@
 {
   "smg": [
     {
-      "date": "2026-07-25",
-      "text": "Very hot. Cloudy apart from sunny periods. A few thundery showers later. Force 3 to 4 west to northwesterly winds, becoming force 5 to 6 with gusts.",
-      "tmin": 26.0,
-      "tmax": 35.0,
-      "src": "SMG"
-    },
-    {
       "date": "2026-07-26",
       "text": "Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 5 to 6 west to southwesterly winds, occasionally force 7 with gusts.",
       "tmin": 25.0,
@@ -47,6 +40,13 @@
       "text": "Mainly cloudy. Occasional Thundery showers. Force 3 to 4 south to southeasterly winds with gusts.",
       "tmin": 25.0,
       "tmax": 29.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2026-08-01",
+      "text": "Mainly cloudy. A few showers. Force 3 to 4 southerly winds.",
+      "tmin": 26.0,
+      "tmax": 30.0,
       "src": "SMG"
     }
   ]
