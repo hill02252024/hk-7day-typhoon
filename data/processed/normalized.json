@@ -2,16 +2,16 @@
   "smg": [
     {
       "date": "2026-07-28",
-      "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 east to southeasterly winds with gusts.",
+      "text": "Mainly cloudy. A few thundery showers. Force 3 to 4 east to southeasterly winds with gusts.",
       "tmin": 24.0,
-      "tmax": 29.0,
+      "tmax": 28.0,
       "src": "SMG"
     },
     {
       "date": "2026-07-29",
       "text": "Unsettled. Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 4 to 5 southeasterly winds with gusts.",
       "tmin": 24.0,
-      "tmax": 28.0,
+      "tmax": 27.0,
       "src": "SMG"
     },
     {
