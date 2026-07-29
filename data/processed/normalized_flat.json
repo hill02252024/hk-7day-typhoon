@@ -1,28 +1,21 @@
 [
   {
-    "date": "2026-07-29",
-    "text": "Unsettled. Cloudy. Showers, heavy at times. A few thunderstorms. Force 4 to 5 east to southeasterly winds with gusts.",
-    "tmin": 24.0,
-    "tmax": 28.0,
-    "src": "SMG"
-  },
-  {
     "date": "2026-07-30",
-    "text": "Mainly cloudy. Showers, heavy at first. A few thunderstorms. Force 3 to 4 east to southeasterly winds, occasionally force 5 with gusts.",
+    "text": "Mainly cloudy. Showers, heavy at first. A few thunderstorms. Force 3 to 4 east to southeasterly winds with gusts.",
     "tmin": 24.0,
-    "tmax": 28.0,
+    "tmax": 29.0,
     "src": "SMG"
   },
   {
     "date": "2026-07-31",
     "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 east to southeasterly winds with gusts.",
-    "tmin": 24.0,
-    "tmax": 28.0,
+    "tmin": 25.0,
+    "tmax": 29.0,
     "src": "SMG"
   },
   {
     "date": "2026-08-01",
-    "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 southeasterly winds with gusts.",
+    "text": "Cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 southeasterly winds with gusts.",
     "tmin": 24.0,
     "tmax": 28.0,
     "src": "SMG"
@@ -31,7 +24,7 @@
     "date": "2026-08-02",
     "text": "Cloudy. Showers. Occasional thunderstorms. Force 2 to 4 south to southeasterly winds with gusts.",
     "tmin": 24.0,
-    "tmax": 27.0,
+    "tmax": 28.0,
     "src": "SMG"
   },
   {
@@ -44,6 +37,13 @@
   {
     "date": "2026-08-04",
     "text": "Mainly cloudy. A few showers. Force 2 to 4 southerly winds.",
+    "tmin": 25.0,
+    "tmax": 29.0,
+    "src": "SMG"
+  },
+  {
+    "date": "2026-08-05",
+    "text": "Mainly cloudy. A few showers. Force 2 to 4 south to southwesterly winds.",
     "tmin": 25.0,
     "tmax": 29.0,
     "src": "SMG"
