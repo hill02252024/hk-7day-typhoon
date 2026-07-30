@@ -1,10 +1,10 @@
 {
-  "fetched_at": 1785390138,
+  "fetched_at": 1785400149,
   "provider": "mss",
   "ok": true,
   "requested_url": "https://api.data.gov.sg/v1/environment/24-hour-weather-forecast",
   "http_status": 200,
   "response_content_type": "application/json",
-  "data": "{\"items\":[{\"update_timestamp\":\"2026-07-30T12:20:49+08:00\",\"timestamp\":\"2026-07-30T12:16:00+08:00\",\"valid_period\":{\"start\":\"2026-07-30T12:00:00+08:00\",\"end\":\"2026-07-31T12:00:00+08:00\"},\"general\":{\"forecast\":\"Light Rain\",\"relative_humidity\":{\"low\":60,\"high\":95},\"temperature\":{\"high\":33,\"low\":24},\"wind\":{\"speed\":{\"high\":25,\"low\":10},\"direction\":\"SSE\"}},\"periods\":[{\"time\":{\"start\":\"2026-07-30T12:00:00+08:00\",\"end\":\"2026-07-30T18:00:00+08:00\"},\"regions\":{\"south\":\"Light Rain\",\"central\":\"Light Rain\",\"west\":\"Light Rain\",\"east\":\"Light Rain\",\"north\":\"Light Rain\"}},{\"time\":{\"start\":\"2026-07-30T18:00:00+08:00\",\"end\":\"2026-07-31T06:00:00+08:00\"},\"regions\":{\"north\":\"Cloudy\",\"east\":\"Cloudy\",\"west\":\"Cloudy\",\"central\":\"Cloudy\",\"south\":\"Cloudy\"}},{\"time\":{\"start\":\"2026-07-31T06:00:00+08:00\",\"end\":\"2026-07-31T12:00:00+08:00\"},\"regions\":{\"west\":\"Cloudy\",\"north\":\"Cloudy\",\"south\":\"Cloudy\",\"east\":\"Cloudy\",\"central\":\"Cloudy\"}}]}],\"api_info\":{\"status\":\"healthy\"}}",
+  "data": "{\"items\":[{\"update_timestamp\":\"2026-07-30T14:30:56+08:00\",\"timestamp\":\"2026-07-30T14:23:00+08:00\",\"valid_period\":{\"start\":\"2026-07-30T12:00:00+08:00\",\"end\":\"2026-07-31T12:00:00+08:00\"},\"general\":{\"forecast\":\"Thundery Showers\",\"relative_humidity\":{\"low\":60,\"high\":95},\"temperature\":{\"high\":33,\"low\":24},\"wind\":{\"direction\":\"SSE\",\"speed\":{\"low\":10,\"high\":25}}},\"periods\":[{\"time\":{\"start\":\"2026-07-30T12:00:00+08:00\",\"end\":\"2026-07-30T18:00:00+08:00\"},\"regions\":{\"west\":\"Cloudy\",\"south\":\"Cloudy\",\"north\":\"Thundery Showers\",\"east\":\"Thundery Showers\",\"central\":\"Thundery Showers\"}},{\"time\":{\"start\":\"2026-07-30T18:00:00+08:00\",\"end\":\"2026-07-31T06:00:00+08:00\"},\"regions\":{\"central\":\"Cloudy\",\"east\":\"Cloudy\",\"west\":\"Cloudy\",\"north\":\"Cloudy\",\"south\":\"Cloudy\"}},{\"time\":{\"start\":\"2026-07-31T06:00:00+08:00\",\"end\":\"2026-07-31T12:00:00+08:00\"},\"regions\":{\"north\":\"Cloudy\",\"east\":\"Cloudy\",\"central\":\"Cloudy\",\"west\":\"Cloudy\",\"south\":\"Cloudy\"}}]}],\"api_info\":{\"status\":\"healthy\"}}",
   "error": null
 }
