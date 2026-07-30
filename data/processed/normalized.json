@@ -1,36 +1,29 @@
 {
   "smg": [
     {
-      "date": "2026-07-30",
-      "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 east to southeasterly winds with gusts.",
-      "tmin": 25.0,
-      "tmax": 29.0,
-      "src": "SMG"
-    },
-    {
       "date": "2026-07-31",
-      "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 east to southeasterly winds with gusts.",
+      "text": "Cloudy. Showers. A few thunderstorms. Force 3 to 4 east to southeasterly winds with gusts.",
       "tmin": 25.0,
       "tmax": 29.0,
       "src": "SMG"
     },
     {
       "date": "2026-08-01",
-      "text": "Cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 southeasterly winds with gusts.",
+      "text": "Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 3 to 4 south to southeasterly winds with gusts.",
       "tmin": 24.0,
-      "tmax": 28.0,
+      "tmax": 27.0,
       "src": "SMG"
     },
     {
       "date": "2026-08-02",
-      "text": "Cloudy. Showers. Occasional thunderstorms. Force 2 to 4 south to southeasterly winds with gusts.",
+      "text": "Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 2 to 4 south to southwesterly winds with gusts.",
       "tmin": 24.0,
-      "tmax": 28.0,
+      "tmax": 27.0,
       "src": "SMG"
     },
     {
       "date": "2026-08-03",
-      "text": "Cloudy. Occasional showers. A few thunderstorms. Force 2 to 4 south to southeasterly winds with gusts.",
+      "text": "Cloudy. Occasional showers. A few thunderstorms. Force 2 to 4 southerly winds with gusts.",
       "tmin": 24.0,
       "tmax": 28.0,
       "src": "SMG"
@@ -47,6 +40,13 @@
       "text": "Mainly cloudy. A few showers. Force 2 to 4 south to southwesterly winds.",
       "tmin": 25.0,
       "tmax": 29.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2026-08-06",
+      "text": "Mainly cloudy. A few showers. Force 2 to 4 south to southwesterly winds.",
+      "tmin": 26.0,
+      "tmax": 30.0,
       "src": "SMG"
     }
   ]
