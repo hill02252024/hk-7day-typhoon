@@ -10,14 +10,14 @@
       "date": "2026-07-31",
       "text": "Unsettled. Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 3 to 4 east to southeasterly winds with gusts.",
       "tmin": 22.0,
-      "tmax": 27.0,
+      "tmax": 26.0,
       "sources": [
         "SMG"
       ]
     },
     {
       "date": "2026-08-01",
-      "text": "Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 3 to 4 south to southeasterly winds with gusts.",
+      "text": "Unsettled. Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 3 to 4 south to southeasterly winds with gusts.",
       "tmin": 24.0,
       "tmax": 27.0,
       "sources": [
@@ -26,7 +26,7 @@
     },
     {
       "date": "2026-08-02",
-      "text": "Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 2 to 4 south to southwesterly winds with gusts.",
+      "text": "Unsettled. Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 2 to 4 south to southwesterly winds with gusts.",
       "tmin": 24.0,
       "tmax": 27.0,
       "sources": [
