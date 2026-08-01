@@ -8,9 +8,9 @@
   "days": [
     {
       "date": "2026-08-01",
-      "text": "Unsettled. Cloudy. Showers, heavy at times. Occasional thunderstorms. Force 3 to 4 south to southeasterly winds with gusts.",
+      "text": "Unsettled. Mainly cloudy. Showers, heavy later. A few thunderstorms. Force 3 to 4 south to southeasterly winds with gusts.",
       "tmin": 24.0,
-      "tmax": 27.0,
+      "tmax": 28.0,
       "sources": [
         "SMG"
       ]
