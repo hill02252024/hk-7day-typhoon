@@ -1,43 +1,36 @@
 {
   "smg": [
     {
-      "date": "2026-08-02",
-      "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 south to southwesterly winds with gusts.",
-      "tmin": 24.0,
-      "tmax": 28.0,
-      "src": "SMG"
-    },
-    {
       "date": "2026-08-03",
-      "text": "Mainly cloudy. Occasional showers. A few thunderstorms. Force 3 to 4 southerly winds with gusts.",
+      "text": "Mainly cloudy. Showers, heavy at first. A few thunderstorms. Force 3 to 4 southerly winds with gusts.",
       "tmin": 24.0,
       "tmax": 28.0,
       "src": "SMG"
     },
     {
       "date": "2026-08-04",
-      "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 southerly winds with gusts.",
+      "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 south to southeasterly winds with gusts.",
       "tmin": 25.0,
       "tmax": 29.0,
       "src": "SMG"
     },
     {
       "date": "2026-08-05",
-      "text": "Cloudy. Occasional showers. A few thunderstorms. Force 2 to 4 south to southeasterly winds with gusts.",
-      "tmin": 24.0,
-      "tmax": 28.0,
-      "src": "SMG"
-    },
-    {
-      "date": "2026-08-06",
-      "text": "Cloudy apart from sunny intervals. A few showers. A few thunderstorms at first. Force 2 to 3 south to southeasterly winds.",
+      "text": "Mainly cloudy. A few thundery showers. Force 2 to 4 southeasterly winds with gusts.",
       "tmin": 25.0,
       "tmax": 30.0,
       "src": "SMG"
     },
     {
+      "date": "2026-08-06",
+      "text": "Cloudy apart from sunny periods. A few showers. Force 2 to 3 southeasterly winds.",
+      "tmin": 26.0,
+      "tmax": 31.0,
+      "src": "SMG"
+    },
+    {
       "date": "2026-08-07",
-      "text": "Cloudy apart from sunny periods. Light winds.",
+      "text": "Fine apart from cloudy periods. Light winds.",
       "tmin": 26.0,
       "tmax": 32.0,
       "src": "SMG"
@@ -45,6 +38,13 @@
     {
       "date": "2026-08-08",
       "text": "Very hot. Fine apart from cloudy periods. A few thundery showers later. Force 2 to 3 west to northwesterly winds with gusts.",
+      "tmin": 27.0,
+      "tmax": 34.0,
+      "src": "SMG"
+    },
+    {
+      "date": "2026-08-09",
+      "text": "Very hot. Fine apart from cloudy periods. A few thundery showers later. Force 3 to 4 west to northwesterly winds with gusts.",
       "tmin": 26.0,
       "tmax": 34.0,
       "src": "SMG"
